@@ -5,24 +5,19 @@ import {
   Text
 } from 'react-native';
 
-import Threads from './threads/threads';
-import Friends from './friends/friends';
-
-class Application extends Component {
+class Friends extends Component {
    render() {
     return (
       <View style={styles.container}>
         <Text style={styles.helper}>
-            Entire Application
-        </Text>
-        <Threads />
-        <Friends />
+            Friends
+        </Text>      
       </View>
     )
   }
 }
 
-export default Application
+export default Friends
 
 const styles = StyleSheet.create({
   container: {
