@@ -8,28 +8,28 @@ import {
 class Banner extends Component {
    render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.banner}>
-          Banner
+      <View style={styles.banner}>
+        <Text style={styles.title}>
+          {this.props.title}
         </Text>
       </View>
     )
   }
 }
 
+// TODO - prop Types + default, etc
+
 export default Banner
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   banner: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    backgroundColor: 'skyblue'
+    // flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // backgroundColor: '#F5FCFF',
+  },
+  title: {
+    fontSize: 25,
+    textAlign: 'center'
   }
 });

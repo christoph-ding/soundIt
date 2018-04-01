@@ -5,13 +5,13 @@ import {
   Text
 } from 'react-native';
 
+import Banner from '../ui/banner';
+
 class Groups extends Component {
    render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.helper}>
-            Groups
-        </Text>      
+        <Banner title='Groups'/>
       </View>
     )
   }
@@ -24,12 +24,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
-  helper: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    backgroundColor: 'skyblue'
+    width: '100%',
+    backgroundColor: 'teal',
   }
 });

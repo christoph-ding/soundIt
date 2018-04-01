@@ -5,33 +5,26 @@ import {
   Text
 } from 'react-native';
 
-import Banner from '../ui/bannerHeader';
+import Banner from '../ui/banner';
 
-class Banner extends Component {
+class Threads extends Component {
    render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.helper}>
-            Banner
-        </Text>      
+        <Banner title='Threads'/>
       </View>
     )
   }
 }
 
-export default Banner
+export default Threads
 
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
-  helper: {
-    fontSize: 11,
-    textAlign: 'center',
-    margin: 10,
-    backgroundColor: 'skyblue'
+    width: '100%',
+    backgroundColor: 'blue',
   }
 });
