@@ -5,22 +5,19 @@ import {
   Text
 } from 'react-native';
 
-import Threads from './threads/threads';
-
-class Application extends Component {
+class Threads extends Component {
    render() {
     return (
       <View style={styles.container}>
         <Text style={styles.helper}>
-            Entire Application
-        </Text>
-        <Threads />
+            Threads
+        </Text>      
       </View>
     )
   }
 }
 
-export default Application
+export default Threads
 
 const styles = StyleSheet.create({
   container: {
