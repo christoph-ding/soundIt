@@ -6,12 +6,19 @@ import {
 } from 'react-native';
 
 import Banner from '../ui/banner';
+import ThreadList from './threadList';
+
+// TODO this is contrived data ... should it originate here?
+const testThreads = ['Thing One', 
+                     'Thing Two', 
+                     'Thing Three']
 
 class Threads extends Component {
-   render() {
+  render() {
     return (
       <View style={styles.container}>
         <Banner title='Threads'/>
+        <ThreadList threads={testThreads}/>
       </View>
     )
   }

@@ -10,7 +10,7 @@ import Friends from './friends/friends';
 import Groups from './groups/groups';
 
 class Application extends Component {
-   render() {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.helper}>
