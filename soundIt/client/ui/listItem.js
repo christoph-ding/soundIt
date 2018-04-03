@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
 import {
+  Text,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 
-import Banner from '../ui/banner';
-
-class Friends extends Component {
-   render() {
+class ListItem extends Component {
+  render() {
     return (
       <View style={styles.container}>
-        <Banner title='Friends'/>
-        
+        <Text style={styles.item}> {this.props.item} </Text>
       </View>
     )
   }
 }
 
-export default Friends
+export default ListItem
 
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
     // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
     width: '100%',
-    backgroundColor: 'green',
+    // backgroundColor: 'blue',
+  },
+  item: {
+    fontSize: 13,
+    textAlign: 'center'
   }
 });

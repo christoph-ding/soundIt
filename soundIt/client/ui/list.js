@@ -5,11 +5,13 @@ import {
   StyleSheet
 } from 'react-native';
 
+import ListItem from './listItem';
+
 class List extends Component {
 
   renderListItems = (items) => {
     return (items.map((item) => {
-      return <Text> {item} </Text>
+      return <ListItem item={item}/>
     }))
   }
 
