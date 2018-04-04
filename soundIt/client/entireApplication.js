@@ -8,6 +8,7 @@ import {
 import Threads from './threads/threads';
 import Friends from './friends/friends';
 import Groups from './groups/groups';
+import Conversation from './conversation/conversation';
 
 class Application extends Component {
   render() {
@@ -19,6 +20,7 @@ class Application extends Component {
         <Threads />
         <Friends />
         <Groups />
+        <Conversation />
       </View>
     )
   }

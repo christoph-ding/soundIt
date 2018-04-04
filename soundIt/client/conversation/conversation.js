@@ -5,19 +5,19 @@ import {
   Text
 } from 'react-native';
 
-class Groups extends Component {
+import Banner from '../ui/banner';
+
+class Conversation extends Component {
    render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.helper}>
-            Groups
-        </Text>      
+        <Banner title='Conversation'/>
       </View>
     )
   }
 }
 
-export default Groups
+export default Conversation
 
 const styles = StyleSheet.create({
   container: {
@@ -25,11 +25,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     // backgroundColor: '#F5FCFF',
-  },
-  helper: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    backgroundColor: 'skyblue'
+    width: '100%',
+    backgroundColor: 'blue',
   }
 });
