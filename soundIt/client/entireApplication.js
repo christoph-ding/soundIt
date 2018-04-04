@@ -14,7 +14,7 @@ class Application extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.helper}>
+        <Text>
             Entire Application
         </Text>
         <Threads />
@@ -34,9 +34,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'orange',
-  },
-  helper: {
-    fontSize: 15,
-    textAlign: 'center'
   }
 });
