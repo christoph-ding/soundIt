@@ -6,13 +6,18 @@ import {
 } from 'react-native';
 
 import Banner from '../ui/banner';
+import FriendList from './friendList';
+
+const testFriends = ['Friend One', 
+                     'Friend Two', 
+                     'Friend Three']
 
 class Friends extends Component {
    render() {
     return (
       <View style={styles.container}>
         <Banner title='Friends'/>
-        
+        <FriendList friends={testFriends}/>
       </View>
     )
   }
