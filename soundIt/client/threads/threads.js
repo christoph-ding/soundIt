@@ -5,6 +5,7 @@ import {
   Text
 } from 'react-native';
 
+import ActionButton from '../ui/actionButton';
 import Banner from '../ui/banner';
 import ThreadList from './threadList';
 
@@ -17,7 +18,9 @@ class Threads extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <ActionButton title='Navigate 1'/>
         <Banner title='Threads'/>
+        <ActionButton title='Navigate 2'/>
         <ThreadList threads={testThreads}/>
       </View>
     )

@@ -5,13 +5,16 @@ import {
   Text
 } from 'react-native';
 
+import ActionButton from '../ui/actionButton';
 import Banner from '../ui/banner';
 
 class Conversation extends Component {
    render() {
     return (
       <View style={styles.container}>
+        <ActionButton title='Navigate 1'/>
         <Banner title='Conversation'/>
+        <ActionButton title='Navigate 2'/>
       </View>
     )
   }

@@ -5,6 +5,7 @@ import {
   Text
 } from 'react-native';
 
+import ActionButton from '../ui/actionButton';
 import Banner from '../ui/banner';
 import GroupList from './groupList';
 
@@ -16,7 +17,9 @@ class Groups extends Component {
    render() {
     return (
       <View style={styles.container}>
+        <ActionButton title='Navigate 1'/>
         <Banner title='Groups'/>
+        <ActionButton title='Navigate 2'/>
         <GroupList groups={testGroups}/>
       </View>
     )

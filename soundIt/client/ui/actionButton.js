@@ -15,7 +15,7 @@ class ActionButton extends Component {
     return (
       <Button style={styles.button}
         onPress={this.testAction}
-        title="Learn More"
+        title={this.props.title}
         color="#841584"
       />
     )

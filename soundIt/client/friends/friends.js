@@ -5,6 +5,7 @@ import {
   Text
 } from 'react-native';
 
+import ActionButton from '../ui/actionButton';
 import Banner from '../ui/banner';
 import FriendList from './friendList';
 
@@ -16,7 +17,9 @@ class Friends extends Component {
    render() {
     return (
       <View style={styles.container}>
+        <ActionButton title='Navigate 1'/>
         <Banner title='Friends'/>
+        <ActionButton title='Navigate 2'/>
         <FriendList friends={testFriends}/>
       </View>
     )
