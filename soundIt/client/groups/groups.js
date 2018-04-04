@@ -6,12 +6,18 @@ import {
 } from 'react-native';
 
 import Banner from '../ui/banner';
+import GroupList from './groupList';
+
+const testGroups = ['Thing One', 
+                     'Thing Two', 
+                     'Thing Three']
 
 class Groups extends Component {
    render() {
     return (
       <View style={styles.container}>
         <Banner title='Groups'/>
+        <GroupList groups={testGroups}/>
       </View>
     )
   }
