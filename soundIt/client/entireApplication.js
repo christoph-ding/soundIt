@@ -11,48 +11,64 @@ import Friends from './friends/friends';
 import Groups from './groups/groups';
 import Conversation from './conversation/conversation';
 
-class Application extends Component {
+class ThreadsPage extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>
-          Entire Application
-        </Text>
-        <Threads />
-        <Friends />
-        <Groups />
-        <Conversation />
-      </View>
+      <Threads />
     )
   }
 }
 
-class Test extends Component {
+class FriendsPage extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Home Screen</Text>
-      </View>
-    );
+      <Friends />
+    )
   }
 }
 
-export default Test
+class GroupsPage extends Component {
+  render() {
+    return (
+      <Groups />
+    )
+  }
+}
 
-// const RootStack = StackNavigator({
-//   Home: {
-//     screen: Test
-//   }
-// });
+class SingleConversation extends Component {
+  render() {
+    return (
+      <Conversation />
+    )
+  }
+}
 
-// class Navigation extends React.Component {
-//   render() {
-//     return (
-//         <RootStack />
-//     )}
-// }
+const LANDING = ThreadsPage
 
-// export default Navigation
+const RootStack = StackNavigator({
+  Home: {
+    screen: LANDING
+  }, 
+  Friends: {
+    screen: FriendsPage
+  },
+  Groups: {
+    screen: GroupsPage
+  },
+  Conversation: {
+    screen: SingleConversation
+  } 
+})
+
+class Application extends Component {
+  render() {
+    return (
+        <RootStack />
+    )
+  }
+}
+
+export default Application
 
 const styles = StyleSheet.create({
   container: {
