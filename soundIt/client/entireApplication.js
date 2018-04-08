@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import Threads from './threads/threads';
 import Friends from './friends/friends';
@@ -15,7 +16,7 @@ class Application extends Component {
     return (
       <View style={styles.container}>
         <Text>
-            Entire Application
+          Entire Application
         </Text>
         <Threads />
         <Friends />
@@ -27,6 +28,12 @@ class Application extends Component {
 }
 
 export default Application
+
+const RootStack = StackNavigator({
+  Home: {
+    screen: Application,
+  },
+});
 
 const styles = StyleSheet.create({
   container: {
