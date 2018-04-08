@@ -27,13 +27,32 @@ class Application extends Component {
   }
 }
 
-export default Application
+class Test extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Home Screen</Text>
+      </View>
+    );
+  }
+}
 
-const RootStack = StackNavigator({
-  Home: {
-    screen: Application,
-  },
-});
+export default Test
+
+// const RootStack = StackNavigator({
+//   Home: {
+//     screen: Test
+//   }
+// });
+
+// class Navigation extends React.Component {
+//   render() {
+//     return (
+//         <RootStack />
+//     )}
+// }
+
+// export default Navigation
 
 const styles = StyleSheet.create({
   container: {
