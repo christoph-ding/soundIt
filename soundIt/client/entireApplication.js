@@ -7,11 +7,20 @@ import {
 import { StackNavigator } from 'react-navigation';
 
 import Threads from './threads/threads';
+import ThreadHeader from './threads/threadHeader';
+
 import Friends from './friends/friends';
 import Groups from './groups/groups';
 import Conversation from './conversation/conversation';
 
+
 class ThreadsPage extends Component {
+
+  // static navigationOptions = ({ navigation }) => {
+  //   const { params } = navigation.state;
+  //   headerTitle: <ThreadHeader navigate={ params.navigate}/>,
+  // }
+
   render() {
     return (
       <Threads />
@@ -43,22 +52,27 @@ class SingleConversation extends Component {
   }
 }
 
-const LANDING = ThreadsPage
+const LANDING = 'Home'
 
-const RootStack = StackNavigator({
-  Home: {
-    screen: LANDING
-  }, 
-  Friends: {
-    screen: FriendsPage
+const RootStack = StackNavigator(
+  {
+    Home: {
+      screen: ThreadsPage
+    }, 
+    Friends: {
+      screen: FriendsPage
+    },
+    Groups: {
+      screen: GroupsPage
+    },
+    Conversation: {
+      screen: SingleConversation
+    }
   },
-  Groups: {
-    screen: GroupsPage
-  },
-  Conversation: {
-    screen: SingleConversation
-  } 
-})
+  {
+    initialRouteName: LANDING
+  }
+)
 
 class Application extends Component {
   render() {

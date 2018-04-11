@@ -7,14 +7,14 @@ import {
 
 class ActionButton extends Component {
 
-  testAction = () => {
-    return
+  handleClick = () => {
+    this.props.action()
   }
 
   render() {
     return (
       <Button style={styles.button}
-        onPress={this.testAction}
+        onPress={this.handleClick}
         title={this.props.title}
         color="#841584"
       />

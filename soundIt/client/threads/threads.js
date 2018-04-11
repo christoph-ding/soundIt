@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {
+  Button,
   View,
   StyleSheet,
-  Text
+  Text,
+  NavigatorIOS
 } from 'react-native';
 
 import ActionButton from '../ui/actionButton';
@@ -15,12 +17,21 @@ const testThreads = ['Thing One',
                      'Thing Three']
 
 class Threads extends Component {
+
+  seeFriends = () => {
+    this.props.navigate('Friends')
+  }
+
+  seeGroups = () => {
+    this.props.navigate('Groups') 
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ActionButton title='Navigate 1'/>
         <Banner title='Threads'/>
-        <ActionButton title='Navigate 2'/>
+        <ActionButton title='Friends' action={this.seeFriends}/>
+        <ActionButton title='Groups'  action={this.seeGroups}/>
         <ThreadList threads={testThreads}/>
       </View>
     )
