@@ -15,18 +15,18 @@ import Groups from './groups/groups';
 import Conversation from './conversation/conversation';
 
 // buttons
+import NavigateToFriends from './friends/navigateToFriends';
+import NavigateToGroups from './groups/navigateToGroups';
 
 class ThreadsPage extends Component {
 
   static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state;
+    // const { params } = navigation.state;
 
-    // return {
-    //   title: <ThreadHeader navigate={ params.navigate }/>
-    // }
     return {
       headerTitle: <ThreadHeader navigate={'test'}/>,
-      headerRight: <Button title='friends' onPress={() => navigation.navigate('Friends')}/>
+      headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
+      headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
     }
   }
 
