@@ -24,7 +24,7 @@ class ThreadsPage extends Component {
     // const { params } = navigation.state;
 
     return {
-      headerTitle: <ThreadHeader navigate={'test'}/>,
+      headerTitle: <ThreadHeader/>,
       headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
       headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
     }
