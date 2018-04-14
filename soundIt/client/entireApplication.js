@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
-  Text
+  Text,
+  Button
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -13,13 +14,21 @@ import Friends from './friends/friends';
 import Groups from './groups/groups';
 import Conversation from './conversation/conversation';
 
+// buttons
 
 class ThreadsPage extends Component {
 
-  // static navigationOptions = ({ navigation }) => {
-  //   const { params } = navigation.state;
-  //   headerTitle: <ThreadHeader navigate={ params.navigate}/>,
-  // }
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+
+    // return {
+    //   title: <ThreadHeader navigate={ params.navigate }/>
+    // }
+    return {
+      headerTitle: <ThreadHeader navigate={'test'}/>,
+      headerRight: <Button title='friends' onPress={() => navigation.navigate('Friends')}/>
+    }
+  }
 
   render() {
     return (
