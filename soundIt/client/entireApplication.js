@@ -12,19 +12,19 @@ import Threads from './threads/threads';
 import ThreadHeader from './threads/threadHeader';
 import NavigateToThreads from './threads/navigateToThreads';
 
-// stuff related to threads -> factor into component
+// stuff related to friends -> factor into component
 import Friends from './friends/friends';
 import FriendsHeader from './friends/friendsHeader';
 import NavigateToFriends from './friends/navigateToFriends';
 
+// stuff related to groups -> factor into component
 import Groups from './groups/groups';
-import Conversation from './conversation/conversation';
-
-// buttons
+import GroupsHeader from './groups/groupsHeader';
 import NavigateToGroups from './groups/navigateToGroups';
 
-class ThreadsPage extends Component {
+import Conversation from './conversation/conversation';
 
+class ThreadsPage extends Component {
   static navigationOptions = ({ navigation }) => {
     // const { params } = navigation.state;
 
@@ -61,6 +61,16 @@ class FriendsPage extends Component {
 }
 
 class GroupsPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    // const { params } = navigation.state;
+
+    return {
+      headerTitle: <GroupsHeader/>,
+      headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
+      headerRight: <NavigateToThreads navigateAction={navigation.navigate}/>
+    }
+  }
+
   render() {
     return (
       <Groups />

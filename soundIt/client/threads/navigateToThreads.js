@@ -5,30 +5,30 @@ import {
   Button
 } from 'react-native';
 
-class NavigateToGroups extends Component {
+class NavigateToThreads extends Component {
 
-  seeGroups = () => {
-    this.props.navigateAction('Groups')
+  seeThreads = () => {
+    this.props.navigateAction('Threads')
   }
 
   render() {
     return (
       <Button style={styles.button}
-        onPress={this.seeGroups}
-        title='Groups'
+        onPress={this.seeThreads}
+        title='Threads'
         color="#841584"
       />
     )
   }
 }
 
-export default NavigateToGroups
+export default NavigateToThreads
 
 const styles = StyleSheet.create({
   button: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'orange',
+    // backgroundColor: 'orange',
   }
 });
