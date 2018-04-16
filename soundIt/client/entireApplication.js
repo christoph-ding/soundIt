@@ -7,15 +7,20 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+// stuff related to threads -> factor into component
 import Threads from './threads/threads';
 import ThreadHeader from './threads/threadHeader';
+import NavigateToThreads from './threads/navigateToThreads';
 
+// stuff related to threads -> factor into component
 import Friends from './friends/friends';
+import FriendsHeader from './friends/friendsHeader';
+import NavigateToFriends from './friends/navigateToFriends';
+
 import Groups from './groups/groups';
 import Conversation from './conversation/conversation';
 
 // buttons
-import NavigateToFriends from './friends/navigateToFriends';
 import NavigateToGroups from './groups/navigateToGroups';
 
 class ThreadsPage extends Component {
@@ -38,6 +43,16 @@ class ThreadsPage extends Component {
 }
 
 class FriendsPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    // const { params } = navigation.state;
+
+    return {
+      headerTitle: <FriendsHeader/>,
+      headerLeft: <NavigateToThreads navigateAction={navigation.navigate}/>,
+      headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
+    }
+  }
+
   render() {
     return (
       <Friends />
@@ -61,11 +76,11 @@ class SingleConversation extends Component {
   }
 }
 
-const LANDING = 'Home'
+const LANDING = 'Threads'
 
 const RootStack = StackNavigator(
   {
-    Home: {
+    Threads: {
       screen: ThreadsPage
     }, 
     Friends: {

@@ -7,14 +7,14 @@ import {
 
 import Banner from '../ui/banner';
 
-class ThreadHeader extends Component {
+class FriendHeader extends Component {
   render() {
     return (
-      <Banner title='Threads'/>
+      <Banner title='Friends'/>
     )
   }
 }
-export default ThreadHeader
+export default FriendHeader
 
 const styles = StyleSheet.create({
   container: {
@@ -25,4 +25,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
   }
 });
-  
