@@ -1,4 +1,4 @@
-module.exports = function(app, express) {
+module.exports = function(app) {
   console.log('loading middleware')
-  require('./routers.js')(app, express)
+  require('./routers.js')(app)
 }

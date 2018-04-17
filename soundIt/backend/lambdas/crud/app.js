@@ -1,5 +1,5 @@
 /* DEPENDENCIES */
-var express = require('express')
+const express = require('express')
 
 /* GLOBAL VARS */
 const app = express()
@@ -9,4 +9,4 @@ app.listen(PORT, function () {
     console.log("Hi I'm running on port:", PORT);
 });
 
-require('./middleware.js')(app, express)
+require('./middleware.js')(app)
