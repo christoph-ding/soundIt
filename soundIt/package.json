@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "server": "node backend/lambdas/crud/app.js"
+    "server": "node backend/lambdas/crud/app.js",
+    "nodemon": "nodemon backend/lambdas/crud/app.js"
   },
   "main": "backend/lambdas/crud/app.js",
   "dependencies": {
