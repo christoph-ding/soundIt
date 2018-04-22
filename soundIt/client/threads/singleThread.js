@@ -8,15 +8,14 @@ import {
 class SingleThread extends Component {
   
   handleClick = () => {
-    console.log('test')
-    this.props.navigateAction('Conversation')
+    this.props.navigateAction('Conversation', this.props.item)
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.item} onPress={this.handleClick}> 
-          {this.props.item}         
+          {this.props.item.title}
         </Text>
       </View>
     )

@@ -9,12 +9,11 @@ import {
 import ThreadList from './threadList';
 
 // TODO this is contrived data ... should it originate here?
-const testThreads = ['Thing One', 
-                     'Thing Two', 
-                     'Thing Three']
+const testThreads = [{title: 'Thing One'}, 
+                     {title: 'Thing Two'}, 
+                     {title: 'Thing Three'}]
 
 class Threads extends Component {
-
   render() {
     return (
       <View style={styles.container}>

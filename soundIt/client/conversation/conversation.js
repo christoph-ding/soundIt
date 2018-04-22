@@ -12,9 +12,7 @@ class Conversation extends Component {
    render() {
     return (
       <View style={styles.container}>
-        <ActionButton title='Navigate 1'/>
         <Banner title='Conversation'/>
-        <ActionButton title='Navigate 2'/>
       </View>
     )
   }
@@ -24,7 +22,7 @@ export default Conversation
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
     // backgroundColor: '#F5FCFF',

@@ -23,6 +23,7 @@ import GroupsHeader from './groups/groupsHeader';
 import NavigateToGroups from './groups/navigateToGroups';
 
 import Conversation from './conversation/conversation';
+import ConversationHeader from './conversation/conversationHeader';
 
 class ThreadsPage extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -39,12 +40,6 @@ class ThreadsPage extends Component {
       <Threads navigateAction={this.props.navigation.navigate}/>
     )
   }
-
-  // render() {
-  //   return (
-  //     <Threads navigateAction={navigation.navigate}/>
-  //   )
-  // }
 }
 
 class FriendsPage extends Component {
@@ -84,6 +79,15 @@ class GroupsPage extends Component {
 }
 
 class SingleConversation extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;    
+    console.log(navigation)
+    console.log(params)
+    return {
+      headerTitle: <ConversationHeader title={params.title}/>,
+    }
+  }
+
   render() {
     return (
       <Conversation />
