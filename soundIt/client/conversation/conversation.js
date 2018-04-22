@@ -5,14 +5,19 @@ import {
   Text
 } from 'react-native';
 
-import ActionButton from '../ui/actionButton';
 import Banner from '../ui/banner';
+import MessageList from './messageList';
+
+const testMessages = [{content: 'message one'}, 
+                      {content: 'message two'}, 
+                      {content: 'message three'}]
 
 class Conversation extends Component {
    render() {
     return (
       <View style={styles.container}>
         <Banner title='Conversation'/>
+        <MessageList messages={testMessages}/>
       </View>
     )
   }

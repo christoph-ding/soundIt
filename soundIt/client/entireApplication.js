@@ -81,8 +81,6 @@ class GroupsPage extends Component {
 class SingleConversation extends Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;    
-    console.log(navigation)
-    console.log(params)
     return {
       headerTitle: <ConversationHeader title={params.title}/>,
     }

@@ -4,7 +4,6 @@ import {
   StyleSheet
 } from 'react-native';
 
-// import List from '../ui/list';
 import SingleThread from './singleThread'
 
 class ThreadList extends Component {
