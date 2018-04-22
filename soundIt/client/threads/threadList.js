@@ -4,9 +4,20 @@ import {
   StyleSheet
 } from 'react-native';
 
-import List from '../ui/list';
+// import List from '../ui/list';
+import SingleThread from './singleThread'
 
 class ThreadList extends Component {
+
+  renderListItems = (items) => {
+    let navigateAction = this.props.navigateAction
+    return (items.map((item) => {
+      return (<SingleThread 
+              item={item}
+              navigateAction={navigateAction}
+             />)
+    }))
+  }
 
   getActiveThreads = () =>
     this.props.threads
@@ -14,7 +25,7 @@ class ThreadList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <List items={this.getActiveThreads()}/>
+        {this.renderListItems(this.props.threads)}
       </View>
     )
   }

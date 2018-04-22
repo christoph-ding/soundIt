@@ -18,7 +18,10 @@ class Threads extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ThreadList threads={testThreads}/>
+        <ThreadList 
+         threads={testThreads}
+         navigateAction={this.props.navigateAction}
+        />
       </View>
     )
   }

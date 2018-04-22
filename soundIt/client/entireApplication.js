@@ -34,12 +34,17 @@ class ThreadsPage extends Component {
       headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
     }
   }
-
   render() {
     return (
-      <Threads />
+      <Threads navigateAction={this.props.navigation.navigate}/>
     )
   }
+
+  // render() {
+  //   return (
+  //     <Threads navigateAction={navigation.navigate}/>
+  //   )
+  // }
 }
 
 class FriendsPage extends Component {
