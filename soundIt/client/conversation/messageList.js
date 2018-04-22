@@ -5,18 +5,15 @@ import {
   StyleSheet
 } from 'react-native';
 
+import SingleMessage from './singleMessage'
+
 class MessageList extends Component {
 
   renderMessages = (messages) => {
-    console.log(messages)
     return (messages.map((message) => {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.item}>
-            {message.content}
-          </Text>
-        </View>
-      )
+      return (<SingleMessage
+                message={message}
+              />)
     }))
   }
 
