@@ -12,7 +12,7 @@ class MessageList extends Component {
   renderMessages = (messages) => {
     return (messages.map((message) => {
       return (<SingleMessage
-                message={message}
+               message={message}
               />)
     }))
   }

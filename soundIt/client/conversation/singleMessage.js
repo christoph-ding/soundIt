@@ -8,7 +8,7 @@ import {
 class SingleMessage extends Component {
   
   handleClick = () => {
-    console.log('clicked on something!')
+    console.log('clicked on a message!')
   }
 
   render() {
