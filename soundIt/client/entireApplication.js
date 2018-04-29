@@ -7,108 +7,106 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-// stuff related to threads -> factor into component
-import Threads from './threads/threads';
-import ThreadHeader from './threads/threadHeader';
-import NavigateToThreads from './threads/navigateToThreads';
-
 // stuff related to friends -> factor into component
-import Friends from './friends/friends';
-import FriendsHeader from './friends/friendsHeader';
-import NavigateToFriends from './friends/navigateToFriends';
+// import Friends from './friends/friends';
+// import FriendsHeader from './friends/friendsHeader';
+// import NavigateToFriends from './friends/navigateToFriends';
 
 // stuff related to groups -> factor into component
-import Groups from './groups/groups';
-import GroupsHeader from './groups/groupsHeader';
-import NavigateToGroups from './groups/navigateToGroups';
+// import Groups from './groups/groups';
+// import GroupsHeader from './groups/groupsHeader';
+// import NavigateToGroups from './groups/navigateToGroups';
 
-import Conversation from './conversation/conversation';
-import ConversationHeader from './conversation/conversationHeader';
+// class ThreadsPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     // const { params } = navigation.state;
 
-class ThreadsPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    // const { params } = navigation.state;
+//     return {
+//       headerTitle: <ThreadHeader/>,
+//       headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
+//       headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
+//     }
+//   }
+//   render() {
+//     return (
+//       <Threads navigateAction={this.props.navigation.navigate}/>
+//     )
+//   }
+// }
 
-    return {
-      headerTitle: <ThreadHeader/>,
-      headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
-      headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
-    }
-  }
-  render() {
-    return (
-      <Threads navigateAction={this.props.navigation.navigate}/>
-    )
-  }
-}
+// class FriendsPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     // const { params } = navigation.state;
 
-class FriendsPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    // const { params } = navigation.state;
+//     return {
+//       headerTitle: <FriendsHeader/>,
+//       headerLeft: <NavigateToThreads navigateAction={navigation.navigate}/>,
+//       headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
+//     }
+//   }
 
-    return {
-      headerTitle: <FriendsHeader/>,
-      headerLeft: <NavigateToThreads navigateAction={navigation.navigate}/>,
-      headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
-    }
-  }
+//   render() {
+//     return (
+//       <Friends />
+//     )
+//   }
+// }
 
-  render() {
-    return (
-      <Friends />
-    )
-  }
-}
+// class GroupsPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     // const { params } = navigation.state;
 
-class GroupsPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    // const { params } = navigation.state;
+//     return {
+//       headerTitle: <GroupsHeader/>,
+//       headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
+//       headerRight: <NavigateToThreads navigateAction={navigation.navigate}/>
+//     }
+//   }
 
-    return {
-      headerTitle: <GroupsHeader/>,
-      headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
-      headerRight: <NavigateToThreads navigateAction={navigation.navigate}/>
-    }
-  }
+//   render() {
+//     return (
+//       <Groups />
+//     )
+//   }
+// }
 
-  render() {
-    return (
-      <Groups />
-    )
-  }
-}
+// class SingleConversation extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     const { params } = navigation.state;    
+//     return {
+//       headerTitle: <ConversationHeader title={params.title}/>,
+//     }
+//   }
 
-class SingleConversation extends Component {
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state;    
-    return {
-      headerTitle: <ConversationHeader title={params.title}/>,
-    }
-  }
+//   render() {
+//     return (
+//       <Conversation />
+//     )
+//   }
+// }
 
-  render() {
-    return (
-      <Conversation />
-    )
-  }
-}
+// import Conversation from './conversation/conversation';
+// import ConversationHeader from './conversation/conversationHeader';
 
-const LANDING = 'Threads'
+// Navigate to Sub Pages
+import GroupsPage from './groups/groupsPage';
+
+const LANDING = 'Groups'
 
 const RootStack = StackNavigator(
   {
-    Threads: {
-      screen: ThreadsPage
-    }, 
-    Friends: {
-      screen: FriendsPage
-    },
     Groups: {
       screen: GroupsPage
-    },
-    Conversation: {
-      screen: SingleConversation
     }
+    // Friends: {
+    //   screen: FriendsPage
+    // },
+    // Groups: {
+    //   screen: GroupsPage
+    // },
+    // Conversation: {
+    //   screen: SingleConversation
+    // }
   },
   {
     initialRouteName: LANDING

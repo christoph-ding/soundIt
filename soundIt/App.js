@@ -4,15 +4,16 @@
  * @flow
  */
 
+// libraries
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux'
 
+// my modules
+import rootReducer from './client/reducers'
 import Application from './client/entireApplication';
+
+
 
 export default class App extends Component<Props> {
   render() {

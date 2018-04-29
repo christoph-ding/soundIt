@@ -6,27 +6,35 @@ import {
   NavigatorIOS
 } from 'react-native';
 
-import ThreadList from './threadList';
+// import ThreadList from './threadList';
 
 // TODO this is contrived data ... should it originate here?
 const testThreads = [{title: 'Thing One'}, 
                      {title: 'Thing Two'}, 
                      {title: 'Thing Three'}]
 
-class Threads extends Component {
+// class ThreadsOrig extends Component {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <ThreadList 
+//          threads={testThreads}
+//          navigateAction={this.props.navigateAction}
+//         />
+//       </View>
+//     )
+//   }
+// }
+
+class GroupsBody extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <ThreadList 
-         threads={testThreads}
-         navigateAction={this.props.navigateAction}
-        />
-      </View>
+      <Text> Yo </Text>
     )
   }
 }
 
-export default Threads
+export default GroupsBody
 
 const styles = StyleSheet.create({
   container: {
