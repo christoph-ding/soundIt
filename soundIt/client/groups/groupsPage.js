@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import GroupsBody from './groupsBody';
+import GroupsHeader from './groupsHeader';
 
 class GroupsPage extends Component {
   static navigationOptions = ({ navigation }) => {
 
     return {
-      headerTitle: <ThreadHeader/>,
-      // headerLeft: <NavigateToFriends navigateAction={navigation.navigate}/>,
-      // headerRight: <NavigateToGroups navigateAction={navigation.navigate}/>
+      headerTitle: <GroupsHeader/>,
+      headerLeft: <NavigateToUsers navigateAction={navigation.navigate}/>,      
     }
   }
   // render() {

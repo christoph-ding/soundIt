@@ -7,14 +7,14 @@ import {
 
 import Banner from '../ui/banner';
 
-class ThreadHeader extends Component {
+class GroupsHeader extends Component {
   render() {
     return (
-      <Banner title='Threads'/>
+      <Banner title='Groups'/>
     )
   }
 }
-export default ThreadHeader
+export default GroupsHeader
 
 const styles = StyleSheet.create({
   container: {
