@@ -5,24 +5,24 @@ import {
   Button
 } from 'react-native';
 
-class NavigateToFriends extends Component {
-  
+class NavigateToMakeNewGroup extends Component {
+
   seeFriends = () => {
-    this.props.navigateAction('Friends')
+    this.props.navigateAction('Users')
   }
 
   render() {
     return (
       <Button style={styles.button}
         onPress={this.seeFriends}
-        title='Friends'   
+        title='New Group'   
         color="#841584"
       />
     )
   }
 }
 
-export default NavigateToFriends
+export default NavigateToMakeNewGroup
 
 const styles = StyleSheet.create({
   button: {

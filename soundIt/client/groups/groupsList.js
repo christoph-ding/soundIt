@@ -6,7 +6,7 @@ import {
 
 import SingleThread from './singleThread'
 
-class ThreadList extends Component {
+class GroupsList extends Component {
 
   renderListItems = (items) => {
     let navigateAction = this.props.navigateAction
@@ -30,7 +30,7 @@ class ThreadList extends Component {
   }
 }
 
-export default ThreadList
+export default GroupsList
 
 const styles = StyleSheet.create({
   container: {

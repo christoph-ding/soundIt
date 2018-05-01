@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import {
-  View,
-  StyleSheet,
-  Text,
-  Button
+  Text
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-// Navigate to Sub Pages
+// Components for Groups Page
 import GroupsBody from './groups/groupsBody';
 import GroupsHeader from './groups/groupsHeader';
 import NavigateToMakeNewGroup from './users/navigateToMakeNewGroup';
@@ -27,12 +24,22 @@ class GroupsPage extends Component {
   }
 }
 
+// Components for Users Page
+import UsersHeader from './users/usersHeader';
+
 class UsersPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <UsersHeader/>,
+      headerLeft: <NavigateToMakeNewGroup navigateAction={navigation.navigate}/>
+    }
+  }
+
   render() {
     return (
-      <Text> Hey </Text>
+      <GroupsBody />
     )
-  }
+  } 
 }
 
 const LANDING = 'Groups'
@@ -60,12 +67,3 @@ class Application extends Component {
 }
 
 export default Application
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'orange',
-  }
-});

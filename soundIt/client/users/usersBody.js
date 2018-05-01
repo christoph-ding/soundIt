@@ -9,11 +9,11 @@ import {
 import GroupsList from './groupsList';
 
 // TODO this is contrived data ... should it originate here?
-const testThreads = [{title: 'Thing One'}, 
-                     {title: 'Thing Two'}, 
-                     {title: 'Thing Three'}]
+const testFriends = ['Friend One', 
+                     'Friend Two', 
+                     'Friend Three']
 
-class GroupsBody extends Component {
+class UsersBody extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -26,7 +26,7 @@ class GroupsBody extends Component {
   }
 }
 
-export default GroupsBody
+export default UsersBody
 
 const styles = StyleSheet.create({
   container: {
