@@ -15,7 +15,7 @@ class SingleUser extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.item} onPress={this.handleClick}> 
-          {this.props.item.title}
+          {this.props.user}
         </Text>
       </View>
     )

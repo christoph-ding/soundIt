@@ -8,23 +8,20 @@ import SingleUser from './singleUser'
 
 class UsersList extends Component {
 
-  renderListItems = (items) => {
+  renderUsers = (users) => {
     let navigateAction = this.props.navigateAction
-    return (items.map((item) => {
-      return (<SingleUser 
-              item={item}
+    return (users.map((user) => {
+      return (<SingleUser
+              user={user}
               navigateAction={navigateAction}
              />)
     }))
   }
 
-  getActiveThreads = () =>
-    this.props.threads
-
   render() {
     return (
       <View style={styles.container}>
-        {this.renderListItems(this.props.threads)}
+        {this.renderUsers(this.props.users)}
       </View>
     )
   }

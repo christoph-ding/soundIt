@@ -47,7 +47,7 @@ class UsersPage extends Component {
 
   render() {
     return (
-      <UsersBody data={testGroups}/>
+      <UsersBody data={testFriends}/>
     )
   } 
 }

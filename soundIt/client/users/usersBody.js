@@ -11,7 +11,7 @@ class UsersBody extends Component {
     return (
       <View style={styles.container}>
         <UsersList 
-         threads={this.props.data}
+         users={this.props.data}
          navigateAction={this.props.navigateAction}
         />
       </View>

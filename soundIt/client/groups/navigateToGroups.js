@@ -15,7 +15,7 @@ class NavigateToGroups extends Component {
     return (
       <Button style={styles.button}
         onPress={this.seeThreads}
-        title='Threads'
+        title='My Groups'
         color="#841584"
       />
     )
