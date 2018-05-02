@@ -4,14 +4,14 @@ import {
   StyleSheet
 } from 'react-native';
 
-import SingleThread from './singleThread'
+import SingleGroup from './singleGroup';
 
 class GroupsList extends Component {
 
   renderListItems = (items) => {
     let navigateAction = this.props.navigateAction
     return (items.map((item) => {
-      return (<SingleThread 
+      return (<SingleGroup 
               item={item}
               navigateAction={navigateAction}
              />)

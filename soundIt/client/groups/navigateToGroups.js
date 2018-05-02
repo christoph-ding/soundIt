@@ -5,10 +5,10 @@ import {
   Button
 } from 'react-native';
 
-class NavigateToThreads extends Component {
+class NavigateToGroups extends Component {
 
   seeThreads = () => {
-    this.props.navigateAction('Threads')
+    this.props.navigateAction('Groups')
   }
 
   render() {
@@ -22,7 +22,7 @@ class NavigateToThreads extends Component {
   }
 }
 
-export default NavigateToThreads
+export default NavigateToGroups
 
 const styles = StyleSheet.create({
   button: {

@@ -4,14 +4,14 @@ import {
   StyleSheet
 } from 'react-native';
 
-import SingleThread from './singleThread'
+import SingleUser from './singleUser'
 
-class GroupsList extends Component {
+class UsersList extends Component {
 
   renderListItems = (items) => {
     let navigateAction = this.props.navigateAction
     return (items.map((item) => {
-      return (<SingleThread 
+      return (<SingleUser 
               item={item}
               navigateAction={navigateAction}
              />)
@@ -30,7 +30,7 @@ class GroupsList extends Component {
   }
 }
 
-export default GroupsList
+export default UsersList
 
 const styles = StyleSheet.create({
   container: {

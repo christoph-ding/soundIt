@@ -9,6 +9,10 @@ import GroupsBody from './groups/groupsBody';
 import GroupsHeader from './groups/groupsHeader';
 import NavigateToMakeNewGroup from './users/navigateToMakeNewGroup';
 
+const testGroups = [{title: 'Thing One'}, 
+                    {title: 'Thing Two'}, 
+                    {title: 'Thing Three'}]
+
 class GroupsPage extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
@@ -19,25 +23,31 @@ class GroupsPage extends Component {
 
   render() {
     return (
-      <GroupsBody />
+      <GroupsBody data={testGroups}/>
     )
   }
 }
 
 // Components for Users Page
 import UsersHeader from './users/usersHeader';
+import UsersBody from './users/usersBody';
+import NavigateToGroups from './groups/navigateToGroups/'
+
+const testFriends = ['Friend One', 
+                     'Friend Two', 
+                     'Friend Three']
 
 class UsersPage extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: <UsersHeader/>,
-      headerLeft: <NavigateToMakeNewGroup navigateAction={navigation.navigate}/>
+      headerLeft: <NavigateToGroups navigateAction={navigation.navigate}/>
     }
   }
 
   render() {
     return (
-      <GroupsBody />
+      <UsersBody data={testGroups}/>
     )
   } 
 }

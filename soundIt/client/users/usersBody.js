@@ -10,7 +10,7 @@ class UsersBody extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GroupsList 
+        <UsersList 
          threads={this.props.data}
          navigateAction={this.props.navigateAction}
         />

@@ -5,7 +5,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-class SingleThread extends Component {
+class SingleGroup extends Component {
   
   handleClick = () => {
     this.props.navigateAction('Conversation', this.props.item)
@@ -22,7 +22,7 @@ class SingleThread extends Component {
   }
 }
 
-export default SingleThread
+export default SingleGroup
 
 const styles = StyleSheet.create({
   container: {
