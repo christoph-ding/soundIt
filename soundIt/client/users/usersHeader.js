@@ -14,6 +14,7 @@ class UsersHeader extends Component {
     )
   }
 }
+
 export default UsersHeader
 
 const styles = StyleSheet.create({

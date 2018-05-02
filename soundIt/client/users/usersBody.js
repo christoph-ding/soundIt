@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
 import {
   View,
-  StyleSheet,
-  Text,
-  NavigatorIOS
+  StyleSheet
 } from 'react-native';
 
-import GroupsList from './groupsList';
-
-// TODO this is contrived data ... should it originate here?
-const testFriends = ['Friend One', 
-                     'Friend Two', 
-                     'Friend Three']
+import UsersList from './usersList';
 
 class UsersBody extends Component {
   render() {
     return (
       <View style={styles.container}>
         <GroupsList 
-         threads={testThreads}
+         threads={this.props.data}
          navigateAction={this.props.navigateAction}
         />
       </View>
