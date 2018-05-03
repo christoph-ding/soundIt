@@ -54,6 +54,7 @@ class UsersPage extends Component {
 
 // Components for SignIn Page
 import SignInHeader from './signIn/signInHeader';
+import SignInBody from './signIn/signInBody';
 
 class SignInPage extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -65,7 +66,7 @@ class SignInPage extends Component {
 
   render() {
     return (
-      <UsersBody data={testFriends}/>
+      <SignInBody data={testFriends}/>
     )
   } 
 }
