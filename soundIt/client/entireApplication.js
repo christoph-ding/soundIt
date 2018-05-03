@@ -52,7 +52,27 @@ class UsersPage extends Component {
   } 
 }
 
-const LANDING = 'Groups'
+// Components for SignIn Page
+import SignInHeader from './signIn/signInHeader';
+
+class SignInPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <SignInHeader/>,
+      headerLeft: <NavigateToGroups navigateAction={navigation.navigate}/>
+    }
+  }
+
+  render() {
+    return (
+      <UsersBody data={testFriends}/>
+    )
+  } 
+}
+
+// navigation
+
+const LANDING = 'SignIn'
 
 const RootStack = StackNavigator(
   {
@@ -61,6 +81,9 @@ const RootStack = StackNavigator(
     },
     Users: {
       screen: UsersPage
+    },
+    SignIn: {
+      screen: SignInPage
     }
   },
   {
