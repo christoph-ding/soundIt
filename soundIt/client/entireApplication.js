@@ -72,7 +72,6 @@ class SignInPage extends Component {
 }
 
 // navigation
-
 const LANDING = 'SignIn'
 
 const RootStack = StackNavigator(

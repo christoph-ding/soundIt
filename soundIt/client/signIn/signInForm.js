@@ -5,19 +5,18 @@ import {
   Text
 } from 'react-native';
 
-import SignInForm from './signInForm';
-
-class SignInBody extends Component {
+class SignInForm extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignInForm />
+        <Text> Phone Number </Text>
+        <Text> Password </Text>
       </View>
     )
   }
 }
 
-export default SignInBody
+export default SignInForm
 
 const styles = StyleSheet.create({
   container: {
