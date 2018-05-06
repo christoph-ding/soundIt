@@ -10,6 +10,8 @@
   },
   "main": "backend/lambdas/crud/app.js",
   "dependencies": {
+    "aws-amplify": "^0.3.3",
+    "aws-amplify-react-native": "^0.2.9",
     "express": "^4.16.3",
     "react": "16.3.0",
     "react-native": "0.54.4",
