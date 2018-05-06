@@ -65,7 +65,7 @@ class SignUpPage extends Component {
 
   render() {
     return (
-      <SignUpBody/>
+      <SignUpBody navigateAction={this.props.navigation.navigate}/>
     )
   } 
 }
@@ -77,8 +77,7 @@ import SignInBody from './signIn/signInBody';
 class SignInPage extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: <SignInHeader/>,
-      headerLeft: <NavigateToGroups navigateAction={navigation.navigate}/>
+      headerTitle: <SignInHeader/>
     }
   }
 

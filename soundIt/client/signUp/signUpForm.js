@@ -5,7 +5,7 @@ import {
   Text
 } from 'react-native';
 
-class SignInForm extends Component {
+class SignUpForm extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -16,13 +16,13 @@ class SignInForm extends Component {
   }
 }
 
-export default SignInForm
+export default SignUpForm
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
     width: '100%',
     backgroundColor: 'blue',
   }

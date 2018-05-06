@@ -9,9 +9,8 @@ class SignUpWelcome extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> 
-          Sign Up Welcome
-        </Text>
+        <Text> Welcome! </Text>
+        <Text> Create an account or sign in </Text>
       </View>
     )
   }
