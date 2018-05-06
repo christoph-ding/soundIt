@@ -13,8 +13,6 @@ import { Provider } from 'react-redux'
 import rootReducer from './client/reducers'
 import Application from './client/entireApplication';
 
-
-
 export default class App extends Component<Props> {
   render() {
     return (

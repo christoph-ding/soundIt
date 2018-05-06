@@ -52,6 +52,24 @@ class UsersPage extends Component {
   } 
 }
 
+// Components for SignUp Page
+import SignUpHeader from './signUp/signUpHeader';
+import SignUpBody from './signUp/signUpBody';
+
+class SignUpPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <SignUpHeader/>
+    }
+  }
+
+  render() {
+    return (
+      <SignUpBody/>
+    )
+  } 
+}
+
 // Components for SignIn Page
 import SignInHeader from './signIn/signInHeader';
 import SignInBody from './signIn/signInBody';
@@ -66,13 +84,13 @@ class SignInPage extends Component {
 
   render() {
     return (
-      <SignInBody data={testFriends}/>
+      <SignInBody/>
     )
   } 
 }
 
 // navigation
-const LANDING = 'SignIn'
+const LANDING = 'SignUp'
 
 const RootStack = StackNavigator(
   {
@@ -81,6 +99,9 @@ const RootStack = StackNavigator(
     },
     Users: {
       screen: UsersPage
+    },
+    SignUp: {
+      screen: SignUpPage
     },
     SignIn: {
       screen: SignInPage

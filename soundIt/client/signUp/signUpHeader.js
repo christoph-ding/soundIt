@@ -7,14 +7,14 @@ import {
 
 import Banner from '../ui/banner';
 
-class SignInHeader extends Component {
+class SignUpHeader extends Component {
   render() {
     return (
-      <Banner title='Sign In'/>
+      <Banner title='Sign Up'/>
     )
   }
 }
-export default SignInHeader
+export default SignUpHeader
 
 const styles = StyleSheet.create({
   container: {
