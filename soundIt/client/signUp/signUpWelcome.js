@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 import {
+  Text,
   View,
-  StyleSheet,
-  Text
+  StyleSheet
 } from 'react-native';
 
-import SignUpWelcome from './signUpWelcome';
-
-class SignUpBody extends Component {
+class SignUpWelcome extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignUpWelcome />
+        <Text> 
+          Sign Up Welcome
+        </Text>
       </View>
     )
   }
 }
 
-export default SignUpBody
+export default SignUpWelcome
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
     width: '100%',
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
+  },
+  item: {
+    fontSize: 13,
+    textAlign: 'center'
   }
 });
