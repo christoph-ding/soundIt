@@ -4,6 +4,10 @@ import {
   StyleSheet,
   Text
 } from 'react-native';
+import { FormLabel, 
+         FormInput, 
+         FormValidationMessage 
+} from 'react-native-elements';
 
 class SignUpForm extends Component {
   render() {
