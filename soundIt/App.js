@@ -16,6 +16,11 @@ import Application from './client/entireApplication'
 import WithAuth from './client/auth/withAuth'
 
 class App extends Component {
+    
+    constructor(props) {
+      super(props)
+    }
+
     render() {
     console.log(this.props)
     return (

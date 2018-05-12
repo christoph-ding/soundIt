@@ -1,6 +1,7 @@
 import React from 'react';
 
 // local storage
+import LocalStorage from './localStorage';
 import { Auth } from 'aws-amplify';
 
 function WithAuth(WrappedComponent) {
