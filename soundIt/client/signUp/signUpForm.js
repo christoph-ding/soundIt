@@ -28,7 +28,7 @@ class SignUpForm extends Component {
   handleChange = (key, value) => {
     const newState = {}
     newState[key] = value
-    this.setState(newState, () => console.log(this.state))
+    this.setState(newState)
   }
 
   handleSignUp = () => {
