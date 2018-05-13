@@ -83,7 +83,7 @@ class SignInPage extends Component {
 
   render() {
     return (
-      <SignInBody/>
+      <SignInBody />
     )
   } 
 }
@@ -112,7 +112,15 @@ const RootStack = StackNavigator(
 )
 
 class Application extends Component {
+  
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+    console.log('inside application:')
+    console.log(this.props)
+
     return (
       <RootStack />
     )
