@@ -2,31 +2,48 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
-  Text
+  Text,
+  Button
 } from 'react-native';
 import { FormLabel, 
          FormInput, 
          FormValidationMessage 
 } from 'react-native-elements';
+import { Auth } from 'aws-amplify';
+
 
 class SignUpForm extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       username: '',
       password: '',
       phoneNumber: '',
       errorMessage: '',
-    };
+    }
   }
 
   handleChange = (key, value) => {
-    console.log('key: ', key, ' value: ', value)
     const newState = {}
     newState[key] = value
     this.setState(newState, () => console.log(this.state))
+  }
+
+  handleSignUp = () => {
+    const { username, password, phoneNumber } = this.state;
+
+    Auth.signUp(username, password, phoneNumber)
+      .then(data => {
+        userConfirmed = data.userConfirmed;
+
+        this.setState({ showMFAPrompt: !userConfirmed });
+
+        if (userConfirmed) {
+          this.onSignUp();
+        }
+      })
   }
 
   render() {
@@ -44,6 +61,10 @@ class SignUpForm extends Component {
         <FormLabel>Password</FormLabel>
         <FormInput
           onChangeText={this.handleChange.bind(null, "password")}
+        />
+        <Button
+          title="Sign Up"
+          onPress={this.handleSignUp}
         />
       </View>
     )
