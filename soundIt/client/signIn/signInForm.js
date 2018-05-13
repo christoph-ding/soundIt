@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
-  Text
+  Text,
+  Button
 } from 'react-native';
 import { FormLabel, 
          FormInput, 
@@ -26,7 +27,7 @@ class SignInForm extends Component {
   handleChange = (key, value) => {
     const newState = {}
     newState[key] = value
-    this.setState(newState, () => console.log(this.state))
+    this.setState(newState)
   }
 
   handleSignIn = () => {
@@ -39,8 +40,19 @@ class SignInForm extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Phone Number </Text>
-        <Text> Password </Text>
+        <FormLabel>First and Last Name</FormLabel>
+        <FormInput
+          placeholder="Enter your Username"
+          onChangeText={this.handleChange.bind(null, "username")}
+        />
+        <FormLabel>Password</FormLabel>
+        <FormInput
+          onChangeText={this.handleChange.bind(null, "password")}
+        />
+        <Button
+         title="Sign In"
+         onPress={this.handleSignIn}
+        /> 
       </View>
     )
   }
