@@ -33,6 +33,7 @@ class SignUpForm extends Component {
 
   handleSignUp = () => {
     const { username, password, phoneNumber } = this.state;
+    console.log(Auth)
 
     Auth.signUp(username, password, phoneNumber)
       .then(data => {
