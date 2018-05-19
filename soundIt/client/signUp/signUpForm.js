@@ -37,6 +37,7 @@ class SignUpForm extends Component {
 
     Auth.signUp(username, password, phoneNumber)
       .then(data => {
+        console.log('=============')
         userConfirmed = data.userConfirmed;
 
         this.setState({ showMFAPrompt: !userConfirmed });
@@ -45,6 +46,11 @@ class SignUpForm extends Component {
           this.onSignUp();
         }
       })
+      .catch(err => {
+        console.log(err);
+        this.setState({ errorMessage: err.message });
+        return;
+      });
   }
 
   render() {

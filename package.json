@@ -1,0 +1,24 @@
+{
+  "name": "soundIt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironpup/soundIt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ironpup/soundIt/issues"
+  },
+  "homepage": "https://github.com/ironpup/soundIt#readme",
+  "dependencies": {
+    "aws-amplify": "^0.3.4",
+    "aws-amplify-react-native": "^0.2.9"
+  }
+}
