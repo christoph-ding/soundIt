@@ -18,7 +18,7 @@ class SignInForm extends Component {
     super(props)
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       errorMessage: '',
     }
@@ -31,7 +31,7 @@ class SignInForm extends Component {
   }
 
   handleSignIn = () => {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     // auth sign in
 
@@ -40,10 +40,9 @@ class SignInForm extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FormLabel>First and Last Name</FormLabel>
+        <FormLabel>Email</FormLabel>
         <FormInput
-          placeholder="Enter your Username"
-          onChangeText={this.handleChange.bind(null, "username")}
+          onChangeText={this.handleChange.bind(null, "email")}
         />
         <FormLabel>Password</FormLabel>
         <FormInput

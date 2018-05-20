@@ -18,7 +18,7 @@ class SignUpForm extends Component {
     super(props)
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       phoneNumber: '',
       errorMessage: '',
@@ -32,19 +32,21 @@ class SignUpForm extends Component {
   }
 
   handleSignUp = () => {
-    const { username, password, phoneNumber } = this.state;
+    const { email, password, phoneNumber } = this.state;
     console.log(Auth)
 
-    Auth.signUp(username, password, phoneNumber)
+    Auth.signUp(email, password, phoneNumber)
       .then(data => {
-        console.log('=============')
-        userConfirmed = data.userConfirmed;
+        console.log('signing up ... ')
+        console.log(data)
 
-        this.setState({ showMFAPrompt: !userConfirmed });
+        // userConfirmed = data.userConfirmed;
 
-        if (userConfirmed) {
-          this.onSignUp();
-        }
+        // this.setState({ showMFAPrompt: !userConfirmed });
+
+        // if (userConfirmed) {
+        //   this.onSignUp();
+        // }
       })
       .catch(err => {
         console.log(err);
@@ -58,8 +60,8 @@ class SignUpForm extends Component {
       <View style={styles.container}>
         <FormLabel>First and Last Name</FormLabel>
         <FormInput
-          placeholder="Enter your Username"
-          onChangeText={this.handleChange.bind(null, "username")}
+          placeholder="Sign Up Using Email"
+          onChangeText={this.handleChange.bind(null, "email")}
         />
         <FormLabel>Phone Number</FormLabel>
         <FormInput
