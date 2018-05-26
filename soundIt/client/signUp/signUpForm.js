@@ -23,6 +23,8 @@ class SignUpForm extends Component {
       phoneNumber: '',
       errorMessage: '',
     }
+
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   handleChange = (key, value) => {
@@ -31,11 +33,11 @@ class SignUpForm extends Component {
     this.setState(newState)
   }
 
-  handleSignUp = () => {
+  async handleSignUp() {
     const { email, password, phoneNumber } = this.state;
     console.log(Auth)
 
-    Auth.signUp(email, password, phoneNumber)
+    await Auth.signUp(email, password, phoneNumber)
       .then(data => {
         console.log('signing up ... ')
         console.log(data)

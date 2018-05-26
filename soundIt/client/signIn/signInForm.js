@@ -22,6 +22,8 @@ class SignInForm extends Component {
       password: '',
       errorMessage: '',
     }
+
+    this.handleSignIn = this.handleSignIn.bind(this)
   }
 
   handleChange = (key, value) => {
@@ -30,10 +32,21 @@ class SignInForm extends Component {
     this.setState(newState)
   }
 
-  handleSignIn = () => {
+  async handleSignIn() {
     const { email, password } = this.state;
 
-    // auth sign in
+    console.log('email: ', email)
+    console.log('password: ', password)
+
+    await Auth.signIn(email, password)
+      .then(data => {
+        console.log('signing in ... ')
+        console.log(data) 
+      })
+      .catch(err => {
+        console.log(err);
+        this.setState({ errorMessage: err.message });
+      })
 
   }
 
