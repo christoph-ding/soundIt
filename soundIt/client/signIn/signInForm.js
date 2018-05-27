@@ -35,13 +35,10 @@ class SignInForm extends Component {
   async handleSignIn() {
     const { email, password } = this.state;
 
-    console.log('email: ', email)
-    console.log('password: ', password)
-
     await Auth.signIn(email, password)
       .then(data => {
-        console.log('signing in ... ')
-        console.log(data) 
+        console.log('successful sign in ... ')
+        console.log(data)
       })
       .catch(err => {
         console.log(err);

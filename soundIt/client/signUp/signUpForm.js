@@ -35,25 +35,15 @@ class SignUpForm extends Component {
 
   async handleSignUp() {
     const { email, password, phoneNumber } = this.state;
-    console.log(Auth)
 
     await Auth.signUp(email, password, phoneNumber)
       .then(data => {
-        console.log('signing up ... ')
+        console.log('signing up ... successful')
         console.log(data)
-
-        // userConfirmed = data.userConfirmed;
-
-        // this.setState({ showMFAPrompt: !userConfirmed });
-
-        // if (userConfirmed) {
-        //   this.onSignUp();
-        // }
       })
       .catch(err => {
         console.log(err);
-        this.setState({ errorMessage: err.message });
-        return;
+        this.setState({ errorMessage: err.message });        
       });
   }
 

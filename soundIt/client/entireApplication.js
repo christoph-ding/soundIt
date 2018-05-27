@@ -83,7 +83,7 @@ class SignInPage extends Component {
 
   render() {
     return (
-      <SignInBody />
+      <SignInBody navigateAction={this.props.navigation.navigate}/>
     )
   } 
 }
@@ -117,7 +117,7 @@ class Application extends Component {
     super(props)
   }
 
-  render() {
+  render() {    
     console.log('inside application:')
     console.log(this.props)
 

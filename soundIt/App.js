@@ -22,8 +22,6 @@ class App extends Component {
     }
 
     render() {
-      console.log('inside app:')
-      console.log(this.props)
       return (
         <Application screenprops={this.props}/>
       )
