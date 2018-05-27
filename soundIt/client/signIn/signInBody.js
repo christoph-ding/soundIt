@@ -8,10 +8,17 @@ import {
 import SignInForm from './signInForm';
 
 class SignInBody extends Component {
+
+  goToApplication = () => {
+    this.props.navigateAction('GroupsPage')
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <SignInForm />
+        <SignInForm 
+          navigateAction={this.goToApplication}
+        />
       </View>
     )
   }

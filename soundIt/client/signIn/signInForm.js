@@ -32,10 +32,8 @@ class SignInForm extends Component {
     this.setState(newState)
   }
 
-
   successfulSignIn = () => {
-    console.log('successful sign in ...')
-    // this.props.navigateAction()
+    this.props.navigateAction()
   }
 
   async handleSignIn() {
@@ -43,8 +41,7 @@ class SignInForm extends Component {
 
     await Auth.signIn(email, password)
       .then(data => {
-        console.log('successful sign in ... ')
-        console.log(data)
+        this.successfulSignIn()
       })
       .catch(err => {
         console.log(err);

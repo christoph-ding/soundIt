@@ -70,7 +70,7 @@ class SignUpForm extends Component {
         <Button
           title="Sign Up"
           onPress={this.handleSignUp}
-        />
+        /> 
       </View>
     )
   }
