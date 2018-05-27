@@ -16,9 +16,11 @@ class SignUpBody extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <SignUpWelcome />
-        <SignUpForm navigateAction={this.goToSignIn}/>
+      <View style={MAIN_STYLE.container}>
+        <SignUpWelcome style={WELCOME_STYLE}/>
+        <SignUpForm 
+          style={FORM_STYLE}
+          navigateAction={this.goToSignIn}/>
         <Button
           onPress={this.goToSignIn}
           title='sign in'
@@ -31,12 +33,32 @@ class SignUpBody extends Component {
 
 export default SignUpBody
 
-const styles = StyleSheet.create({
+// Styles
+const MAIN_STYLE = StyleSheet.create({
   container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
+    flex: 1,  
+    width: '100%'    
   }
 });
+
+const WELCOME_STYLE = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: 60,
+    padding: 10,
+    // testing
+    backgroundColor: 'powderblue'
+  }
+});
+
+const FORM_STYLE = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    // testing
+    backgroundColor: 'skyblue'
+  }
+});  

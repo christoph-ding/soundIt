@@ -7,8 +7,9 @@ import {
 
 class SignUpWelcome extends Component {
   render() {
+    const style = this.props.style
     return (
-      <View style={styles.container}>
+      <View style={style.container}>
         <Text> Welcome! </Text>
         <Text> Create an account or sign in </Text>
       </View>
@@ -17,17 +18,3 @@ class SignUpWelcome extends Component {
 }
 
 export default SignUpWelcome
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  },
-  item: {
-    fontSize: 13,
-    textAlign: 'center'
-  }
-});

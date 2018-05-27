@@ -52,8 +52,9 @@ class SignUpForm extends Component {
   }
 
   render() {
+    const style = this.props.style
     return (
-      <View style={styles.container}>
+      <View style={style.container}>
         <FormLabel>First and Last Name</FormLabel>
         <FormInput
           placeholder="Sign Up Using Email"
@@ -77,13 +78,3 @@ class SignUpForm extends Component {
 }
 
 export default SignUpForm
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  }
-});
