@@ -118,9 +118,6 @@ class Application extends Component {
   }
 
   render() {    
-    console.log('inside application:')
-    console.log(this.props)
-
     return (
       <RootStack />
     )

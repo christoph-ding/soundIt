@@ -26,10 +26,16 @@ class SignInForm extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
   }
 
-  handleChange = (key, value) => {
+  handleInputChange = (key, value) => {
     const newState = {}
     newState[key] = value
     this.setState(newState)
+  }
+
+
+  successfulSignIn = () => {
+    console.log('successful sign in ...')
+    // this.props.navigateAction()
   }
 
   async handleSignIn() {
@@ -44,7 +50,6 @@ class SignInForm extends Component {
         console.log(err);
         this.setState({ errorMessage: err.message });
       })
-
   }
 
   render() {
@@ -52,11 +57,11 @@ class SignInForm extends Component {
       <View style={styles.container}>
         <FormLabel>Email</FormLabel>
         <FormInput
-          onChangeText={this.handleChange.bind(null, "email")}
+          onChangeText={this.handleInputChange.bind(null, "email")}
         />
         <FormLabel>Password</FormLabel>
         <FormInput
-          onChangeText={this.handleChange.bind(null, "password")}
+          onChangeText={this.handleInputChange.bind(null, "password")}
         />
         <Button
          title="Sign In"

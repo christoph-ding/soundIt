@@ -33,8 +33,7 @@ class SignUpForm extends Component {
     this.setState(newState)
   }
 
-  successfulSignIn = () => {
-    console.log('successful sign up ... ')
+  successfulSignUp = () => {
     this.props.navigateAction()
   }
 
@@ -43,7 +42,7 @@ class SignUpForm extends Component {
 
     await Auth.signUp(email, password, phoneNumber)
       .then(data => {
-        this.successfulSignIn()
+        this.successfulSignUp()
       })
       .catch(err => {
         console.log(err);

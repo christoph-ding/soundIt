@@ -23,8 +23,7 @@ class SignUpBody extends Component {
           navigateAction={this.goToSignIn}/>
         <Button
           onPress={this.goToSignIn}
-          title='sign in'
-          color='green'
+          title='Sign In'
         />
       </View>
     )
@@ -58,6 +57,7 @@ const FORM_STYLE = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    padding: 10,
     // testing
     backgroundColor: 'skyblue'
   }
