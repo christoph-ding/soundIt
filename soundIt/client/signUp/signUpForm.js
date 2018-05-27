@@ -34,7 +34,8 @@ class SignUpForm extends Component {
   }
 
   successfulSignIn = () => {
-
+    console.log('successful sign up ... ')
+    this.props.navigateAction()
   }
 
   async handleSignUp() {
@@ -42,11 +43,7 @@ class SignUpForm extends Component {
 
     await Auth.signUp(email, password, phoneNumber)
       .then(data => {
-        console.log('signing up ... successful')
-        console.log(data)
-
-        // if the user is confirmed, call the success
-
+        this.successfulSignIn()
       })
       .catch(err => {
         console.log(err);

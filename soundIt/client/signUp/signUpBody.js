@@ -15,12 +15,10 @@ class SignUpBody extends Component {
   }
 
   render() {
-    const {navigateAction} = this.props
-
     return (
       <View style={styles.container}>
         <SignUpWelcome />
-        <SignUpForm navigateAction={navigateAction}/>
+        <SignUpForm navigateAction={this.goToSignIn}/>
         <Button
           onPress={this.goToSignIn}
           title='sign in'
