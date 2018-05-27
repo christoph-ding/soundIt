@@ -10,17 +10,19 @@ import SignUpForm from './signUpForm';
 
 class SignUpBody extends Component {
 
-  handleClick = () => {
+  goToSignIn = () => {
     this.props.navigateAction('SignIn')
   }
 
   render() {
+    const {navigateAction} = this.props
+
     return (
       <View style={styles.container}>
         <SignUpWelcome />
-        <SignUpForm />
+        <SignUpForm navigateAction={navigateAction}/>
         <Button
-          onPress={this.handleClick}
+          onPress={this.goToSignIn}
           title='sign in'
           color='green'
         />

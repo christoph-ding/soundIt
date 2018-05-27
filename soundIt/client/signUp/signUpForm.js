@@ -27,10 +27,14 @@ class SignUpForm extends Component {
     this.handleSignUp = this.handleSignUp.bind(this)
   }
 
-  handleChange = (key, value) => {
+  handleInputChange = (key, value) => {
     const newState = {}
     newState[key] = value
     this.setState(newState)
+  }
+
+  successfulSignIn = () => {
+
   }
 
   async handleSignUp() {
@@ -40,6 +44,9 @@ class SignUpForm extends Component {
       .then(data => {
         console.log('signing up ... successful')
         console.log(data)
+
+        // if the user is confirmed, call the success
+
       })
       .catch(err => {
         console.log(err);
@@ -53,15 +60,15 @@ class SignUpForm extends Component {
         <FormLabel>First and Last Name</FormLabel>
         <FormInput
           placeholder="Sign Up Using Email"
-          onChangeText={this.handleChange.bind(null, "email")}
+          onChangeText={this.handleInputChange.bind(null, "email")}
         />
         <FormLabel>Phone Number</FormLabel>
         <FormInput
-          onChangeText={this.handleChange.bind(null, "phoneNumber")}
+          onChangeText={this.handleInputChange.bind(null, "phoneNumber")}
         />
         <FormLabel>Password</FormLabel>
         <FormInput
-          onChangeText={this.handleChange.bind(null, "password")}
+          onChangeText={this.handleInputChange.bind(null, "password")}
         />
         <Button
           title="Sign Up"
