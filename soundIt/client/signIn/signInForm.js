@@ -41,6 +41,7 @@ class SignInForm extends Component {
 
     await Auth.signIn(email, password)
       .then(data => {
+        console.log(data)
         this.successfulSignIn()
       })
       .catch(err => {
