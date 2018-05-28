@@ -51,8 +51,9 @@ class SignInForm extends Component {
   }
 
   render() {
+    const style = this.props.style
     return (
-      <View style={styles.container}>
+      <View style={style.container}>
         <FormLabel>Email</FormLabel>
         <FormInput
           onChangeText={this.handleInputChange.bind(null, "email")}
@@ -71,13 +72,3 @@ class SignInForm extends Component {
 }
 
 export default SignInForm
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  }
-});

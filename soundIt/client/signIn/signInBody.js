@@ -15,9 +15,10 @@ class SignInBody extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={MAIN_STYLE.container}>
         <SignInForm 
           navigateAction={this.goToApplication}
+          style={FORM_STYLE}       
         />
       </View>
     )
@@ -26,7 +27,19 @@ class SignInBody extends Component {
 
 export default SignInBody
 
-const styles = StyleSheet.create({
+// Styles
+
+const MAIN_STYLE = StyleSheet.create({
+  container: {
+    flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    width: '100%',
+    backgroundColor: 'powderblue'
+  }
+});
+
+const FORM_STYLE = StyleSheet.create({
   container: {
     flex: 1,
     // justifyContent: 'center',
