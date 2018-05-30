@@ -20,10 +20,10 @@ class App extends Component {
     constructor(props) {
       super(props)
     }
-
+    
     render() {
       return (
-        <Application screenprops={this.props}/>
+        <Application {...this.props}/>
       )
   }
 }

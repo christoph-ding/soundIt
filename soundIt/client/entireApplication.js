@@ -91,19 +91,36 @@ class SignInPage extends Component {
 // navigation
 const LANDING = 'SignUp'
 
+// const RootStackOrig = StackNavigator(
+//   {
+//     Groups: {
+//       screen: GroupsPage
+//     },
+//     Users: {
+//       screen: UsersPage
+//     },
+//     SignUp: {
+//       screen: SignUpPage
+//     },
+//     SignIn: {
+//       screen: SignInPage
+//     }
+//   },
+//   {
+//     initialRouteName: LANDING
+//   }
+// )
+
+import AuthNavigation from './navigator/authNavigator';
+
 const RootStack = StackNavigator(
   {
-    Groups: {
-      screen: GroupsPage
-    },
-    Users: {
-      screen: UsersPage
-    },
     SignUp: {
-      screen: SignUpPage
-    },
-    SignIn: {
-      screen: SignInPage
+      screen: (props) => {
+        return (
+          <AuthNavigation {...props}/>
+        )
+      }
     }
   },
   {
@@ -111,15 +128,14 @@ const RootStack = StackNavigator(
   }
 )
 
-class Application extends Component {
-  
+class Application extends Component {  
   constructor(props) {
     super(props)
   }
 
-  render() {    
+  render() {
     return (
-      <RootStack />
+      <RootStack screenProps={this.props}/>
     )
   }
 }

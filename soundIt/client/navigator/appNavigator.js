@@ -18,5 +18,5 @@ const AppStack = StackNavigator(
   }
 )
 
-export default Application
+export default AppStack
 
