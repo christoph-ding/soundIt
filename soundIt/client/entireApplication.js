@@ -52,65 +52,43 @@ class UsersPage extends Component {
   } 
 }
 
-// Components for SignUp Page
-import SignUpHeader from './signUp/signUpHeader';
-import SignUpBody from './signUp/signUpBody';
+// // Components for SignUp Page
+// import SignUpHeader from './signUp/signUpHeader';
+// import SignUpBody from './signUp/signUpBody';
 
-class SignUpPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerTitle: <SignUpHeader/>
-    }
-  }
+// class SignUpPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     return {
+//       headerTitle: <SignUpHeader/>
+//     }
+//   }
 
-  render() {
-    return (
-      <SignUpBody navigateAction={this.props.navigation.navigate}/>
-    )
-  } 
-}
+//   render() {
+//     return (
+//       <SignUpBody navigateAction={this.props.navigation.navigate}/>
+//     )
+//   } 
+// }
 
-// Components for SignIn Page
-import SignInHeader from './signIn/signInHeader';
-import SignInBody from './signIn/signInBody';
+// // Components for SignIn Page
+// import SignInHeader from './signIn/signInHeader';
+// import SignInBody from './signIn/signInBody';
 
-class SignInPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerTitle: <SignInHeader/>
-    }
-  }
+// class SignInPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     return {
+//       headerTitle: <SignInHeader/>
+//     }
+//   }
 
-  render() {
-    return (
-      <SignInBody navigateAction={this.props.navigation.navigate}/>
-    )
-  } 
-}
+//   render() {
+//     return (
+//       <SignInBody navigateAction={this.props.navigation.navigate}/>
+//     )
+//   } 
+// }
 
 // navigation
-
-
-// const RootStackOrig = StackNavigator(
-//   {
-//     Groups: {
-//       screen: GroupsPage
-//     },
-//     Users: {
-//       screen: UsersPage
-//     },
-//     SignUp: {
-//       screen: SignUpPage
-//     },
-//     SignIn: {
-//       screen: SignInPage
-//     }
-//   },
-//   {
-//     initialRouteName: LANDING
-//   }
-// )
-
 const LANDING = 'Auth'
 
 import AuthNavigation from './navigator/authNavigator';
