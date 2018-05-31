@@ -52,56 +52,29 @@ class UsersPage extends Component {
   } 
 }
 
-// // Components for SignUp Page
-// import SignUpHeader from './signUp/signUpHeader';
-// import SignUpBody from './signUp/signUpBody';
-
-// class SignUpPage extends Component {
-//   static navigationOptions = ({ navigation }) => {
-//     return {
-//       headerTitle: <SignUpHeader/>
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <SignUpBody navigateAction={this.props.navigation.navigate}/>
-//     )
-//   } 
-// }
-
-// // Components for SignIn Page
-// import SignInHeader from './signIn/signInHeader';
-// import SignInBody from './signIn/signInBody';
-
-// class SignInPage extends Component {
-//   static navigationOptions = ({ navigation }) => {
-//     return {
-//       headerTitle: <SignInHeader/>
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <SignInBody navigateAction={this.props.navigation.navigate}/>
-//     )
-//   } 
-// }
-
 // navigation
 const LANDING = 'Auth'
 
 import AuthNavigation from './navigator/authNavigator';
+import AuthHeader from './navigator/authHeader';
+
+class Authentication extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: AuthHeader
+    }
+  }
+
+  render() {
+    return (
+      <AuthNavigation {...this.props}/>
+    )
+  } 
+}
 
 const RootStack = StackNavigator(
   {
-    Auth: {
-      screen: (props) => {
-        return (
-          <AuthNavigation {...props}/>
-        )
-      }
-    }
+    Auth: Authentication
   },
   {
     initialRouteName: LANDING

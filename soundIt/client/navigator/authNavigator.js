@@ -12,38 +12,17 @@ import SignInPage from '../signIn/signInPage';
 // Navigation
 const LANDING = 'SignUp'
 
-// test
-// class TestSignUp extends Component {
-//   static navigationOptions = ({ navigation }) => {
-//     return {
-//       headerTitle: <Text> Hey </Text>
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <Text> Hey </Text>
-//     )
-//   } 
-// }
-
-
 const AuthStack = StackNavigator(
   {
     SignUp: {
       screen: (props) => {
-        console.log('============= auth stack ==============')
-        console.log(props)
         return (
           <SignUpPage {...props}/>
         )
       }
     },
-    // SignUp: TestSignUp,
     SignIn: {
       screen: (props) => {
-        console.log('============= auth stack ==============')
-        console.log(props)
         return (
           <SignInPage {...props}/>
         )
@@ -73,6 +52,7 @@ export default AuthNavigation
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    // flex: 1
+    height: '100%'
   }
 });

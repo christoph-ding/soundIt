@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 // Components for SignIn Page
-import SignInHeader from './signInHeader';
 import SignInBody from './signInBody';
 
 class SignInPage extends Component {
