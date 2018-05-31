@@ -89,7 +89,7 @@ class SignInPage extends Component {
 }
 
 // navigation
-const LANDING = 'SignUp'
+
 
 // const RootStackOrig = StackNavigator(
 //   {
@@ -111,11 +111,13 @@ const LANDING = 'SignUp'
 //   }
 // )
 
+const LANDING = 'Auth'
+
 import AuthNavigation from './navigator/authNavigator';
 
 const RootStack = StackNavigator(
   {
-    SignUp: {
+    Auth: {
       screen: (props) => {
         return (
           <AuthNavigation {...props}/>

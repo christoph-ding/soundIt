@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 
 class SignUpPage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-    }
+  constructor(props) {
+    super(props)
   }
 
   render() {
+    // console.log('======================')
+    // console.log(this.props)
     return (
       <Text> Hey </Text> 
     )
@@ -25,7 +26,15 @@ const LANDING = 'SignUp'
 
 const AuthStack = StackNavigator(
   {
-    SignUp: SignUpPage
+    SignUp: {
+      screen: (props) => {
+        console.log('============= auth stack ==============')
+        console.log(props)
+        return (
+          <SignUpPage/>
+        )
+      }
+    }
   },
   {
     initialRouteName: LANDING
@@ -38,11 +47,9 @@ class AuthNavigation extends Component {
   }
 
   render() {
-    console.log('=====================')
-    console.log(this.props)
     return (
       <View style={styles.container}>
-        <AuthStack props={this.props}/>
+        <AuthStack screenProps={this.props.screenProps}/>
       </View>
     )
   }
