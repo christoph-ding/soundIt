@@ -6,20 +6,25 @@ import {
   StyleSheet
 } from 'react-native';
 
-class SignUpPage extends Component {
-  constructor(props) {
-    super(props)
-  }
+// Components for SignUp Page
+// import SignUpHeader from '../signUp/signUpHeader';
+// import SignUpBody from '../signUp/signUpBody';
 
-  render() {
-    // console.log('======================')
-    // console.log(this.props)
-    return (
-      <Text> Hey </Text> 
-    )
-  } 
-}
+// class SignUpPage extends Component {
+//   static navigationOptions = ({ navigation }) => {
+//     return {
+//       headerTitle: <SignUpHeader/>
+//     }
+//   }
 
+//   render() {
+//     return (
+//       <SignUpBody navigateAction={this.props.navigation.navigate}/>
+//     )
+//   } 
+// }
+
+import SignUpPage from '../signUp/signUpPage';
 
 // Navigation
 const LANDING = 'SignUp'
@@ -31,7 +36,7 @@ const AuthStack = StackNavigator(
         console.log('============= auth stack ==============')
         console.log(props)
         return (
-          <SignUpPage/>
+          <SignUpPage {...props}/>
         )
       }
     }
