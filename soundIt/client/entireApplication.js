@@ -73,7 +73,7 @@ class Authentication extends Component {
   } 
 }
 
-// import FeaturesNavigation from './navigator/featuresNavigator'
+import FeaturesNavigation from './navigator/featuresNavigator'
 import FeaturesHeader from './navigator/featuresHeader'
 
 class Features extends Component {
@@ -85,7 +85,7 @@ class Features extends Component {
 
   render() {
     return (
-      <Text> Hey </Text>
+      <FeaturesNavigation {...this.props}/>
     )
   } 
 
