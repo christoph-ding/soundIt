@@ -15,23 +15,21 @@ const LANDING = 'SignUp'
 const AuthStack = StackNavigator(
   {
     SignUp: {
-      screen: (props) => {
-        return (
-          <SignUpPage {...props}/>
-        )
-      }
+      screen: SignUpPage
     },
     SignIn: {
-      screen: (props) => {
-        return (
-          <SignInPage {...props}/>
-        )
-      }
+      screen: SignInPage
     }
   },
   {
     initialRouteName: LANDING
+  },
+  {
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
   }
+ }
 )
 
 class AuthNavigation extends Component {
@@ -52,7 +50,7 @@ export default AuthNavigation
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1
-    height: '100%'
+    flex: 1
+    // height: '100%'
   }
 });
