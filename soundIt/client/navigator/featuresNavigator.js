@@ -1,3 +1,8 @@
+import React, { Component } from 'react';
+import { 
+  View,
+  StyleSheet 
+} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 // Groups
@@ -31,8 +36,6 @@ class FeaturesNavigation extends Component {
   }
 
   render() {
-    console.log('=========================')
-    console.log(this.props)
     return (
       <View style={styles.container}>
         <FeaturesStack screenProps={this.props.screenProps}/>
