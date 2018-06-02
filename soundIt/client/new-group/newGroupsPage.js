@@ -10,6 +10,13 @@ const testFriends = ['Friend One',
 class UsersPage extends Component {
   static navigationOptions = {
     header: null
+    this.state = {
+      users: []
+    }
+  }
+
+  constructor(props) {
+    super(props)
   }
 
   componentWillMount() {
@@ -19,11 +26,16 @@ class UsersPage extends Component {
   // we will fetch data when we come to this page
   fetchUsers = () => {
     console.log('getting data ...')
+    this.state.setState({users: testFriends})
   }
 
   render() {
+    console.log(this.state)
     return (
-      <UsersBody navigateAction={this.props.navigation.navigate}/>
+      <UsersBody 
+        navigateAction={this.props.navigation.navigate}
+        users={this.state.users}
+      />
     )
   } 
 }
