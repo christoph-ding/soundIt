@@ -43,8 +43,14 @@ class NewGroupPage extends Component {
     })
   }
 
-  submitNewGroup = () => {
+  handleSubmitNewGroup = () => {
+    console.log('handling submitting new group with: ')
+    this.submitNewGroup()
+  }
 
+  // should only work if there are users selected, and a name
+  submitNewGroup = () => {
+    console.log('submitting')
   }
 
   render() {
@@ -54,7 +60,7 @@ class NewGroupPage extends Component {
       <View style={STYLES.pageContainer}>
         <NewGroupForm
          handleInputChange={this.handleInputChange}
-         submitNewGroup={this.submitNewGroup}
+         submitNewGroup={this.handleSubmitNewGroup}
         />
       </View>
     )    
