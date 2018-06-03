@@ -11,13 +11,13 @@ class NewGroupForm extends Component {
   }
 
   render() {
-    const {handleChange, submitNewGroup} = this.props
+    const {handleInputChange, submitNewGroup} = this.props
 
     return (
       <View style={STYLES.newGroupForm}>
-        <GroupName handleChange={handleChange}/>
+        <GroupName handleInputChange={handleInputChange}/>
         <CreateButton submitNewGroup={submitNewGroup}/>
-      <View/>      
+      </View>      
     )
   }
 }

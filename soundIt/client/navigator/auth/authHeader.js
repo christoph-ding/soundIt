@@ -4,7 +4,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import Banner from '../ui/banner';
+import Banner from '../../ui/banner';
 
 class AuthHeader extends Component {
   render() {

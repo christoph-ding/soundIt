@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
-import STYLES from '../new-group-styles'
+import STYLES from './new-group-styles'
 import NewGroupForm from './form/createNewGroup'
 
 class NewGroupPage extends Component {
@@ -25,10 +25,10 @@ class NewGroupPage extends Component {
                      'Friend Two',
                      'Friend Three']
 
-    this.state.setState({users: testFriends})
+    this.setState({users: testFriends})
   }
 
-  handleChange = () => {
+  handleInputChange = () => {
 
   }
 
@@ -38,16 +38,16 @@ class NewGroupPage extends Component {
 
   render() {
     console.log(this.state)
-
     return (
       <View style={STYLES.pageContainer}>
         <NewGroupForm
-         handleChange={this.handleChange}
+         handleInputChange={this.handleInputChange}
          submitNewGroup={this.submitNewGroup}
         />
-      <View/>
-    )
+      </View>
+    )    
   }
+  
 }
 
 export default NewGroupPage;
