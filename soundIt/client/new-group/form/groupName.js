@@ -15,7 +15,7 @@ class GroupName extends Component {
     const {handleInputChange} = this.props
 
     return (
-      <View style={style.container}>
+      <View style={STYLES.container}>
         <FormLabel> Create New Group </FormLabel>
         <FormInput
           style={STYLES.newGroupInput}

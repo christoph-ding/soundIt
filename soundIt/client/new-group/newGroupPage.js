@@ -13,7 +13,8 @@ class NewGroupPage extends Component {
     super(props)
     this.state = {
       users: [],
-      newGroupName: '' 
+      newGroupName: '',
+      selectedUsers: []
     }
   }
 
@@ -26,14 +27,20 @@ class NewGroupPage extends Component {
     console.log('getting data ...')
 
     const testFriends = ['Friend One',
-                     'Friend Two',
-                     'Friend Three']
+                         'Friend Two',
+                         'Friend Three']
 
     this.setState({users: testFriends})
   }
 
-  handleInputChange = () => {
-
+  handleInputChange = (key, value) => {
+    console.log('handling input change ... ')
+    const newState = {}
+    newState[key] = value
+    // this.setState(newState)
+    this.setState(newState, () => {
+      console.log(this.state)
+    })
   }
 
   submitNewGroup = () => {
