@@ -6,8 +6,8 @@ import {
   StyleSheet
 } from 'react-native';
 
-import SignUpPage from '../signUp/signUpPage';
-import SignInPage from '../signIn/signInPage';
+import SignUpPage from '../../signUp/signUpPage';
+import SignInPage from '../../signIn/signInPage';
 
 // Navigation
 const LANDING = 'SignUp'
@@ -39,7 +39,7 @@ class AuthNavigation extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.navigatorContainer}>
         <AuthStack screenProps={this.props.screenProps}/>
       </View>
     )
@@ -47,10 +47,3 @@ class AuthNavigation extends Component {
 }
 
 export default AuthNavigation
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-    // height: '100%'
-  }
-});

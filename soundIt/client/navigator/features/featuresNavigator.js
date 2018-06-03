@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
-import { 
-  View,
-  StyleSheet 
-} from 'react-native';
+import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+import STYLES from '../navigator-styles'
 
 // Groups
 
-// Users
-import UsersPage from '../users/usersPage';
+// NewGroupPage
+import NewGroupPage from '../../new-group/newGroupPage';
 
 // navigation
-const LANDING = 'Users'
+const LANDING = 'newGroup'
 
 const FeaturesStack = StackNavigator(
   {
-    Users: {
-      screen: UsersPage
+    'newGroup': {
+      screen: NewGroupPage
     }
   },
   {
@@ -37,7 +36,7 @@ class FeaturesNavigation extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={STYLES.navigatorContainer}>
         <FeaturesStack screenProps={this.props.screenProps}/>
       </View>
     )
@@ -45,10 +44,3 @@ class FeaturesNavigation extends Component {
 }
 
 export default FeaturesNavigation
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-    // height: '100%'
-  }
-});
