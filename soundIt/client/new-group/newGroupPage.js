@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 import STYLES from './new-group-styles'
-import NewGroupForm from './form/createNewGroup'
+import NewGroupForm from './form/newGroupForm'
 
 class NewGroupPage extends Component {
   static navigationOptions = {
       header: null
   }
-  
+
   constructor(props) {
     super(props)
     this.state = {
