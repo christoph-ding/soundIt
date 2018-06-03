@@ -6,7 +6,7 @@ const STYLES = StyleSheet.create({
     backgroundColor: 'powderblue'
   },
   newGroupForm: {
-    flex: 0.4,
+    flex: 0.2,
     backgroundColor: 'aliceblue'
   },
   newGroupInput: {
@@ -14,7 +14,11 @@ const STYLES = StyleSheet.create({
     // backgroundColor: 'blue'
   },
   newGroupInputLabel: {},
-  button: {}
+  button: {},
+  usersBody: {
+    flex: 0.8,
+    backgroundColor: 'skyblue'
+  }
 });
 
 export default STYLES

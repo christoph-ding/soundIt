@@ -7,6 +7,9 @@ import {
 import SingleUser from './singleUser'
 
 class UsersList extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   renderUsers = (users) => {
     let navigateAction = this.props.navigateAction
@@ -20,7 +23,7 @@ class UsersList extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         {this.renderUsers(this.props.users)}
       </View>
     )
@@ -28,13 +31,3 @@ class UsersList extends Component {
 }
 
 export default UsersList
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  }
-});

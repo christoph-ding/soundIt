@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { ListItem } from 'react-native-elements'
 import {
   Text,
   View,
   StyleSheet
 } from 'react-native';
+
+import STYLES from '../../new-group-styles'
 
 class SingleUser extends Component {
   
@@ -11,13 +14,22 @@ class SingleUser extends Component {
     this.props.navigateAction('Conversation', this.props.item)
   }
 
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <Text style={styles.item} onPress={this.handleClick}> 
+  //         {this.props.user}
+  //       </Text>
+  //     </View>
+  //   )
+  // }
+
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.item} onPress={this.handleClick}> 
-          {this.props.user}
-        </Text>
-      </View>
+      <ListItem
+        title="yo"
+      />
     )
   }
 }

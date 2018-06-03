@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 
 import STYLES from './new-group-styles'
 import NewGroupForm from './form/newGroupForm'
+import UsersBody from './users/usersBody'
 
 class NewGroupPage extends Component {
   static navigationOptions = {
@@ -61,6 +62,9 @@ class NewGroupPage extends Component {
         <NewGroupForm
          handleInputChange={this.handleInputChange}
          submitNewGroup={this.handleSubmitNewGroup}
+        />
+        <UsersBody
+         users={this.state.users}          
         />
       </View>
     )    

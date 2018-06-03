@@ -5,41 +5,24 @@ import {
   Text
 } from 'react-native';
 
-import UsersList from './usersList';
-import NewGroup from '../groups/newGroup';
-
-// class UsersBody extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <NewGroup />
-//         <UsersList 
-//          users={this.props.data}
-//          navigateAction={this.props.navigateAction}
-//         />
-//       </View>
-//     )
-//   }
-// }
+import STYLES from '../new-group-styles'
+import UsersList from './users-list/usersList';
 
 class UsersBody extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
+
     return (
-      <View style={styles.container}>
-        <Text> Hey </Text>
+      <View style={STYLES.usersBody}>
+        <UsersList 
+          {...this.props}
+        />
       </View>
     )
   }
 }
 
 export default UsersBody
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    backgroundColor: 'blue',
-  }
-});
