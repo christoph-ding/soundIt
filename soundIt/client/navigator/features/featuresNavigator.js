@@ -20,13 +20,7 @@ const FeaturesStack = StackNavigator(
   },
   {
     initialRouteName: LANDING
-  },
-  {
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
   }
- }
 )
 
 class FeaturesNavigation extends Component {
@@ -36,9 +30,7 @@ class FeaturesNavigation extends Component {
 
   render() {
     return (
-      <View style={STYLES.navigatorContainer}>
-        <FeaturesStack screenProps={this.props.screenProps}/>
-      </View>
+      <FeaturesStack screenProps={this.props.screenProps}/>
     )
   }
 }

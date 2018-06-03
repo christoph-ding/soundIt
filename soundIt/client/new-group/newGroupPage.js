@@ -5,6 +5,10 @@ import STYLES from './new-group-styles'
 import NewGroupForm from './form/createNewGroup'
 
 class NewGroupPage extends Component {
+  static navigationOptions = {
+      header: null
+  }
+  
   constructor(props) {
     super(props)
     this.state = {
@@ -37,6 +41,7 @@ class NewGroupPage extends Component {
   }
 
   render() {
+    console.log('==========================')
     console.log(this.state)
     return (
       <View style={STYLES.pageContainer}>

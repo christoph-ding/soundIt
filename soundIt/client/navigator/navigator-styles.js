@@ -1,10 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 const STYLES = StyleSheet.create({
-  header: {},
-  navigatorContainer: {
-    // flex: 1
-  }
+  header: {}
 });
 
 export default STYLES
