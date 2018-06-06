@@ -16,8 +16,12 @@ class SingleUser extends Component {
     }
   }
 
-  toggleColor = () => {
-    console.log(this.state)
+  handleClick = () => {
+    this.
+    this.toggleSelect()
+  }
+
+  toggleSelect = () => {
     this.setState({selected: !(this.state.selected)})
   }
 
@@ -35,7 +39,7 @@ class SingleUser extends Component {
           }
         }
         hideChevron
-        onPress={this.toggleColor}
+        onPress={this.toggleSelect}
       />
     )
   }

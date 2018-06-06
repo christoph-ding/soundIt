@@ -15,7 +15,9 @@ class NewGroupPage extends Component {
     this.state = {
       users: [],
       newGroupName: '',
-      selectedUsers: []
+      selectedUsers: {
+
+      }
     }
   }
 
@@ -27,21 +29,26 @@ class NewGroupPage extends Component {
   fetchUsers = () => {
     console.log('getting data ...')
 
-    const testFriends = ['Friend One',
-                         'Friend Two',
-                         'Friend Three']
+    const testFriends = [
+      {
+        name: 'Amy Farha',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        subtitle: 'Vice President'
+      },
+      {
+        name: 'Chris Jackson',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+        subtitle: 'Vice Chairman'
+      }      
+    ]
 
     this.setState({users: testFriends})
   }
 
   handleInputChange = (key, value) => {
-    console.log('handling input change ... ')
     const newState = {}
     newState[key] = value
-    // this.setState(newState)
-    this.setState(newState, () => {
-      console.log(this.state)
-    })
+    this.setState(newState)
   }
 
   handleSubmitNewGroup = () => {
@@ -54,6 +61,18 @@ class NewGroupPage extends Component {
     console.log('submitting')
   }
 
+  selectUser = (user) => {
+    let userCopy = Object.assign({}, this.state.selectedUsers)
+
+    if (this.state.selectedUsers.hasOwnProperty(user)) {
+      userCopy.user = !(userCopy.user)
+    } else {
+      userCopy.user = true
+    }
+
+    console.log(userCopy)
+  }
+
   render() {
     console.log('==========================')
     console.log(this.state)
@@ -64,7 +83,8 @@ class NewGroupPage extends Component {
          submitNewGroup={this.handleSubmitNewGroup}
         />
         <UsersBody
-         users={this.state.users}          
+         users={this.state.users}
+         selectUser={this.selectUser}
         />
       </View>
     )    

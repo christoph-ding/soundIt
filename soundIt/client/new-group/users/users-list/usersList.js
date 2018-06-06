@@ -12,11 +12,11 @@ class UsersList extends Component {
   }
 
   renderUsers = (users) => {
-    let navigateAction = this.props.navigateAction
-    return (users.map((user) => {
+    // console.log(this.props)
+    return (users.map((user, i) => {
       return (<SingleUser
+              key={i}
               user={user}
-              navigateAction={navigateAction}
              />)
     }))
   }
