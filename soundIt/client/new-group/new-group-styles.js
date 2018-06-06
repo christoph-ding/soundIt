@@ -18,6 +18,9 @@ const STYLES = StyleSheet.create({
   usersBody: {
     flex: 0.8
     // backgroundColor: 'skyblue'
+  },
+  listItem: {
+    backgroundColor: 'blue'
   }
 });
 

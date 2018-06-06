@@ -9,33 +9,36 @@ import {
 import STYLES from '../../new-group-styles'
 
 class SingleUser extends Component {
-  
-  handleClick = () => {
-    this.props.navigateAction('Conversation', this.props.item)
+  constructor(props) {
+    super(props)
+    this.state = {
+      selected: false
+    }
+  }
+
+  toggleColor = () => {
+    console.log(this.state)
+    this.setState({selected: !(this.state.selected)})
+  }
+
+  test = () => {
+    console.log(this.state)
   }
 
   render() {
     return (
       <ListItem
         title="yo"
+        containerStyle={
+          {
+            backgroundColor: this.state.selected ? "blue" : "transparent"
+          }
+        }
         hideChevron
+        onPress={this.toggleColor}
       />
     )
   }
 }
 
 export default SingleUser
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  },
-  item: {
-    fontSize: 13,
-    textAlign: 'center'
-  }
-});
