@@ -3,11 +3,11 @@ import { StyleSheet } from 'react-native'
 const STYLES = StyleSheet.create({
   pageContainer: {
     flex: 1,
-    backgroundColor: 'powderblue'
+    // backgroundColor: 'powderblue'
   },
   newGroupForm: {
     flex: 0.2,
-    backgroundColor: 'aliceblue'
+    // backgroundColor: 'aliceblue'
   },
   newGroupInput: {
     // flex: 1,
@@ -16,8 +16,8 @@ const STYLES = StyleSheet.create({
   newGroupInputLabel: {},
   button: {},
   usersBody: {
-    flex: 0.8,
-    backgroundColor: 'skyblue'
+    flex: 0.8
+    // backgroundColor: 'skyblue'
   }
 });
 
