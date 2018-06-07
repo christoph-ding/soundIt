@@ -13,15 +13,18 @@ class UsersList extends Component {
 
   renderUsers = (users) => {
     // console.log(this.props)
+    let action = this.props.selectUser
     return (users.map((user, i) => {
       return (<SingleUser
               key={i}
               user={user}
+              selectUser={action}
              />)
     }))
   }
 
   render() {
+    console.log('+++ rendering user list +++')
     return (
       <View>
         {this.renderUsers(this.props.users)}

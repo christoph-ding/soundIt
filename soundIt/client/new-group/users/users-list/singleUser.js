@@ -17,16 +17,10 @@ class SingleUser extends Component {
   }
 
   handleClick = () => {
-    this.
-    this.toggleSelect()
-  }
-
-  toggleSelect = () => {
-    this.setState({selected: !(this.state.selected)})
-  }
-
-  test = () => {
-    console.log(this.state)
+    this.setState(
+      {selected: !(this.state.selected)}, 
+      () => {this.props.selectUser('test')}
+    )
   }
 
   render() {
@@ -39,7 +33,7 @@ class SingleUser extends Component {
           }
         }
         hideChevron
-        onPress={this.toggleSelect}
+        onPress={this.handleClick}
       />
     )
   }

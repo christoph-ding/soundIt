@@ -16,7 +16,6 @@ class NewGroupPage extends Component {
       users: [],
       newGroupName: '',
       selectedUsers: {
-
       }
     }
   }
@@ -64,17 +63,17 @@ class NewGroupPage extends Component {
   selectUser = (user) => {
     let userCopy = Object.assign({}, this.state.selectedUsers)
 
-    if (this.state.selectedUsers.hasOwnProperty(user)) {
-      userCopy.user = !(userCopy.user)
+    if (userCopy.hasOwnProperty(user)) {
+      userCopy[user] = !(userCopy[user])
     } else {
-      userCopy.user = true
+      userCopy[user] = true
     }
 
-    console.log(userCopy)
+    this.setState({selectedUsers: userCopy})
   }
 
   render() {
-    console.log('==========================')
+    console.log('===== new group page render =====')
     console.log(this.state)
     return (
       <View style={STYLES.pageContainer}>

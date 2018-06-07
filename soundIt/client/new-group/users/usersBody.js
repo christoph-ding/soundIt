@@ -13,8 +13,12 @@ class UsersBody extends Component {
     super(props)
   }
 
-  render() {
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.users === nextProps.users ? false : true
+  }
 
+  render() {
+    console.log('===== user body =====')
     return (
       <View style={STYLES.usersBody}>
         <UsersList 
