@@ -15,8 +15,7 @@ class NewGroupPage extends Component {
     this.state = {
       users: [],
       newGroupName: '',
-      selectedUsers: {
-      }
+      selectedUsers: {}
     }
   }
 

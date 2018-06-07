@@ -24,9 +24,10 @@ class SingleUser extends Component {
   }
 
   render() {
+    const {user} = this.props
     return (
       <ListItem
-        title="yo"
+        title={user.name}
         containerStyle={
           {
             backgroundColor: this.state.selected ? "blue" : "transparent"
