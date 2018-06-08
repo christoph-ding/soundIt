@@ -19,7 +19,7 @@ class SingleUser extends Component {
   handleClick = () => {
     this.setState(
       {selected: !(this.state.selected)}, 
-      () => {this.props.selectUser(this.props.user)}
+      () => {this.props.selectUser(this.props.user.name)}
     )
   }
 
