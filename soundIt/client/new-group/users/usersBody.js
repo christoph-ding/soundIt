@@ -18,7 +18,6 @@ class UsersBody extends Component {
   }
 
   render() {
-    console.log('===== user body =====')
     return (
       <View style={STYLES.usersBody}>
         <UsersList 

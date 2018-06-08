@@ -10,6 +10,10 @@ class NewGroupForm extends Component {
     super(props)
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.submitNewGroup === nextProps.submitNewGroup ? false : true
+  }
+
   render() {
     const {handleInputChange, submitNewGroup} = this.props
 

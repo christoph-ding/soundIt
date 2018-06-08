@@ -55,21 +55,17 @@ class NewGroupPage extends Component {
   }
 
   handleSubmitNewGroup = () => {
-    console.log('handling submitting new group with: ')
-
     // we should only submit if it is valid
     let selectedUsers = Object.values(this.state.selectedUsers)
     let anySelected = Boolean(selectedUsers.some( (value)=> { return value }) && 
                       selectedUsers.length)
     let isReadyToSubmit = Boolean(this.state.newGroupName.length &&
                                   anySelected)    
-    console.log('isReadyToSubmit: ', isReadyToSubmit)
 
     if (isReadyToSubmit) {
       this.submitNewGroup()
     }
   }
-
 
   // should only work if there are users selected, and a name
   submitNewGroup = () => {
@@ -79,22 +75,16 @@ class NewGroupPage extends Component {
   selectUser = (user) => {
     let userCopy = Object.assign({}, this.state.selectedUsers)
 
-    console.log(user)
-
     if (userCopy.hasOwnProperty(user)) {
       userCopy[user] = !(userCopy[user])
     } else {
       userCopy[user] = true
     }
 
-    console.log('select user')
-    console.log(userCopy)
     this.setState({selectedUsers: userCopy})
   }
 
   render() {
-    console.log('===== new group page render =====')
-    console.log(this.state.selectedUsers)
     return (
       <View style={STYLES.pageContainer}>
         <NewGroupForm
@@ -108,7 +98,6 @@ class NewGroupPage extends Component {
       </View>
     )    
   }
-  
 }
 
 export default NewGroupPage;
