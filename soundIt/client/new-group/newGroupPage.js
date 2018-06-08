@@ -37,7 +37,12 @@ class NewGroupPage extends Component {
         name: 'Chris Jackson',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: 'Vice Chairman'
-      }      
+      },
+      {
+        name: 'Some guy',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+        subtitle: 'Vice Chairman'
+      }       
     ]
 
     this.setState({users: testFriends})
@@ -51,7 +56,15 @@ class NewGroupPage extends Component {
 
   handleSubmitNewGroup = () => {
     console.log('handling submitting new group with: ')
-    this.submitNewGroup()
+    console.log(this.state)
+    // we should only submit if it is valid
+    let isReadyToSubmit = Boolean(Object.keys(this.state.selectedUsers).length &&
+                          this.state.newGroupName.length)
+
+    console.log(isReadyToSubmit)
+
+
+    // this.submitNewGroup()
   }
 
   // should only work if there are users selected, and a name
