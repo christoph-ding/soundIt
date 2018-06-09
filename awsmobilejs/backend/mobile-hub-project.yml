@@ -4,37 +4,25 @@ apps:
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
-      SoundIt: !com.amazonaws.mobilehub.v0.API 
+      GroupsCRUD: !com.amazonaws.mobilehub.v0.API 
         attributes:
-          disable-aws-auth: false
-          name: SoundIt
-          requires-signin: false
-          sdk-generation-stage-name: Development
+          name: GroupsCRUD
+          requires-signin: true
         paths:
-          /items: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/itemsHandler-20180609164153.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
-            environment: {}
-            handler: index.handler
-            hashcode: OWIH0CXUox7/YWXmWNAEhmPSuZ28S3Jv38m82TfJhyU=
-            memorySize: '128'
-            modified: '2018-06-09T20:42:39.883+0000'
-            name: itemsHandler
+          /Groups: !com.amazonaws.mobilehub.v0.Function 
+            name: Groups
+            codeFilename: uploads/Groups.zip
+            handler: lambda.handler
+            enableCORS: true
             runtime: nodejs6.10
-            timeout: '3'
-            version: 6QJqaSIOfC2GGTLI98gf37SywO1oPIM4
-          '/items/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/itemsHandler-20180609164153.zip
-            description: 'Handler for calls to resource path : /items/{proxy+}'
             environment: {}
-            handler: index.handler
-            hashcode: OWIH0CXUox7/YWXmWNAEhmPSuZ28S3Jv38m82TfJhyU=
-            memorySize: '128'
-            modified: '2018-06-09T20:42:39.883+0000'
-            name: itemsHandler
+          '/Groups/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            name: Groups
+            codeFilename: uploads/Groups.zip
+            handler: lambda.handler
+            enableCORS: true
             runtime: nodejs6.10
-            timeout: '3'
-            version: rq9h8gKM3P5F5GjI70eTcL3IibreTth2
+            environment: {}
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
