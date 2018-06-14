@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { API } from 'aws-amplify';
+const uuidv1 = require('uuid/v1');
 
 import STYLES from './new-group-styles'
 import NewGroupForm from './form/newGroupForm'
@@ -23,9 +25,13 @@ class NewGroupPage extends Component {
     this.fetchUsers()
   }
 
+
   // we will fetch data when we come to this page
   fetchUsers = () => {
     console.log('getting data ...')
+
+    const apiName = 'SoundIt'
+    const endPoint = '/users'
 
     const testFriends = [
       {
@@ -70,7 +76,23 @@ class NewGroupPage extends Component {
   // should only work if there are users selected, and a name
   submitNewGroup = () => {
     console.log('submitting')
-  }
+
+    const apiName = 'SoundIt'
+    const endPoint = '/Groups'
+
+    let newGroup = {
+      body: {
+          ID: uuidv1(),
+          name: this.state.itemName          
+        }
+      }
+    }
+
+    // API.post(apiName, path, newItem).then(response => {
+    // console.log(response)
+    // }).catch(error => {
+    //     console.log(error.response)
+    // });
 
   selectUser = (user) => {
     let userCopy = Object.assign({}, this.state.selectedUsers)
@@ -96,7 +118,7 @@ class NewGroupPage extends Component {
          selectUser={this.selectUser}
         />
       </View>
-    )    
+    )
   }
 }
 

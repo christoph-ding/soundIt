@@ -6,6 +6,7 @@ import {
   StyleSheet
 } from 'react-native';
 
+import STYLES from '../navigator-styles'
 import SignUpPage from '../../signUp/signUpPage';
 import SignInPage from '../../signIn/signInPage';
 
@@ -39,7 +40,7 @@ class AuthNavigation extends Component {
 
   render() {
     return (
-      <View style={styles.navigatorContainer}>
+      <View style={STYLES.navigatorContainer}>
         <AuthStack screenProps={this.props.screenProps}/>
       </View>
     )

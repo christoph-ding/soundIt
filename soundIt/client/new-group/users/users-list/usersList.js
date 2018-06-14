@@ -24,7 +24,6 @@ class UsersList extends Component {
   }
 
   render() {
-    console.log('+++ rendering user list +++')
     return (
       <View>
         {this.renderUsers(this.props.users)}
