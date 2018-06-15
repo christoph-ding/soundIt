@@ -11,6 +11,7 @@ import { FormLabel,
 } from 'react-native-elements';
 import { Auth } from 'aws-amplify';
 
+import STYLES from './signIn-styles';
 
 class SignInForm extends Component {
 
@@ -51,9 +52,8 @@ class SignInForm extends Component {
   }
 
   render() {
-    const style = this.props.style
     return (
-      <View style={style.container}>
+      <View style={STYLES.form}>
         <FormLabel>Email</FormLabel>
         <FormInput
           onChangeText={this.handleInputChange.bind(null, "email")}

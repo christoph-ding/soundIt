@@ -5,7 +5,7 @@ import SignUpBody from './signUpBody';
 
 class SignUpPage extends Component {
   static navigationOptions = {
-        header: null
+    header: null
   }
   
   render() {

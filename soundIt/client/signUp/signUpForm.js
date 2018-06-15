@@ -11,6 +11,7 @@ import { FormLabel,
 } from 'react-native-elements';
 import { Auth } from 'aws-amplify';
 
+import STYLES from './signUp-styles';
 
 class SignUpForm extends Component {
 
@@ -51,9 +52,8 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const style = this.props.style
     return (
-      <View style={style.container}>
+      <View style={STYLES.form}>
         <FormLabel>First and Last Name</FormLabel>
         <FormInput
           placeholder="Sign Up Using Email"

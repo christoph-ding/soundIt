@@ -5,46 +5,23 @@ import {
   Text
 } from 'react-native';
 
+import STYLES from './signIn-styles';
 import SignInForm from './signInForm';
 
 class SignInBody extends Component {
-
+  
   goToApplication = () => {
     this.props.navigateAction('Groups')
   }
 
   render() {
     return (
-      <View style={MAIN_STYLE.container}>
+      <View style={STYLES.body}>
         <SignInForm 
-          navigateAction={this.goToApplication}
-          style={FORM_STYLE}       
-        />
+          navigateAction={this.goToApplication}/>
       </View>
     )
   }
 }
 
 export default SignInBody
-
-// Styles
-
-const MAIN_STYLE = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    backgroundColor: 'powderblue'
-  }
-});
-
-const FORM_STYLE = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    // backgroundColor: 'blue',
-  }
-});

@@ -5,11 +5,12 @@ import {
   StyleSheet
 } from 'react-native';
 
+import STYLES from './signUp-styles';
+
 class SignUpWelcome extends Component {
-  render() {
-    const style = this.props.style
+  render() {    
     return (
-      <View style={style.container}>
+      <View style={STYLES.welcome}>
         <Text> Welcome! </Text>
         <Text> Create an account or sign in </Text>
       </View>

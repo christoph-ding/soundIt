@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 
 // Components for SignIn Page
 import SignInBody from './signInBody';
 
 class SignInPage extends Component {
   static navigationOptions = {
-        header: { visible:false }
+    header: null
   }
 
   render() {

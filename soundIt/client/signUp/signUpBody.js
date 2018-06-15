@@ -5,6 +5,7 @@ import {
   Button
 } from 'react-native';
 
+import STYLES from './signUp-styles';
 import SignUpWelcome from './signUpWelcome';
 import SignUpForm from './signUpForm';
 
@@ -16,11 +17,10 @@ class SignUpBody extends Component {
 
   render() {
     return (
-      <View style={MAIN_STYLE.container}>
-        <SignUpWelcome style={WELCOME_STYLE}/>
+      <View style={STYLES.body}>
+        <SignUpWelcome/>
         <SignUpForm 
-          style={FORM_STYLE}
-          navigateAction={this.goToSignIn}/>
+          navigateAction={this.props.navigateAction}/>
         <Button
           onPress={this.goToSignIn}
           title='Sign In'
@@ -31,34 +31,3 @@ class SignUpBody extends Component {
 }
 
 export default SignUpBody
-
-// Styles
-const MAIN_STYLE = StyleSheet.create({
-  container: {
-    flex: 1,  
-    width: '100%'    
-  }
-});
-
-const WELCOME_STYLE = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    // height: 60,
-    padding: 10,
-    // testing
-    backgroundColor: 'powderblue'
-  }
-});
-
-const FORM_STYLE = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    padding: 10,
-    // testing
-    backgroundColor: 'skyblue'
-  }
-});  

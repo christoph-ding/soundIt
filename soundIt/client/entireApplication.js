@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
 // navigation
-const LANDING = 'Features' // 'Auth'
+// const LANDING = 'Features'
+const LANDING = 'Auth'
 
 import AuthNavigation from './navigator/auth/authNavigator';
 import AuthHeader from './navigator/auth/authHeader';

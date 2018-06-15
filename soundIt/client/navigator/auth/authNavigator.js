@@ -1,10 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet
-} from 'react-native';
+import { View } from 'react-native';
+
 
 import STYLES from '../navigator-styles'
 import SignUpPage from '../../signUp/signUpPage';
