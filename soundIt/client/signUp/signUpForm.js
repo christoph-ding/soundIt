@@ -39,9 +39,9 @@ class SignUpForm extends Component {
   }
 
   async handleSignUp() {
-    const { email, password, phoneNumber } = this.state;
+    const { password, phoneNumber } = this.state;
 
-    await Auth.signUp(email, password, phoneNumber)
+    await Auth.signUp(password, phoneNumber)
       .then(data => {
         this.successfulSignUp()
       })
@@ -54,13 +54,9 @@ class SignUpForm extends Component {
   render() {
     return (
       <View style={STYLES.form}>
-        <FormLabel>First and Last Name</FormLabel>
-        <FormInput
-          placeholder="Sign Up Using Email"
-          onChangeText={this.handleInputChange.bind(null, "email")}
-        />
         <FormLabel>Phone Number</FormLabel>
         <FormInput
+          placeholder="Sign Up Using Your Phone Number"
           onChangeText={this.handleInputChange.bind(null, "phoneNumber")}
         />
         <FormLabel>Password</FormLabel>
