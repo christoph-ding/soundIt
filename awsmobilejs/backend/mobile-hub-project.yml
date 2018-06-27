@@ -2,22 +2,97 @@
 apps:
   react-native: !com.amazonaws.mobilehub.v0.AppDO {}
 features:
+  cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
+    components:
+      GroupsUsersCRUD: !com.amazonaws.mobilehub.v0.API 
+        attributes:
+          disable-aws-auth: false
+          name: GroupsUsersCRUD
+          requires-signin: false
+          sdk-generation-stage-name: Development
+        paths:
+          /users: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/usersHandler-20180624175101.zip
+            description: 'Handler for calls to resource path : /users/{proxy+}'
+            environment: {}
+            handler: index.handler
+            hashcode: OmzvGp9zkzHQO0s31FN4zgO21+fiGtKsVa/nFR9wM7w=
+            memorySize: '128'
+            modified: '2018-06-24T22:19:54.275+0000'
+            name: usersHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: A2U5VYkEr_oIXewCe.nZtlI4zGuerq5.
+          '/users/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/usersHandler-20180624175101.zip
+            description: 'Handler for calls to resource path : /users/{proxy+}'
+            environment: {}
+            handler: index.handler
+            hashcode: OmzvGp9zkzHQO0s31FN4zgO21+fiGtKsVa/nFR9wM7w=
+            memorySize: '128'
+            modified: '2018-06-24T22:19:54.275+0000'
+            name: usersHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: QULfiZxm6ed6.WppHYb.ehTuwoLFItbO
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
       visibility: public-global
     components:
       release: !com.amazonaws.mobilehub.v0.Bucket {}
+  database: !com.amazonaws.mobilehub.v0.Database 
+    components:
+      database-nosql: !com.amazonaws.mobilehub.v0.NoSQLDatabase 
+        tables:
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              Answered: BOOL
+              Most_Recent: S
+              Name: S
+              Number: S
+              Partition: S
+              Sort: S
+              UserID: S
+            hashKeyName: Partition
+            hashKeyType: S
+            rangeKeyName: Sort
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-GroupsUsers
+            tablePrivacy: public
+          - !com.amazonaws.mobilehub.v0.NoSQLTable 
+            attributes:
+              email: S
+              personId: S
+              personName: S
+              phone: S
+              teamId: S
+            hashKeyName: teamId
+            hashKeyType: S
+            indexes:
+              - !com.amazonaws.mobilehub.v0.NoSQLIndex 
+                hashKeyName: teamId
+                hashKeyType: S
+                indexName: personName-index
+                rangeKeyName: personName
+                rangeKeyType: S
+            rangeKeyName: personId
+            rangeKeyType: S
+            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
+            tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
       analytics: !com.amazonaws.mobilehub.v0.PinpointAnalytics {}
   sign-in: !com.amazonaws.mobilehub.v0.SignIn 
     attributes:
       enabled: true
-      optional-sign-in: false
+      optional-sign-in: true
     components:
       sign-in-user-pools: !com.amazonaws.mobilehub.v0.UserPoolsIdentityProvider 
         attributes:
+          alias-attributes:
+            - preferred_username
+            - phone_number
           mfa-configuration: OFF
           name: userpool
           password-policy: !com.amazonaws.mobilehub.ConvertibleMap 
@@ -27,6 +102,5 @@ features:
             require-symbols: true
             require-upper-case: true
           standard-attributes: '[]'
-          username-attributes: '["phone_number"]'
 name: SoundIt
 region: us-east-1
