@@ -9,7 +9,7 @@ import { FormLabel,
          FormInput, 
          FormValidationMessage 
 } from 'react-native-elements';
-import { Auth } from 'aws-amplify';
+import Amplify, { API, Auth } from 'aws-amplify';
 
 import STYLES from './signUp-styles';
 
@@ -19,9 +19,9 @@ class SignUpForm extends Component {
     super(props)
 
     this.state = {
-      email: '',
-      password: '',
       phoneNumber: '',
+      userName: '',
+      password: '',
       errorMessage: '',
     }
 
@@ -34,21 +34,39 @@ class SignUpForm extends Component {
     this.setState(newState)
   }
 
-  successfulSignUp = () => {
-    this.props.navigateAction()
-  }
+  // successfulSignUp = () => {
+  //   this.props.navigateAction()
+  //   console.log('hey')
+  // }
 
   async handleSignUp() {
-    const { password, phoneNumber } = this.state;
+    console.log('signing up ...')
 
-    await Auth.signUp(password, phoneNumber)
-      .then(data => {
-        this.successfulSignUp()
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ errorMessage: err.message });        
+    let { phoneNumber, userName, password } = this.state;
+    const apiName = 'GroupsUsersCRUD'
+    const path = '/users/'
+
+    console.log('phoneNumber: ', phoneNumber)
+    console.log('userName: ', userName)
+    console.log('password: ', password)
+
+    await Auth.signUp({
+      // phone number is E.164 +01234567890
+      username: '+' + phoneNumber, 
+      password: password
+    })
+    .then(() => {
+      console.log('creating a new user in DYNAMO DB...')
+      let newUser = {body: {user: userName}}
+      API.post(apiName, path, newUser).then(response => {
+        console.log('success:')
+        console.log(response)
       });
+    })
+    .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });
   }
 
   render() {
@@ -56,11 +74,17 @@ class SignUpForm extends Component {
       <View style={STYLES.form}>
         <FormLabel>Phone Number</FormLabel>
         <FormInput
-          placeholder="Sign Up Using Your Phone Number"
+          placeholder="01234567890"
           onChangeText={this.handleInputChange.bind(null, "phoneNumber")}
+        />
+        <FormLabel>Display Name</FormLabel>
+        <FormInput
+          placeholder="Name"
+          onChangeText={this.handleInputChange.bind(null, "userName")}
         />
         <FormLabel>Password</FormLabel>
         <FormInput
+          placeholder="At least 6 characters"
           onChangeText={this.handleInputChange.bind(null, "password")}
         />
         <Button

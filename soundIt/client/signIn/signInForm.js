@@ -19,7 +19,7 @@ class SignInForm extends Component {
     super(props)
 
     this.state = {
-      email: '',
+      phoneNumber: '',
       password: '',
       errorMessage: '',
     }
@@ -38,9 +38,9 @@ class SignInForm extends Component {
   }
 
   async handleSignIn() {
-    const { email, password } = this.state;
+    const { password, phoneNumber  } = this.state;
 
-    await Auth.signIn(email, password)
+    await Auth.signIn(password, phoneNumber )
       .then(data => {
         console.log(data)
         this.successfulSignIn()
@@ -54,9 +54,9 @@ class SignInForm extends Component {
   render() {
     return (
       <View style={STYLES.form}>
-        <FormLabel>Email</FormLabel>
+        <FormLabel>Phone Number</FormLabel>
         <FormInput
-          onChangeText={this.handleInputChange.bind(null, "email")}
+          onChangeText={this.handleInputChange.bind(null, "phoneNumber")}
         />
         <FormLabel>Password</FormLabel>
         <FormInput
