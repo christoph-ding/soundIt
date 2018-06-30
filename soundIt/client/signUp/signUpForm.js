@@ -52,12 +52,12 @@ class SignUpForm extends Component {
 
     await Auth.signUp({
       // phone number is E.164 +01234567890
-      username: '+' + phoneNumber, 
+      username: '+' + phoneNumber,
       password: password
     })
     .then(() => {
       console.log('creating a new user in DYNAMO DB...')
-      let newUser = {body: {user: userName}}
+      let newUser = {body: {name: userName}}
       API.post(apiName, path, newUser).then(response => {
         console.log('success:')
         console.log(response)

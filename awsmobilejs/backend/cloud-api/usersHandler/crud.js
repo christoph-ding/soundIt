@@ -4,16 +4,22 @@ const uuid = require('uuid')
 
 exports.makeNewUser = function(event, context, callback) {
     
-    console.log('=====================================')
-    console.log('making a new user')
+    console.log('============== CRUD ===============')
+    console.log('making a new user:')
+    console.log('event:')
+    console.log(event)
     
     var params = {
         Item: {
             "Partition": uuid.v1(),
-            "Sort": "Test"
+            "Sort": uuid.v1(),
+            "Name": "Test2",
         },
         TableName : process.env.TABLE_NAME
     }
+    
+    console.log('params:')
+    console.log(params)
     
     ddb.put(params, function(err, data) {
         if (err) {
