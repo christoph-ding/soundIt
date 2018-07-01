@@ -8,7 +8,8 @@ const STYLES = StyleSheet.create({
   welcome: {
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  form: {}
 });
 
 export default STYLES

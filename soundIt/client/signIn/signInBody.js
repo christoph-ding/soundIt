@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
-  StyleSheet,
-  Text
+  Button
 } from 'react-native';
 
 import STYLES from './signIn-styles';
@@ -14,13 +13,21 @@ class SignInBody extends Component {
     this.props.navigateAction('Groups')
   }
 
+  goToSignUp = () => {
+    this.props.navigateAction('SignUp')
+  }
+
   render() {
     return (
       <View style={STYLES.body}>
         <SignInForm 
           navigateAction={this.goToApplication}/>
+        <Button
+            onPress={this.goToSignUp}
+            title='Sign Up'
+        />
       </View>
-    )
+    )    
   }
 }
 
