@@ -63,6 +63,9 @@ class SignUpForm extends Component {
         console.log(response)
       });
     })
+    .then(() => {
+      
+    })
     .catch(err => {
       console.log('error:')
       console.log(err)
