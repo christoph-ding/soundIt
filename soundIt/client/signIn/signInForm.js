@@ -40,15 +40,19 @@ class SignInForm extends Component {
   async handleSignIn() {
     const { password, phoneNumber  } = this.state;
 
-    await Auth.signIn(password, phoneNumber )
-      .then(data => {
-        console.log(data)
-        this.successfulSignIn()
-      })
-      .catch(err => {
-        console.log(err);
-        this.setState({ errorMessage: err.message });
-      })
+    console.log(this.state)
+    
+    let username = '+' + phoneNumber
+
+    await Auth.signIn(username, password)
+    .then(data => {
+      console.log(data)
+      this.successfulSignIn()
+    })
+    .catch(err => {
+      console.log(err);
+      this.setState({ errorMessage: err.message });
+    })
   }
 
   render() {
