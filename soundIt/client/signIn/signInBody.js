@@ -10,6 +10,7 @@ import SignInForm from './signInForm';
 class SignInBody extends Component {
   
   goToApplication = () => {
+    console.log("going ... ")
     this.props.navigateAction('Groups')
   }
 

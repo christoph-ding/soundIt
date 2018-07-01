@@ -41,7 +41,7 @@ class SignInForm extends Component {
     const { password, phoneNumber  } = this.state;
 
     console.log(this.state)
-    
+
     let username = '+' + phoneNumber
 
     await Auth.signIn(username, password)

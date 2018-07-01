@@ -30,28 +30,38 @@ class NewGroupPage extends Component {
   fetchUsers = () => {
     console.log('getting data ...')
 
-    const apiName = 'SoundIt'
-    const endPoint = '/users'
+    const apiName = 'Groups-Users'
+    const path = '/users/'
 
-    const testFriends = [
-      {
-        name: 'Amy Farha',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        subtitle: 'Vice President'
-      },
-      {
-        name: 'Chris Jackson',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-        subtitle: 'Vice Chairman'
-      },
-      {
-        name: 'Some guy',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-        subtitle: 'Vice Chairman'
-      }       
-    ]
-
-    this.setState({users: testFriends})
+    API.get(apiName, path)
+    .then(response => {
+      console.log('response: ')
+      console.log(response)
+      const testFriends = [
+        {
+          name: 'Amy Farha',
+          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+          subtitle: 'Vice President'
+        },
+        {
+          name: 'Chris Jackson',
+          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+          subtitle: 'Vice Chairman'
+        },
+        {
+          name: 'Some guy',
+          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+          subtitle: 'Vice Chairman'
+        }       
+      ]
+      this.setState({users: testFriends}, () => {
+        console.log(this.state)
+      })
+    })
+    .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });
   }
 
   handleInputChange = (key, value) => {

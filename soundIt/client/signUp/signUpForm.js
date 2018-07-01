@@ -34,11 +34,6 @@ class SignUpForm extends Component {
     this.setState(newState)
   }
 
-  // successfulSignUp = () => {
-  //   this.props.navigateAction()
-  //   console.log('hey')
-  // }
-
   async handleSignUp() {
     console.log('signing up ...')
 
@@ -51,12 +46,16 @@ class SignUpForm extends Component {
       username: '+' + phoneNumber,
       password: password
     })
-    .then(() => {
+    .then((data) => {
       console.log('creating a new user in DYNAMO DB...')
-
       return new Promise(function(resolve, reject) {
-        let newUser = {body: {display: userName}}
-        API.post(apiName, path, newUser).then(response => {
+        let newUser = {
+          body: {
+            display: userName,
+            userID: data.user.username
+            }}
+        API.post(apiName, path, newUser)
+        .then(response => {
           console.log('success:')
           console.log(response)
           resolve()
