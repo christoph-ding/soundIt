@@ -43,12 +43,8 @@ class SignUpForm extends Component {
     console.log('signing up ...')
 
     let { phoneNumber, userName, password } = this.state;
-    const apiName = 'GroupsUsersCRUD'
+    const apiName = 'Groups-Users'
     const path = '/users/'
-
-    console.log('phoneNumber: ', phoneNumber)
-    console.log('userName: ', userName)
-    console.log('password: ', password)
 
     await Auth.signUp({
       // phone number is E.164 +01234567890
@@ -57,14 +53,19 @@ class SignUpForm extends Component {
     })
     .then(() => {
       console.log('creating a new user in DYNAMO DB...')
-      let newUser = {body: {name: userName}}
-      API.post(apiName, path, newUser).then(response => {
-        console.log('success:')
-        console.log(response)
-      });
+
+      return new Promise(function(resolve, reject) {
+        let newUser = {body: {display: userName}}
+        API.post(apiName, path, newUser).then(response => {
+          console.log('success:')
+          console.log(response)
+          resolve()
+        });
+      })
     })
     .then(() => {
-      
+      console.log("navigating away ... ")      
+      this.props.navigateAction()
     })
     .catch(err => {
       console.log('error:')

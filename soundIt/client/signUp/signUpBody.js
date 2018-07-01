@@ -20,7 +20,7 @@ class SignUpBody extends Component {
       <View style={STYLES.body}>
         <SignUpWelcome/>
         <SignUpForm 
-          navigateAction={this.props.navigateAction}/>
+          navigateAction={this.goToSignIn}/>
         <Button
           onPress={this.goToSignIn}
           title='Sign In'
