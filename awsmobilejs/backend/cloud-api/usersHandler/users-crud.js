@@ -14,19 +14,12 @@ exports.makeNewUser = function(event, context, callback) {
         TableName: process.env.TABLE_NAME
     }
 
-    console.log('============== CRUD =============== event: \n', event)
-    console.log('============== Body =============== event: \n: ', parsedBody)
-    console.log('============== PARAMS =============== event: \n: ', params)
-
     ddb.put(params, function(err, data) {
         if (err) {
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
             let response = {
                     statusCode: 200,
-                    headers: {
-                        "x-custom-header" : "hey what's up"
-                    },
                     body: JSON.stringify(
                         {"success": "you were successful", 
                          "method": event.httpMethod,
@@ -39,20 +32,34 @@ exports.makeNewUser = function(event, context, callback) {
 }
 
 exports.getUsers = function(event, context, callback) {
-    console.log('============== CRUD =============== event: \n', event)
-    // console.log('============== Body =============== event: \n: ', parsedBody)
+    const params = {
+        KeyConditionExpression: "EntityID = : user",
+        TableName: process.env.TABLE_NAME
+    }
     
-    let response = {
-        statusCode: 200,
-        headers: {
-            "x-custom-header" : "hey what's up"
-        },
-        body: JSON.stringify(
-            {"success": "you were successful", 
-             "method": event.httpMethod,
-             "event": event,
-             "users": []
-        })
-    };
-    context.succeed(response);
+    ddb.scan(params, function(err, data){
+       if (err) {
+            context.done('error','putting item into dynamodb failed: '+err);
+        } else {
+        
+        console.log('========= data ===========')
+        console.log(data)
+        
+        console.log('========== items =========')
+        console.log(data.Items)
+        
+        let response = {
+                statusCode: 200,
+                body: JSON.stringify(
+                    {"success": "you were successful", 
+                     "method": event.httpMethod,
+                     "event": event,
+                     "users": data.Items
+                })
+        };
+        context.succeed(response);
+        }
+    });
+    
+    
 }
