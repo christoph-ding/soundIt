@@ -19,7 +19,7 @@ class SingleUser extends Component {
   handleClick = () => {
     this.setState(
       {selected: !(this.state.selected)}, 
-      () => {this.props.selectUser(this.props.user.name)}
+      () => {this.props.selectUser(this.props.user.Display)}
     )
   }
 
@@ -27,7 +27,7 @@ class SingleUser extends Component {
     const {user} = this.props
     return (
       <ListItem
-        title={user.name}
+        title={user.Display}
         containerStyle={
           {
             backgroundColor: this.state.selected ? "blue" : "transparent"

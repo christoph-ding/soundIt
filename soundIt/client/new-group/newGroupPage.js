@@ -37,24 +37,10 @@ class NewGroupPage extends Component {
     .then(response => {
       console.log('response: ')
       console.log(response)
-      const testFriends = [
-        {
-          name: 'Amy Farha',
-          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-          subtitle: 'Vice President'
-        },
-        {
-          name: 'Chris Jackson',
-          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          subtitle: 'Vice Chairman'
-        },
-        {
-          name: 'Some guy',
-          avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-          subtitle: 'Vice Chairman'
-        }       
-      ]
-      this.setState({users: testFriends}, () => {
+
+      const userData = response.users
+
+      this.setState({users: userData}, () => {
         console.log(this.state)
       })
     })
@@ -97,12 +83,6 @@ class NewGroupPage extends Component {
         }
       }
     }
-
-    // API.post(apiName, path, newItem).then(response => {
-    // console.log(response)
-    // }).catch(error => {
-    //     console.log(error.response)
-    // });
 
   selectUser = (user) => {
     let userCopy = Object.assign({}, this.state.selectedUsers)
