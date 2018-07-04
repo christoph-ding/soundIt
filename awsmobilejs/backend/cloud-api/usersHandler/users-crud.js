@@ -60,6 +60,4 @@ exports.getUsers = function(event, context, callback) {
         context.succeed(response);
         }
     });
-    
-    
 }
