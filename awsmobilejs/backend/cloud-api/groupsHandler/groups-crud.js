@@ -18,31 +18,37 @@ exports.makeNewGroup = function(event, context, callback) {
     
     let TABLE_NAME = process.env.TABLE_NAME
   
-    const params = {
-        Item: {
-            EntityID: "user",
-            IndividualID: "Getting Batch To Work",
-            Answered: false,
-            Display: "Getting Batch To Work"
-        },
-        TableName: TABLE_NAME
+    let params = {
+        "RequestItems": {
+            "soundit-mobilehub-1837399535-GroupsUsers": [
+                {
+                    PutRequest: {
+                        Item: { EntityID: "First Batch Write",
+                                IndividualID: "First Batch Write"
+                        }
+                    }
+                }   
+            ]
+        }
     }
     
-    ddb.put(params, function(err, data) {
+    ddb.batchWrite(params, function(err, data) {
         if (err) {
+            console.log('========================')
+            console.log(err)
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
             let response = {
-                    statusCode: 200,
-                    body: JSON.stringify(
-                        {"success": "you were successful", 
-                         "method": event.httpMethod,
-                         "event": event
-                    })
-                };
+                statusCode: 200,
+                body: JSON.stringify(
+                    {"success": "you were successful", 
+                     "method": event.httpMethod,
+                     "event": event
+                    }
+                )}
             context.succeed(response);
         }
-    })
+    });
 };
 
 
@@ -90,3 +96,29 @@ exports.makeNewGroup = function(event, context, callback) {
     //         context.succeed(response);
     //     }
     // });
+
+// const params = {
+    //     Item: {
+    //         EntityID: "user",
+    //         IndividualID: "Getting Batch To Work",
+    //         Answered: false,
+    //         Display: "Getting Batch To Work"
+    //     },
+    //     TableName: TABLE_NAME
+    // }
+    
+    // ddb.put(params, function(err, data) {
+    //     if (err) {
+    //         context.done('error','putting item into dynamodb failed: '+err);
+    //     } else {
+    //         let response = {
+    //                 statusCode: 200,
+    //                 body: JSON.stringify(
+    //                     {"success": "you were successful", 
+    //                      "method": event.httpMethod,
+    //                      "event": event
+    //                 })
+    //             };
+    //         context.succeed(response);
+    //     }
+    // })
