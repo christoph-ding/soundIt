@@ -25,24 +25,16 @@ class NewGroupPage extends Component {
     this.fetchUsers()
   }
 
-
   // we will fetch data when we come to this page
   fetchUsers = () => {
     console.log('getting data ...')
 
     const apiName = 'Groups-Users'
-    const path = '/users/'
+    const path = '/users'
 
     API.get(apiName, path)
     .then(response => {
-      console.log('response: ')
-      console.log(response)
-
-      const userData = response.users
-
-      this.setState({users: userData}, () => {
-        console.log(this.state)
-      })
+      this.setState({users: response.users})
     })
     .catch(err => {
       console.log('error:')
@@ -73,16 +65,28 @@ class NewGroupPage extends Component {
   submitNewGroup = () => {
     console.log('submitting')
 
-    const apiName = 'SoundIt'
-    const endPoint = '/Groups'
+    const apiName = 'Groups-Users'
+    const path = '/groups'
+    const selectedUsers = Object.keys(this.state.selectedUsers).filter(
+      (user) => { return this.state.selectedUsers[user]})
 
     let newGroup = {
       body: {
-          ID: uuidv1(),
-          name: this.state.itemName          
+          display: 'hey',
+          members: selectedUsers
         }
       }
-    }
+
+    API.post(apiName, path, newGroup)
+    .then(response => {
+      console.log('success:')
+      console.log(response)
+    })
+     .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });   
+  }
 
   selectUser = (user) => {
     let userCopy = Object.assign({}, this.state.selectedUsers)

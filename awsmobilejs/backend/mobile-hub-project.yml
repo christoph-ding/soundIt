@@ -4,37 +4,62 @@ apps:
 features:
   cloudlogic: !com.amazonaws.mobilehub.v0.CloudLogic 
     components:
-      GroupsUsersCRUD: !com.amazonaws.mobilehub.v0.API 
+      Groups-Users: !com.amazonaws.mobilehub.v0.API 
         attributes:
+          description: A single table for groups and users
           disable-aws-auth: false
-          name: GroupsUsersCRUD
+          name: Groups-Users
           requires-signin: false
           sdk-generation-stage-name: Development
         paths:
+          /groups: !com.amazonaws.mobilehub.v0.Function 
+            description: 'Handler for calls to resource path : /groups/{proxy+}'
+            environment:
+              TABLE_NAME: soundit-mobilehub-1837399535-GroupsUsers
+            handler: index.handler
+            hashcode: xA/aDkwE/jV+oa4ypP4FE7cW89MZsId1TspA/+txSBo=
+            memorySize: '128'
+            modified: '2018-07-07T21:28:34.683+0000'
+            name: groupsHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: 5e_YBlTBNsOiBq0KNH4cwg7iBpuJwAtS
+          '/groups/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            description: 'Handler for calls to resource path : /groups/{proxy+}'
+            environment:
+              TABLE_NAME: soundit-mobilehub-1837399535-GroupsUsers
+            handler: index.handler
+            hashcode: xA/aDkwE/jV+oa4ypP4FE7cW89MZsId1TspA/+txSBo=
+            memorySize: '128'
+            modified: '2018-07-07T21:28:34.683+0000'
+            name: groupsHandler
+            runtime: nodejs6.10
+            timeout: '3'
+            version: tmFO9M_fPCvGP1eS0AEqWPavGhm64BG8
           /users: !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/usersHandler-20180624175101.zip
             description: 'Handler for calls to resource path : /users/{proxy+}'
-            environment: {}
+            environment:
+              TABLE_NAME: soundit-mobilehub-1837399535-GroupsUsers
             handler: index.handler
-            hashcode: OmzvGp9zkzHQO0s31FN4zgO21+fiGtKsVa/nFR9wM7w=
+            hashcode: sJgqw1GRwk438GEFPaWkMiU9wg78S82ixdfv/6vAHLY=
             memorySize: '128'
-            modified: '2018-06-24T22:19:54.275+0000'
+            modified: '2018-07-02T22:51:39.510+0000'
             name: usersHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: A2U5VYkEr_oIXewCe.nZtlI4zGuerq5.
+            version: 7H.7LHuNEgOg7VL05Uk4fM81VMSQXSMP
           '/users/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
-            codeFilename: uploads/usersHandler-20180624175101.zip
             description: 'Handler for calls to resource path : /users/{proxy+}'
-            environment: {}
+            environment:
+              TABLE_NAME: soundit-mobilehub-1837399535-GroupsUsers
             handler: index.handler
-            hashcode: OmzvGp9zkzHQO0s31FN4zgO21+fiGtKsVa/nFR9wM7w=
+            hashcode: sJgqw1GRwk438GEFPaWkMiU9wg78S82ixdfv/6vAHLY=
             memorySize: '128'
-            modified: '2018-06-24T22:19:54.275+0000'
+            modified: '2018-07-02T22:51:39.510+0000'
             name: usersHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: QULfiZxm6ed6.WppHYb.ehTuwoLFItbO
+            version: yIP0mE3OjBqmWnUfHSR8o0.N.84hUgkK
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true
@@ -48,37 +73,14 @@ features:
           - !com.amazonaws.mobilehub.v0.NoSQLTable 
             attributes:
               Answered: BOOL
-              Most_Recent: S
-              Name: S
-              Number: S
-              Partition: S
-              Sort: S
-              UserID: S
-            hashKeyName: Partition
+              Display: S
+              EntityID: S
+              IndividualID: S
+            hashKeyName: EntityID
             hashKeyType: S
-            rangeKeyName: Sort
+            rangeKeyName: IndividualID
             rangeKeyType: S
             tableName: ___DYNAMIC_PREFIX___-GroupsUsers
-            tablePrivacy: public
-          - !com.amazonaws.mobilehub.v0.NoSQLTable 
-            attributes:
-              email: S
-              personId: S
-              personName: S
-              phone: S
-              teamId: S
-            hashKeyName: teamId
-            hashKeyType: S
-            indexes:
-              - !com.amazonaws.mobilehub.v0.NoSQLIndex 
-                hashKeyName: teamId
-                hashKeyType: S
-                indexName: personName-index
-                rangeKeyName: personName
-                rangeKeyType: S
-            rangeKeyName: personId
-            rangeKeyType: S
-            tableName: ___DYNAMIC_PREFIX___-AWSMobileTable
             tablePrivacy: public
   mobile-analytics: !com.amazonaws.mobilehub.v0.Pinpoint 
     components:
