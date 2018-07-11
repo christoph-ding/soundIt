@@ -49,6 +49,10 @@ class NewGroupPage extends Component {
   }
 
   handleSubmitNewGroup = () => {
+
+    console.log('data:')
+    console.log(this.state)
+
     // we should only submit if it is valid
     let selectedUsers = Object.values(this.state.selectedUsers)
     let anySelected = Boolean(selectedUsers.some( (value)=> { return value }) && 
@@ -72,10 +76,13 @@ class NewGroupPage extends Component {
 
     let newGroup = {
       body: {
-          display: 'hey',
+          display: this.state.newGroupName,
           members: selectedUsers
         }
       }
+
+    console.log('selectedUsers: ', selectedUsers)
+    console.log('newGroup: ', newGroup)
 
     API.post(apiName, path, newGroup)
     .then(response => {
@@ -83,18 +90,18 @@ class NewGroupPage extends Component {
       console.log(response)
     })
      .catch(err => {
-      console.log('error:')
       console.log(err)
     });   
   }
 
   selectUser = (user) => {
+ 
     let userCopy = Object.assign({}, this.state.selectedUsers)
 
-    if (userCopy.hasOwnProperty(user)) {
-      userCopy[user] = !(userCopy[user])
+    if (userCopy.hasOwnProperty(user.IndividualID)) {
+      userCopy[user.IndividualID] = !(userCopy[user.IndividualID])
     } else {
-      userCopy[user] = true
+      userCopy[user.IndividualID] = true
     }
 
     this.setState({selectedUsers: userCopy})

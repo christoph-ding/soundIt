@@ -53,7 +53,7 @@ class SignUpForm extends Component {
           body: {
             display: userName,
             userID: data.user.username
-            }}
+        }}
         API.post(apiName, path, newUser)
         .then(response => {
           console.log('success:')
