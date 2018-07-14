@@ -7,15 +7,19 @@ import STYLES from '../navigator-styles'
 // Groups
 
 // NewGroupPage
-import NewGroupPage from '../../new-group/newGroupPage';
+import NewGroupPage from '../../new-group/new-group-page.js';
+import UsersGroupPage from '../../users-groups/users-groups-page.js';
 
 // navigation
-const LANDING = 'newGroup'
+const LANDING = 'usersGroups'
 
 const FeaturesStack = StackNavigator(
   {
     'newGroup': {
       screen: NewGroupPage
+    },
+    'usersGroups': {
+      screen: UsersGroupPage
     }
   },
   {

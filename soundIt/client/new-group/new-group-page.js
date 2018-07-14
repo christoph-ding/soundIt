@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { API } from 'aws-amplify';
-const uuidv1 = require('uuid/v1');
 
 import STYLES from './new-group-styles'
 import NewGroupForm from './form/newGroupForm'
@@ -25,7 +24,6 @@ class NewGroupPage extends Component {
     this.fetchUsers()
   }
 
-  // we will fetch data when we come to this page
   fetchUsers = () => {
     console.log('getting data ...')
 
