@@ -2,10 +2,48 @@ const AWS = require('aws-sdk');
 const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'});
 const uuid = require('uuid')
 
-exports.makeNewGroup = function(event, context, callback) {
-    const parsedBody = JSON.parse(event.body)
+exports.getUserGroups = function(event, context, callback) {
+    console.log('=========== getting all groups ===========')
+    // const parsedBody = JSON.parse(event.body)
+    const parsedBody = event.body
+
+    let params = {
+        TableName : "soundit-mobilehub-1837399535-GroupsUsers",
+        IndexName: "Groups-Belong-To-User",
+        KeyConditionExpression: "IndividualID = :user",
+        ExpressionAttributeValues: {
+            ':user': parsedBody.userID
+        }
+    }
     
-    let TABLE_NAME = process.env.TABLE_NAME
+    ddb.query(params, function(err, data) {
+        if (err) {
+            console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Query succeeded.");
+            
+            // there will be an extra row returned for the user itself, 
+            // filter this out
+            const groups = data.Items.filter((row) => {
+                return !(row.EntityID === 'user')
+            })
+
+            let response = {
+                statusCode: 200,
+                body: JSON.stringify(
+                    {"success": "you were successful", 
+                     "method": event.httpMethod,
+                     "data": groups
+                    })
+                }
+            context.succeed(response);  
+        }
+    })
+};
+    
+exports.makeNewGroup = function(event, context, callback) {
+    console.log('=========== making new group ===========')
+    const parsedBody = JSON.parse(event.body)
   
     // extract the users
     // extract the group name
@@ -13,11 +51,16 @@ exports.makeNewGroup = function(event, context, callback) {
     let members = parsedBody.members
     let display = parsedBody.display
     
+    // does the current grooup already exist?
+    let groupExistsParams = {
+        
+    }
+    
     let memberAsPutRequest = members.map((member) => {
         return {
             PutRequest: { 
                 Item: {
-                    'EntityID': 'First Real Group',
+                    'EntityID': display,
                     'IndividualID': member
                 }
             }
@@ -29,13 +72,9 @@ exports.makeNewGroup = function(event, context, callback) {
                 "soundit-mobilehub-1837399535-GroupsUsers": memberAsPutRequest
         }
     }
-
-    console.log('=========== params ============')
-    console.log(params)
-
-   ddb.batchWrite(params, function(err, data) {
+    
+    ddb.batchWrite(params, function(err, data) {
         if (err) {
-            console.log(err)
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
             let response = {
