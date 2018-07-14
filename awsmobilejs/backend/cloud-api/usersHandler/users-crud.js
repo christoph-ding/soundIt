@@ -3,6 +3,7 @@ const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'});
 const uuid = require('uuid')
 
 exports.makeNewUser = function(event, context, callback) {
+    console.log('=========== making new user ===========')
     const parsedBody = JSON.parse(event.body)
     const params = {
         Item: {
@@ -18,6 +19,7 @@ exports.makeNewUser = function(event, context, callback) {
         if (err) {
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
+            console.log('=========== successfully made new user ===========')
             let response = {
                     statusCode: 200,
                     body: JSON.stringify(
@@ -32,22 +34,23 @@ exports.makeNewUser = function(event, context, callback) {
 }
 
 exports.getUsers = function(event, context, callback) {
+    console.log('=========== getting all users ===========')
+    
     const params = {
-        KeyConditionExpression: "EntityID = : user",
-        TableName: process.env.TABLE_NAME
+        TableName: "soundit-mobilehub-1837399535-GroupsUsers",
+        KeyConditionExpression: "EntityID = :partition",
+        ExpressionAttributeValues: {
+            ':partition': 'user'
+        }
     }
     
-    ddb.scan(params, function(err, data){
+    ddb.query(params, function(err, data){
        if (err) {
+           console.log(err)
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
-        
-        console.log('========= data ===========')
         console.log(data)
-        
-        console.log('========== items =========')
-        console.log(data.Items)
-        
+            
         let response = {
                 statusCode: 200,
                 body: JSON.stringify(

@@ -20,8 +20,6 @@ exports.getUserGroups = function(event, context, callback) {
         if (err) {
             console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
         } else {
-            console.log("Query succeeded.");
-            
             // there will be an extra row returned for the user itself, 
             // filter this out
             const groups = data.Items.filter((row) => {
