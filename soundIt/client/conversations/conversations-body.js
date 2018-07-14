@@ -1,32 +1,31 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet
-} from 'react-native';
+import { View } from 'react-native';
 
-import GroupsList from './groupsList';
+import ConversationsList from './conversations-list';
 
-class GroupsBody extends Component {
+class ConversationsBody extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <GroupsList 
-         threads={this.props.data}
-         navigateAction={this.props.navigateAction}
+      <View style={styles.conversationsBody}>
+        <ConversationsList 
+         conversations={this.props.data}
         />
       </View>
     )
   }
 }
 
-export default GroupsBody
+// class ConversationsBody extends Component {
+//   render() {
+//     return (
+//       <View style={styles.conversationsBody}>
+//         <GroupsList 
+//          conversations={this.props.data}
+//          navigateAction={this.props.navigateAction}
+//         />
+//       </View>
+//     )
+//   }
+// }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    width: '100%',
-    backgroundColor: 'blue',
-  }
-});
+export default ConversationsBody

@@ -4,22 +4,20 @@ import { StackNavigator } from 'react-navigation';
 
 import STYLES from '../navigator-styles'
 
-// Groups
-
 // NewGroupPage
 import NewGroupPage from '../../new-group/new-group-page.js';
-import UsersGroupPage from '../../users-groups/users-groups-page.js';
+import ConversationsPage from '../../convserations/conversations-page.js';
 
 // navigation
-const LANDING = 'usersGroups'
+const LANDING = 'conversations'
 
 const FeaturesStack = StackNavigator(
   {
     'newGroup': {
       screen: NewGroupPage
     },
-    'usersGroups': {
-      screen: UsersGroupPage
+    'conversations': {
+      screen: ConversationsPage
     }
   },
   {
