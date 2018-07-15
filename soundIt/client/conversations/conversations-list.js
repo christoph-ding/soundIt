@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react'
+import { View } from 'react-native'
 
-import SingleConversation from './SingleConversation';
+import STYLES from './conversations-styles'
+import SingleConversation from './single-conversation'
 
 class ConversationsList extends Component {
   constructor(props) {
@@ -10,19 +11,17 @@ class ConversationsList extends Component {
 
   renderConversations = (conversations) => {
     return (conversations.map((conversation) => {
+      console.log(conversation)
       return (<SingleConversation 
               conversation={conversation}
              />)
     }))
   }
 
-  getActiveThreads = () =>
-    this.props.threads
-
   render() {
     return (
-      <View style={styles.container}>
-        {this.renderConversations(this.props.threads)}
+      <View style={STYLES.container}>
+        {this.renderConversations(this.props.conversations)}
       </View>
     )
   }

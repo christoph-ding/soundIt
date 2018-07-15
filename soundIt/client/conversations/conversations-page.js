@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { API } from 'aws-amplify';
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+import { API } from 'aws-amplify'
+
+import STYLES from './conversations-styles'
+import ConversationsBody from './conversations-body'
 
 class ConversationsPage extends Component {
   static navigationOptions = {
@@ -9,7 +12,9 @@ class ConversationsPage extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      conversations: null
+    }
   }
 
   componentWillMount() {
@@ -22,19 +27,18 @@ class ConversationsPage extends Component {
     const apiName = 'Groups-Users'
     const path = '/groups'
 
-    // test data
     const testData = [
       {
-        'group': 'group one',
+        'name': 'conversation one',
         'answered': true
       },
       {
-        'group': 'group two',
+        'name': 'conversation two',
         'answered': false
       }
     ]
 
-    this.setState({groups: testData}, () => {
+    this.setState({conversations: testData}, () => {
       console.log(this.state)
     })
 
@@ -43,7 +47,9 @@ class ConversationsPage extends Component {
   render() {
     return (
       <View style={STYLES.pageContainer}> 
-        
+        <ConversationsBody
+          conversations={this.state.conversations}
+        />
       </View>
     )
   }

@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react'
+import { View } from 'react-native'
 
-import ConversationsList from './conversations-list';
+import STYLES from './conversations-styles'
+import ConversationsList from './conversations-list'
 
 class ConversationsBody extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
-      <View style={styles.conversationsBody}>
+      <View style={STYLES.conversationsBody}>
         <ConversationsList 
-         conversations={this.props.data}
+         {...this.props}
         />
       </View>
     )
   }
 }
-
-// class ConversationsBody extends Component {
-//   render() {
-//     return (
-//       <View style={styles.conversationsBody}>
-//         <GroupsList 
-//          conversations={this.props.data}
-//          navigateAction={this.props.navigateAction}
-//         />
-//       </View>
-//     )
-//   }
-// }
 
 export default ConversationsBody

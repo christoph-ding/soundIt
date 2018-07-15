@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import React, { Component } from 'react'
+import { View } from 'react-native'
+import { StackNavigator } from 'react-navigation'
 
 import STYLES from '../navigator-styles'
 
 // NewGroupPage
-import NewGroupPage from '../../new-group/new-group-page.js';
-import ConversationsPage from '../../convserations/conversations-page.js';
+import NewGroupPage from '../../new-group/new-group-page.js'
+import ConversationsPage from '../../conversations/conversations-page.js'
 
 // navigation
 const LANDING = 'conversations'

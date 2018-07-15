@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ListItem } from 'react-native-elements'
-import { View } from 'react-native';
+
+import STYLES from './conversations-styles'
 
 class SingleConversation extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class SingleConversation extends Component {
   render() {
     return (
       <ListItem
-        title = 'test'
+        title = {this.props.conversation.name}
       />
     )
   }
