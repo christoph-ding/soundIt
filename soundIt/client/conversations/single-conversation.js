@@ -9,6 +9,7 @@ class SingleConversation extends Component {
   }
 
   handleClick = () => {
+    console.log('clicking on a conversation ...')
     // this.props.navigateAction('Conversation', this.props.item)
   }
 
@@ -21,6 +22,7 @@ class SingleConversation extends Component {
             backgroundColor: this.props.conversation.answered ? "blue" : "transparent"
           }
         }
+        onPress={this.handleClick}
       />
     )
   }

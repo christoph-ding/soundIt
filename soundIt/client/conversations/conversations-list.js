@@ -28,13 +28,3 @@ class ConversationsList extends Component {
 }
 
 export default ConversationsList
-
-// renderListItems = (items) => {
-//     let navigateAction = this.props.navigateAction
-//     return (items.map((item) => {
-//       return (<SingleGroup 
-//               item={item}
-//               navigateAction={navigateAction}
-//              />)
-//     }))
-//   }
