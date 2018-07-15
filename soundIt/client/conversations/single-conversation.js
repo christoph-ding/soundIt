@@ -16,6 +16,11 @@ class SingleConversation extends Component {
     return (
       <ListItem
         title = {this.props.conversation.name}
+        containerStyle={
+          {
+            backgroundColor: this.props.conversation.answered ? "blue" : "transparent"
+          }
+        }
       />
     )
   }

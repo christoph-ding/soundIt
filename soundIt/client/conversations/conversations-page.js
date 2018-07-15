@@ -38,10 +38,7 @@ class ConversationsPage extends Component {
       }
     ]
 
-    this.setState({conversations: testData}, () => {
-      console.log(this.state)
-    })
-
+    this.setState({conversations: testData})
   }
 
   render() {
