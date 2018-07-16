@@ -41,11 +41,16 @@ class ConversationsPage extends Component {
     this.setState({conversations: testData})
   }
 
+  selectConversation = () => {
+    console.log('selecting a conversation ... ')
+  }
+
   render() {
     return (
       <View style={STYLES.pageContainer}> 
         <ConversationsBody
           conversations={this.state.conversations}
+          selectConversation={this.selectConversation}
         />
       </View>
     )

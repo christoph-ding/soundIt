@@ -10,10 +10,11 @@ class ConversationsList extends Component {
   }
 
   renderConversations = (conversations) => {
+    let action = this.props.selectConversation
     return (conversations.map((conversation) => {
-      console.log(conversation)
       return (<SingleConversation 
               conversation={conversation}
+              selectConversation={action}
              />)
     }))
   }

@@ -13,7 +13,7 @@ class ConversationsBody extends Component {
     return (
       <View style={STYLES.conversationsBody}>
         <ConversationsList 
-         {...this.props}
+         {...this.props}         
         />
       </View>
     )
