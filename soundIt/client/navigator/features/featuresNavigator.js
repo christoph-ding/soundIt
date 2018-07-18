@@ -20,9 +20,9 @@ const FeaturesStack = StackNavigator(
     'conversations': {
       screen: ConversationsPage
     },
-    // 'single-conversation': {
-    //   screen: SingleConversationPage
-    // }
+    'single-conversation': {
+      screen: SingleConversationPage
+    }
   },
   {
     initialRouteName: LANDING
