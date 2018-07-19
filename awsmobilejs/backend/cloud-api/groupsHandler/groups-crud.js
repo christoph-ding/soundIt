@@ -35,7 +35,7 @@ exports.getUserGroups = function(event, context, callback) {
             context.succeed(response);  
         }
     })
-};
+}
     
 exports.makeNewGroup = function(event, context, callback) {
     console.log('=========== making new group ===========')
@@ -81,5 +81,5 @@ exports.makeNewGroup = function(event, context, callback) {
             }
             context.succeed(response);
         }
-    });
-};
+    })
+}

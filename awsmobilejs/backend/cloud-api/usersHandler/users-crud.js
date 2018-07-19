@@ -17,7 +17,7 @@ exports.makeNewUser = function(event, context, callback) {
 
     ddb.put(params, function(err, data) {
         if (err) {
-            context.done('error','putting item into dynamodb failed: '+err);
+            context.done('error','putting item into dynamodb failed: '+err)
         } else {
             console.log('=========== successfully made new user ===========')
             let response = {
@@ -25,8 +25,8 @@ exports.makeNewUser = function(event, context, callback) {
                 body: JSON.stringify({
                     "success": "you were successful"
                 })
-            };
-            context.succeed(response);
+            }
+            context.succeed(response)
         }
     })
 }
@@ -45,7 +45,7 @@ exports.getUsers = function(event, context, callback) {
     ddb.query(params, function(err, data){
         if (err) {
             console.log(err)
-            context.done('error','putting item into dynamodb failed: '+err);
+            context.done('error','putting item into dynamodb failed: '+err)
         } else {
             let response = {
                 statusCode: 200,
@@ -54,7 +54,7 @@ exports.getUsers = function(event, context, callback) {
                     "users": data.Items
                 })
             }
-        context.succeed(response);
+            context.succeed(response)
         }
-    });
+    })
 }

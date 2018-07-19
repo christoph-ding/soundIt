@@ -9,4 +9,4 @@ exports.handler = function(event, context, callback) {
     } else if (event.httpMethod === 'GET') {
         usersCRUD.getUsers(event, context, callback)    
     }
-};
+}

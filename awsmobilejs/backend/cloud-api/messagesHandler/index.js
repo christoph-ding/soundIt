@@ -6,4 +6,4 @@ exports.handler = function(event, context, callback) {
     if (event.httpMethod === 'POST') {
         messagesCRUD.makeMessage(event, context, callback)
     }
-};
+}
