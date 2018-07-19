@@ -1,11 +1,10 @@
-const AWS = require('aws-sdk');
-const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'});
+const AWS = require('aws-sdk')
+const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
 const uuid = require('uuid')
 
 exports.getUserGroups = function(event, context, callback) {
     console.log('=========== getting all groups ===========')
-    // const parsedBody = JSON.parse(event.body)
-    const parsedBody = event.body
+    const parsedBody = JSON.parse(event.body)
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",
@@ -28,12 +27,11 @@ exports.getUserGroups = function(event, context, callback) {
 
             let response = {
                 statusCode: 200,
-                body: JSON.stringify(
-                    {"success": "you were successful", 
-                     "method": event.httpMethod,
-                     "data": groups
+                body: JSON.stringify({
+                    "success": "you were successful",
+                    "data": groups
                     })
-                }
+            }
             context.succeed(response);  
         }
     })
@@ -77,12 +75,10 @@ exports.makeNewGroup = function(event, context, callback) {
         } else {
             let response = {
                 statusCode: 200,
-                body: JSON.stringify(
-                    {"success": "you were successful", 
-                     "method": event.httpMethod,
-                     "event": event
-                    }
-                )}
+                body: JSON.stringify({
+                    "success": "you were successful"
+                })
+            }
             context.succeed(response);
         }
     });

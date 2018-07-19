@@ -21,13 +21,11 @@ exports.makeNewUser = function(event, context, callback) {
         } else {
             console.log('=========== successfully made new user ===========')
             let response = {
-                    statusCode: 200,
-                    body: JSON.stringify(
-                        {"success": "you were successful", 
-                         "method": event.httpMethod,
-                         "event": event
-                    })
-                };
+                statusCode: 200,
+                body: JSON.stringify({
+                    "success": "you were successful"
+                })
+            };
             context.succeed(response);
         }
     })
@@ -45,21 +43,17 @@ exports.getUsers = function(event, context, callback) {
     }
     
     ddb.query(params, function(err, data){
-       if (err) {
-           console.log(err)
+        if (err) {
+            console.log(err)
             context.done('error','putting item into dynamodb failed: '+err);
         } else {
-        console.log(data)
-            
-        let response = {
+            let response = {
                 statusCode: 200,
-                body: JSON.stringify(
-                    {"success": "you were successful", 
-                     "method": event.httpMethod,
-                     "event": event,
-                     "users": data.Items
+                body: JSON.stringify({
+                    "success": "you were successful", 
+                    "users": data.Items
                 })
-        };
+            }
         context.succeed(response);
         }
     });
