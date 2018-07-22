@@ -9,7 +9,7 @@ class SingleConversation extends Component {
   }
 
   handleClick = () => {
-    this.props.selectConversation()
+    this.props.selectConversation(this.props.conversation)
   }
 
   render() {

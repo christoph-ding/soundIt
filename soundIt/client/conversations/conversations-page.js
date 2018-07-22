@@ -53,9 +53,9 @@ class ConversationsPage extends Component {
     });
   }
 
-  selectConversation = () => {
+  selectConversation = (conversation) => {
     console.log('selecting a conversation ... ')
-    this.props.navigation.navigate('single-conversation')
+    this.props.navigation.navigate('single-conversation', {'selected-conversation': conversation})
   }
 
   render() {

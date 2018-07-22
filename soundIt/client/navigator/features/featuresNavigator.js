@@ -35,6 +35,8 @@ class FeaturesNavigation extends Component {
   }
 
   render() {
+    console.log('========= navigator ===========')
+
     return (
       <FeaturesStack screenProps={this.props.screenProps}/>
     )
