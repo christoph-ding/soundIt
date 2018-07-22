@@ -4,28 +4,17 @@ const uuid = require('uuid')
 
 exports.getUserGroups = function(event, context, callback) {
     console.log('=========== getting all groups ===========')
-    // const parsedBody = JSON.parse(event.queryStringParameters)
-    // console.log(parsedBody)
+    console.log('userID:')
     
-    console.log('event:')
-    console.log(event)
-    
-    console.log('string parameters:')
-    console.log(event.queryStringParameters)
-
-    // let parsed = JSON.parse(event)
-    // console.log('parsed')
-    // console.log(parsed)
-
-    const test = '+01234567891' 
+    const userID = event.headers.userid
+    console.log(userID)
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",
         IndexName: "Groups-Belong-To-User",
         KeyConditionExpression: "IndividualID = :user",
         ExpressionAttributeValues: {
-            ':user': test
-            // ':user': parsedBody.test
+            ':user': userID
         }
     }
     

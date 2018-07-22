@@ -13,71 +13,77 @@ features:
           sdk-generation-stage-name: Development
         paths:
           /groups: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/groupsHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 5VSacLCQqSAtsMPaTDYoNxjdwP5MdtsAg+wvIQT5nUI=
+            hashcode: 1T151jBE26ZuCpMYk24SiFhZqO3N8EgXvyIUdqZMPAE=
             memorySize: '128'
-            modified: '2018-07-19T00:40:21.729+0000'
+            modified: '2018-07-22T16:16:31.400+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: x2M3VvvvWn..wiOighGKgNvRkUcRxC6C
+            version: rsuNsjawchNuipIhc1QKp.W7x4_ixJQu
           '/groups/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/groupsHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 5VSacLCQqSAtsMPaTDYoNxjdwP5MdtsAg+wvIQT5nUI=
+            hashcode: 1T151jBE26ZuCpMYk24SiFhZqO3N8EgXvyIUdqZMPAE=
             memorySize: '128'
-            modified: '2018-07-19T00:40:21.729+0000'
+            modified: '2018-07-22T16:16:31.400+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: _ezV0ayaOq4H7BBdk41zlhtKR_NWk8Oz
+            version: uHHTq37SzJIJWKUaeRLKIzd30QCdpZUY
           /messages: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/messagesHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /messages/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: NG/BBLiNwMoepLvsDkjkifgXFzlukzdSDx8gsaWLH94=
+            hashcode: /5p69ov97YBM2zx3nJsseUDS/hzWlLf4mMq1YNPo3wM=
             memorySize: '128'
-            modified: '2018-07-19T00:37:29.314+0000'
+            modified: '2018-07-21T19:54:33.189+0000'
             name: messagesHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: xD3rUnkd1Zo4gRfPm5PhtR99TiiD0vHJ
+            version: 08k8nj4E9__1L2Q3LkgSJGXbZq5ARHLm
           '/messages/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/messagesHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /messages/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: NG/BBLiNwMoepLvsDkjkifgXFzlukzdSDx8gsaWLH94=
+            hashcode: /5p69ov97YBM2zx3nJsseUDS/hzWlLf4mMq1YNPo3wM=
             memorySize: '128'
-            modified: '2018-07-19T00:37:29.314+0000'
+            modified: '2018-07-21T19:54:33.189+0000'
             name: messagesHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: uGDpw8KhQ26SGOyOSSZd0eJzlcwExNhb
+            version: .aPCkTmbv9ks6dWE6nbzDvFfRXDugfou
           /users: !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/usersHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /users/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 2YHntVmxkZr1C0M/nWQFzahaoRLUxXCwD63BA04tyqk=
+            hashcode: Ka5r95NuHPJvI6lb9Vdyuj5FoTq8ZJLUG2Z8m4LQuEg=
             memorySize: '128'
-            modified: '2018-07-19T00:39:04.878+0000'
+            modified: '2018-07-21T19:54:32.997+0000'
             name: usersHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: Dgqeze5tnB8sI0G1Qr0Wm0V2nDwKgo6h
+            version: Vn7R7XdgA6ZpBmimU.Zf3yIjDvJNf4Xn
           '/users/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
+            codeFilename: uploads/usersHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /users/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 2YHntVmxkZr1C0M/nWQFzahaoRLUxXCwD63BA04tyqk=
+            hashcode: Ka5r95NuHPJvI6lb9Vdyuj5FoTq8ZJLUG2Z8m4LQuEg=
             memorySize: '128'
-            modified: '2018-07-19T00:39:04.878+0000'
+            modified: '2018-07-21T19:54:32.997+0000'
             name: usersHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: J74ti7XgUP2xftAsXSk5hMX0.KAeU559
+            version: a2L_8wi0V_NjWjmrvzsec_Vrnj9_15j.
   content-delivery: !com.amazonaws.mobilehub.v0.ContentDelivery 
     attributes:
       enabled: true

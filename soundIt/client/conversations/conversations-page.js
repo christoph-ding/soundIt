@@ -13,7 +13,7 @@ class ConversationsPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      conversations: null
+      conversations: []
     }
   }
 
@@ -26,7 +26,9 @@ class ConversationsPage extends Component {
 
     const apiName = 'Groups-Users'
     const path = '/groups'
-    const userID = '+01234567891'
+
+    // this is contrived user data
+    const testUserID = '+01234567891'
 
     // for whatever reason, the queryStringParameter attribute
     // in the docs aren't actually supported through the lambda
@@ -35,33 +37,22 @@ class ConversationsPage extends Component {
       'headers': {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'userID': userID
+            'userID': testUserID
       }
     }
 
     API.get(apiName, path, myInit)
     .then(response => {
-      console.log('===========response =============')
-      console.log(response)      
-      // this.setState({conversations: response.conversations})
+      const conversations = response.data.map((elem) => {
+        return {'name': elem.EntityID, 
+                'answered': true};
+      })
+      this.setState({conversations: conversations})
     })
     .catch(err => {
       console.log('error:')
       console.log(err)
     });
-
-    const testData = [
-      {
-        'name': 'conversation one',
-        'answered': true
-      },
-      {
-        'name': 'conversation two',
-        'answered': false
-      }
-    ]
-
-    this.setState({conversations: testData})
   }
 
   selectConversation = () => {
