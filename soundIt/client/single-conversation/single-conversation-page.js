@@ -26,7 +26,7 @@ class SingleConversationPage extends Component {
   render() {
     return (
       <View style={STYLES.pageContainer}>
-        <SingleConversationsBody
+        <SingleConversationBody
         />
       </View>
     )
