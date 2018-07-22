@@ -4,10 +4,8 @@ const uuid = require('uuid')
 
 exports.getUserGroups = function(event, context, callback) {
     console.log('=========== getting all groups ===========')
-    console.log('userID:')
     
     const userID = event.headers.userid
-    console.log(userID)
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",

@@ -20,8 +20,6 @@ class ConversationsList extends Component {
   }
 
   render() {
-    console.log('=============== conversations list ===================')
-    console.log(this.props)
     return (
       <View style={STYLES.list}>
         {this.renderConversations(this.props.conversations)}

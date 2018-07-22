@@ -17,25 +17,25 @@ features:
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 1T151jBE26ZuCpMYk24SiFhZqO3N8EgXvyIUdqZMPAE=
+            hashcode: JVkAqsCvQnO9fcgh8iilHkWREME7/SuewFTGVGkpsNg=
             memorySize: '128'
-            modified: '2018-07-22T16:16:31.400+0000'
+            modified: '2018-07-22T20:19:58.262+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: rsuNsjawchNuipIhc1QKp.W7x4_ixJQu
+            version: fozhDvtTcGZOZg6HsC2itSZSqegg6rZ3
           '/groups/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/groupsHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: 1T151jBE26ZuCpMYk24SiFhZqO3N8EgXvyIUdqZMPAE=
+            hashcode: JVkAqsCvQnO9fcgh8iilHkWREME7/SuewFTGVGkpsNg=
             memorySize: '128'
-            modified: '2018-07-22T16:16:31.400+0000'
+            modified: '2018-07-22T20:19:58.262+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: uHHTq37SzJIJWKUaeRLKIzd30QCdpZUY
+            version: FsWyo0iE1A1ue69DIbbYVNQC.sBf1rvC
           /messages: !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/messagesHandler-20180721155401.zip
             description: 'Handler for calls to resource path : /messages/{proxy+}'

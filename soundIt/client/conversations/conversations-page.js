@@ -22,8 +22,6 @@ class ConversationsPage extends Component {
   }
 
   fetchGroups = () => {
-    console.log('getting groups for this user')
-
     const apiName = 'Groups-Users'
     const path = '/groups'
 
@@ -45,7 +43,7 @@ class ConversationsPage extends Component {
     .then(response => {
       const conversations = response.data.map((elem) => {
         return {'name': elem.EntityID, 
-                'answered': true};
+                'answered': elem.Answered};
       })
       this.setState({conversations: conversations})
     })
