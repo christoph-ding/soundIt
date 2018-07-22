@@ -70,10 +70,10 @@ class NewGroupPage extends Component {
 
     let newGroup = {
       body: {
-          display: this.state.newGroupName,
-          members: selectedUsers
-        }
+        display: this.state.newGroupName,
+        members: selectedUsers
       }
+    }
 
     API.post(apiName, path, newGroup)
     .then(response => {

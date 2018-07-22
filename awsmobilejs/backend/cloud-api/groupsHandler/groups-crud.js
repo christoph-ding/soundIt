@@ -4,14 +4,28 @@ const uuid = require('uuid')
 
 exports.getUserGroups = function(event, context, callback) {
     console.log('=========== getting all groups ===========')
-    const parsedBody = JSON.parse(event.body)
+    // const parsedBody = JSON.parse(event.queryStringParameters)
+    // console.log(parsedBody)
+    
+    console.log('event:')
+    console.log(event)
+    
+    console.log('string parameters:')
+    console.log(event.queryStringParameters)
+
+    // let parsed = JSON.parse(event)
+    // console.log('parsed')
+    // console.log(parsed)
+
+    const test = '+01234567891' 
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",
         IndexName: "Groups-Belong-To-User",
         KeyConditionExpression: "IndividualID = :user",
         ExpressionAttributeValues: {
-            ':user': parsedBody.userID
+            ':user': test
+            // ':user': parsedBody.test
         }
     }
     
@@ -32,7 +46,7 @@ exports.getUserGroups = function(event, context, callback) {
                     "data": groups
                     })
             }
-            context.succeed(response);  
+            context.succeed(response)
         }
     })
 }
@@ -57,7 +71,8 @@ exports.makeNewGroup = function(event, context, callback) {
             PutRequest: { 
                 Item: {
                     'EntityID': display,
-                    'IndividualID': member
+                    'IndividualID': member,
+                    'Answered': false
                 }
             }
         }
@@ -71,7 +86,7 @@ exports.makeNewGroup = function(event, context, callback) {
     
     ddb.batchWrite(params, function(err, data) {
         if (err) {
-            context.done('error','putting item into dynamodb failed: '+err);
+            context.done('error','putting item into dynamodb failed: '+err)
         } else {
             let response = {
                 statusCode: 200,
@@ -79,7 +94,7 @@ exports.makeNewGroup = function(event, context, callback) {
                     "success": "you were successful"
                 })
             }
-            context.succeed(response);
+            context.succeed(response)
         }
     })
 }

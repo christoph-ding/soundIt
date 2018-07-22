@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native'
 
 const STYLES = StyleSheet.create({
   pageContainer: {
-    flex: 1,
+    flex: 1
   },
-  conversationsBody: {
+  list: {
     flex: 0.8
   },
   singleConversation: {

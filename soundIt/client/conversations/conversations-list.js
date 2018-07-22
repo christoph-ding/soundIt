@@ -21,7 +21,7 @@ class ConversationsList extends Component {
 
   render() {
     return (
-      <View style={STYLES.container}>
+      <View style={STYLES.list}>
         {this.renderConversations(this.props.conversations)}
       </View>
     )
