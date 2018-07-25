@@ -3,34 +3,39 @@ const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
 
 exports.gettingMessages = function(event, context, callback) {
     console.log('=========== fetching messages ===========')
-    // const parsedBody = JSON.parse(event.body)
-    console.log(event.body)
-    
-    // get all messages with specific:
-    // group id
-    // user id
-    
-    const params = {
-        TableName: "",
-        KeyConditionExpression: "",
-        ExpressionAttributeValues: {}
+    console.log(event)
+
+    let response = {
+        statusCode: 200,
+        body: JSON.stringify({
+            "success": "you were successful"
+            // "users": data.Items
+        })
     }
     
-    ddb.query(params, function(err, data){
-        if (err) {
-            console.log(err)
-            context.done('error','putting item into dynamodb failed: '+err)
-        } else {
-            let response = {
-                statusCode: 200,
-                body: JSON.stringify({
-                    "success": "you were successful", 
-                    "users": data.Items
-                })
-            }
-            context.succeed(response)
-        }
-    })
+    context.succeed(response)
+
+    // const params = {
+    //     TableName: "",
+    //     KeyConditionExpression: "",
+    //     ExpressionAttributeValues: {}
+    // }
+    
+    // ddb.query(params, function(err, data){
+    //     if (err) {
+    //         console.log(err)
+    //         context.done('error','putting item into dynamodb failed: '+err)
+    //     } else {
+    //         let response = {
+    //             statusCode: 200,
+    //             body: JSON.stringify({
+    //                 "success": "you were successful", 
+    //                 "users": data.Items
+    //             })
+    //         }
+    //         context.succeed(response)
+    //     }
+    // })
 }
 
 exports.makeMessage = function(event, context, callback) {

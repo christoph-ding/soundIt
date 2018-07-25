@@ -4,7 +4,6 @@ const uuid = require('uuid')
 
 exports.getUserGroups = function(event, context, callback) {
     console.log('=========== getting all groups ===========')
-    
     const userID = event.headers.userid
 
     let params = {
@@ -25,7 +24,7 @@ exports.getUserGroups = function(event, context, callback) {
             const groups = data.Items.filter((row) => {
                 return !(row.EntityID === 'user')
             })
-
+    
             let response = {
                 statusCode: 200,
                 body: JSON.stringify({
