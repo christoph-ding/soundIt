@@ -9,6 +9,8 @@ class SingleConversationBody extends Component {
   }
 
   render() {
+    console.log('============== messages ==============')
+    console.log(this.props)
     return (
       <View style={STYLES.body}>
         <Text>

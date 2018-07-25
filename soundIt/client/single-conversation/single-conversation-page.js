@@ -14,7 +14,7 @@ class SingleConversationPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      messages: []
     }
   }
 
@@ -31,25 +31,26 @@ class SingleConversationPage extends Component {
     const apiName = 'Groups-Users'
     const path = '/messages'
     // this is contrived user data
-    const testGroupID = '+01234567891'
+    const testGroupID = 'Second Group'
 
     let myInit = {
       'headers': {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'userID': testGroupID
+            'groupID': testGroupID
       }
     }
 
     API.get(apiName, path, myInit)
     .then(response => {
-      console.log('=============== messages ================')
+      console.log('=============== response ================')
       console.log(response)
-      // const conversations = response.data.map((elem) => {
-      //   return {'name': elem.EntityID, 
-      //           'answered': elem.Answered};
-      // })
-      // this.setState({conversations: conversations})
+
+      const messages = response.data.Items.map((elem) => {
+        return elem            
+      })
+
+      this.setState({messages: messages})
     })
     .catch(err => {
       console.log('error:')
@@ -59,14 +60,14 @@ class SingleConversationPage extends Component {
 
   render() {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
-    console.log(selectedConversation)
+    console.log(this.state)
     return (
       <View style={STYLES.pageContainer}>
         <ConversationHeader
           name={selectedConversation.name}
         />
         <SingleConversationBody
-
+          messages={this.state.messages}
         />
       </View>
     )
