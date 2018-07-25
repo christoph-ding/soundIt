@@ -5,37 +5,33 @@ exports.gettingMessages = function(event, context, callback) {
     console.log('=========== fetching messages ===========')
     console.log(event)
 
-    let response = {
-        statusCode: 200,
-        body: JSON.stringify({
-            "success": "you were successful"
-            // "users": data.Items
-        })
-    }
-    
-    context.succeed(response)
+    let testEntity = 'Second Group'
 
-    // const params = {
-    //     TableName: "",
-    //     KeyConditionExpression: "",
-    //     ExpressionAttributeValues: {}
-    // }
-    
-    // ddb.query(params, function(err, data){
-    //     if (err) {
-    //         console.log(err)
-    //         context.done('error','putting item into dynamodb failed: '+err)
-    //     } else {
-    //         let response = {
-    //             statusCode: 200,
-    //             body: JSON.stringify({
-    //                 "success": "you were successful", 
-    //                 "users": data.Items
-    //             })
-    //         }
-    //         context.succeed(response)
-    //     }
-    // })
+    let params = {
+        TableName : "soundit-mobilehub-1837399535-Messages",
+        KeyConditionExpression: "EntityID = :entity",
+        ExpressionAttributeValues: {
+            ':entity': testEntity
+        }
+    }
+
+    ddb.query(params, function(err, data) {
+        if (err) {
+            console.log('================= error =================')
+            console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+        } else {
+            console.log('============= data ===============')
+            console.log(data)
+            let response = {
+                statusCode: 200,
+                body: JSON.stringify({
+                    "success": "you were successful",
+                    "data": data
+                    })
+            }
+            context.succeed(response)
+        }
+    })
 }
 
 exports.makeMessage = function(event, context, callback) {
@@ -56,8 +52,6 @@ exports.makeMessage = function(event, context, callback) {
         },
         TableName: process.env.TABLE_NAME
     }
-    
-    // 
     
     ddb.put(params, function(err, data) {
         if (err) {
