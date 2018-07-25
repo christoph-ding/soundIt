@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
 import STYLES from './single-conversation-styles'
+import MessagesList from './messages-list'
 
 class SingleConversationBody extends Component {
   constructor(props) {
@@ -9,13 +10,11 @@ class SingleConversationBody extends Component {
   }
 
   render() {
-    console.log('============== messages ==============')
-    console.log(this.props)
     return (
-      <View style={STYLES.body}>
-        <Text>
-          Hey
-        </Text>
+      <View>
+        <MessagesList 
+         {...this.props}         
+        />
       </View>
     )
   }

@@ -25,8 +25,6 @@ class SingleConversationPage extends Component {
   }     
 
   fetchMessages = () => {
-    console.log('fetching conversation messages ... ')
-
     // get messages that have this groups id and sort id
     const apiName = 'Groups-Users'
     const path = '/messages'
