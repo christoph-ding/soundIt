@@ -5,6 +5,7 @@ import { API } from 'aws-amplify'
 import STYLES from './single-conversation-styles'
 import SingleConversationBody from './single-conversation-body'
 import ConversationHeader from './conversation-header'
+import MakeMessage from './make-message'
 
 class SingleConversationPage extends Component {
   static navigationOptions = {
@@ -56,6 +57,27 @@ class SingleConversationPage extends Component {
     });
   }
 
+  makeMessage = () => {
+    console.log('making a message')
+    // we should only submit if it is valid
+
+    const apiName = 'Groups-Users'
+    const path = '/messages'
+
+    let newGroup = {
+      body: {}
+    }
+
+    API.post(apiName, path, newGroup)
+    .then(response => {
+      console.log('success:')
+      console.log(response)
+    })
+     .catch(err => {
+      console.log(err)
+    })
+  }
+
   render() {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
     console.log(this.state)
@@ -66,6 +88,9 @@ class SingleConversationPage extends Component {
         />
         <SingleConversationBody
           messages={this.state.messages}
+        />
+        <MakeMessage
+          makeMessage={this.makeMessage}
         />
       </View>
     )

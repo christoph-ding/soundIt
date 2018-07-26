@@ -10,7 +10,7 @@ class MakeMessage extends Component {
 
   handleClick = () => {
     console.log('making message')
-    // this.props.selectConversation(this.props.conversation)
+    this.props.makeMessage()
   }
 
   render() {
