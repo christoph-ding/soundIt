@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { API } from 'aws-amplify'
+import { API, Storage } from 'aws-amplify'
 
 import STYLES from './single-conversation-styles'
 import SingleConversationBody from './single-conversation-body'
@@ -61,21 +61,12 @@ class SingleConversationPage extends Component {
     console.log('making a message')
     // we should only submit if it is valid
 
-    const apiName = 'Groups-Users'
-    const path = '/messages'
-
-    let newGroup = {
-      body: {}
-    }
-
-    API.post(apiName, path, newGroup)
-    .then(response => {
-      console.log('success:')
-      console.log(response)
+    Storage.put('test.txt', 'Yo')
+    .then ((result) => {
+      console.log('result')
+      console.log(result)
     })
-     .catch(err => {
-      console.log(err)
-    })
+    .catch(err => console.log(err));
   }
 
   render() {

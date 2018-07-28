@@ -8,8 +8,7 @@ class MakeMessage extends Component {
     super(props)
   }
 
-  handleClick = () => {
-    console.log('making message')
+  handleClick = () => {    
     this.props.makeMessage()
   }
 
