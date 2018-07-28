@@ -41,9 +41,6 @@ class SingleConversationPage extends Component {
 
     API.get(apiName, path, myInit)
     .then(response => {
-      console.log('=============== response ================')
-      console.log(response)
-
       const messages = response.data.Items.map((elem) => {
         return elem            
       })
@@ -56,17 +53,25 @@ class SingleConversationPage extends Component {
     });
   }
 
-  makeMessage = () => {
+  async makeMessage() {
     console.log('making a message for S3')
-    // we should only submit if it is valid
 
-    Storage.put('test.txt', 'Yo')
+    // we should only submit if it is valid
+    const apiName = 'Groups-Users'
+    const path = '/messages'
+
+    await Storage.put('test.txt', 'Yo')
     .then ((result) => {
-      console.log('result')
+      console.log('posting to message table')
       console.log(result)
-    })
-    .then (() =>{
-      console.log('+++++++++++++')
+      return new Promise(function(resolve, reject) {
+        API.post(apiName, path)
+        .then(response => {
+          console.log('success:')
+          console.log(response)
+          resolve()
+        })
+      })
     })
     .catch(err => console.log(err));
   }
