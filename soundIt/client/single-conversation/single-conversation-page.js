@@ -20,8 +20,7 @@ class SingleConversationPage extends Component {
   }
 
   componentWillMount() {
-    const selectedConversation = this.props.navigation.getParam('selected-conversation')
-    console.log(selectedConversation)
+    const selectedConversation = this.props.navigation.getParam('selected-conversation')    
     this.fetchMessages()
   }     
 
@@ -65,6 +64,9 @@ class SingleConversationPage extends Component {
     .then ((result) => {
       console.log('result')
       console.log(result)
+    })
+    .then (() =>{
+      console.log('+++++++++++++')
     })
     .catch(err => console.log(err));
   }
