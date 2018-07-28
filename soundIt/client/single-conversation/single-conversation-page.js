@@ -58,7 +58,7 @@ class SingleConversationPage extends Component {
   }
 
   makeMessage = () => {
-    console.log('making a message')
+    console.log('making a message for S3')
     // we should only submit if it is valid
 
     Storage.put('test.txt', 'Yo')
