@@ -60,7 +60,9 @@ class SingleConversationPage extends Component {
   fetchSingleMessage = () => {
     console.log('fetching a single message')
 
-    const url = 'https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3'
+    // const url = 'https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3'
+    // https://<bucket-name>.s3.amazonaws.com/<key>
+    const url = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535/public/test.mp3'
 
     const sound = new Sound(url, null, (error) => {
       if (error) {
