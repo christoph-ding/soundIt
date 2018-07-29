@@ -1,9 +1,9 @@
 const AWS = require('aws-sdk')
 const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
+const uuidv1 = require('uuid/v1')
 
 exports.gettingMessages = function(event, context, callback) {
     console.log('=========== fetching messages ===========')
-    console.log(event)
 
     let testEntity = 'Second Group'
 
@@ -17,11 +17,8 @@ exports.gettingMessages = function(event, context, callback) {
 
     ddb.query(params, function(err, data) {
         if (err) {
-            console.log('================= error =================')
             console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
         } else {
-            console.log('============= data ===============')
-            console.log(data)
             let response = {
                 statusCode: 200,
                 body: JSON.stringify({
@@ -36,15 +33,16 @@ exports.gettingMessages = function(event, context, callback) {
 
 exports.makeMessage = function(event, context, callback) {
     console.log('=========== making message ===========')
-    // const parsedBody = JSON.parse(event.body)
+    const parsedBody = JSON.parse(event.body)
+ 
+    console.log(parsedBody)
  
     const params = {
         Item: {
-            EntityID: "Second Group",
-            // IndividualID: parsedBody.userID,
-            IndividualID: '123',
+            EntityID: parsedBody.EntityID,
+            IndividualID: parsedBody.IndividualID,
             Time: new Date(Date.now()).toString(),
-            MessageID: 'public/test.txt'
+            MessageID: parsedBody.MessageID
         },
         TableName: "soundit-mobilehub-1837399535-Messages"
     }
@@ -67,47 +65,3 @@ exports.makeMessage = function(event, context, callback) {
         }
     })
 };  
-
-    // ddb.put(params, function(err, data) {
-    //     if (err) {
-    //         context.done('error','putting item into dynamodb failed: '+err)
-    //     } else {
-    //         console.log('=========== successfully made new user ===========')
-    //         let response = {
-    //             statusCode: 200,
-    //             body: JSON.stringify({
-    //                 "success": "you were successful"
-    //             })
-    //         }
-    //         context.succeed(response)
-    //     }
-    // })
-
-    // // hard coded ids
-    // let hardCodedEntity = 'First Real Group'
-    // let hardCodedIndividual = '+01234567891'
-    
-    // let params = {
-    //     Item: {
-    //         EntityID: hardCodedEntity,
-    //         IndividualID: hardCodedEntity,
-    //         // MessageID: ,
-    //         // Time: 
-    //     },
-    //     TableName: process.env.TABLE_NAME
-    // }
-    
-    // ddb.put(params, function(err, data) {
-    //     if (err) {
-    //         context.done('error','putting item into dynamodb failed: '+err);
-    //     } else {
-    //         console.log('=========== successfully made new message ===========')
-    //         let response = {
-    //             statusCode: 200,
-    //             body: JSON.stringify({
-    //                  "success": "you were successful"
-    //             })
-    //         }
-    //         context.succeed(response)
-    //     }  
-    // })

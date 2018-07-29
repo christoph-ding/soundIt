@@ -17,49 +17,49 @@ features:
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: sJVhjT7RUXYtqmCscJCIFokyC4Z0A3sbHaOf0Fva4kg=
+            hashcode: /E8jfkk5xgBG4f0v4++lYMehOYurcw0wtTYyz9r/fgQ=
             memorySize: '128'
-            modified: '2018-07-25T01:33:35.922+0000'
+            modified: '2018-07-28T23:08:06.176+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: QPBs2tMv8WHscuFMonevZlNNAEst36Gm
+            version: vYo9aO7e2XoUP3C5VbgjOD_d34T_bgJD
           '/groups/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/groupsHandler-20180724204729.zip
             description: 'Handler for calls to resource path : /groups/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: sJVhjT7RUXYtqmCscJCIFokyC4Z0A3sbHaOf0Fva4kg=
+            hashcode: /E8jfkk5xgBG4f0v4++lYMehOYurcw0wtTYyz9r/fgQ=
             memorySize: '128'
-            modified: '2018-07-25T01:33:35.922+0000'
+            modified: '2018-07-28T23:08:06.176+0000'
             name: groupsHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: 3bk3tdch9IVWRzTPxyHXi_3nvTYLeDny
+            version: 0NGc5xcsI5POnXdYo7OOaEqu9XuyZ3tl
           /messages: !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/messagesHandler-20180724204729.zip
             description: 'Handler for calls to resource path : /messages/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: kaWS5rmxtGrk/UxvQRVX4yypv2aLYO98d242uLti/bM=
+            hashcode: qd4gumAWOxu648qZ8CclgkUk+l96R9UySHBPZFCjJyU=
             memorySize: '128'
-            modified: '2018-07-25T01:36:34.225+0000'
+            modified: '2018-07-29T00:32:55.201+0000'
             name: messagesHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: qz54etgssS27Qhui2S4yRdhSMrkE44iH
+            version: lEeNZY4r_zDuG1gAXk05xWYsS2pUjIcn
           '/messages/{proxy+}': !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/messagesHandler-20180724204729.zip
             description: 'Handler for calls to resource path : /messages/{proxy+}'
             environment: {}
             handler: index.handler
-            hashcode: kaWS5rmxtGrk/UxvQRVX4yypv2aLYO98d242uLti/bM=
+            hashcode: qd4gumAWOxu648qZ8CclgkUk+l96R9UySHBPZFCjJyU=
             memorySize: '128'
-            modified: '2018-07-25T01:36:34.225+0000'
+            modified: '2018-07-29T00:32:55.201+0000'
             name: messagesHandler
             runtime: nodejs6.10
             timeout: '3'
-            version: GTxpNCLbXSL76xOSHspN3UdWveVytjVT
+            version: sCn7D51FuxPrcNnTVZjXFb_tN73yavsy
           /users: !com.amazonaws.mobilehub.v0.Function 
             codeFilename: uploads/usersHandler-20180724204729.zip
             description: 'Handler for calls to resource path : /users/{proxy+}'
@@ -140,5 +140,8 @@ features:
             require-symbols: true
             require-upper-case: true
           standard-attributes: '[]'
+  user-files: !com.amazonaws.mobilehub.v0.UserFiles 
+    attributes:
+      enabled: true
 name: SoundIt
 region: us-east-1

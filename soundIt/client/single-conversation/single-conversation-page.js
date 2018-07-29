@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { API, Storage } from 'aws-amplify'
 const uuidv1 = require('uuid/v1')
+import Sound from 'react-native-sound'
 
 import STYLES from './single-conversation-styles'
 import SingleConversationBody from './single-conversation-body'
@@ -57,8 +58,24 @@ class SingleConversationPage extends Component {
   }
 
   fetchSingleMessage = () => {
-    // get a single audio recording
     console.log('fetching a single message')
+
+    const url = 'https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3'
+
+    const sound = new Sound(url, null, (error) => {
+      if (error) {
+        // do something
+        console.log('error')
+        console.log(error)
+      } else {
+        console.log('loaded')
+        console.log(sound.getDuration())
+        console.log(sound)
+        // play when loaded
+        sound.play();
+      }      
+    });
+
   }
 
   async makeMessage() {
