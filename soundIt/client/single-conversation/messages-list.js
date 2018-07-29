@@ -10,10 +10,11 @@ class MessagesList extends Component {
   }
 
   renderMessages = (messages) => {
-    // let action = this.props.selectConversation
+    let action = this.props.fetchSingleMessage
     return (messages.map((message) => {      
       return (<SingleMessage 
         message={message}
+        fetchSingleMessage={action}
       />)
     }))
   }

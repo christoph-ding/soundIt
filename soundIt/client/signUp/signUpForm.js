@@ -63,7 +63,6 @@ class SignUpForm extends Component {
       })
     })
     .then(() => {
-      console.log("navigating away ... ")      
       this.props.navigateAction()
     })
     .catch(err => {

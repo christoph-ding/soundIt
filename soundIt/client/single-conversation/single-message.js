@@ -9,8 +9,7 @@ class SingleMessage extends Component {
   }
 
   handleClick = () => {
-    console.log('clickingon a single conversation')
-    // this.props.selectConversation(this.props.conversation)
+    this.props.fetchSingleMessage(this.props.fetch)
   }
 
   render() {

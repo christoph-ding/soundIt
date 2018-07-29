@@ -37,16 +37,52 @@ exports.gettingMessages = function(event, context, callback) {
 exports.makeMessage = function(event, context, callback) {
     console.log('=========== making message ===========')
     // const parsedBody = JSON.parse(event.body)
-    // console.log(event.body)
-  
-    let response = {
-        statusCode: 200,
-        body: JSON.stringify({
-             "success": "you were successful"
-        })
+ 
+    const params = {
+        Item: {
+            EntityID: "Second Group",
+            // IndividualID: parsedBody.userID,
+            IndividualID: '123',
+            Time: new Date(Date.now()).toString(),
+            MessageID: 'public/test.txt'
+        },
+        TableName: "soundit-mobilehub-1837399535-Messages"
     }
-    context.succeed(response)
   
+    console.log('=============== params ===============')
+    console.log(params)
+
+    ddb.put(params, function(err, data) {
+        if (err) {
+            context.done('error','putting item into dynamodb failed: '+err)
+        } else {
+            console.log('=========== successfully made new message ===========')
+            let response = {
+                statusCode: 200,
+                body: JSON.stringify({
+                    "success": "you were successful"
+                })
+            }
+            context.succeed(response)
+        }
+    })
+};  
+
+    // ddb.put(params, function(err, data) {
+    //     if (err) {
+    //         context.done('error','putting item into dynamodb failed: '+err)
+    //     } else {
+    //         console.log('=========== successfully made new user ===========')
+    //         let response = {
+    //             statusCode: 200,
+    //             body: JSON.stringify({
+    //                 "success": "you were successful"
+    //             })
+    //         }
+    //         context.succeed(response)
+    //     }
+    // })
+
     // // hard coded ids
     // let hardCodedEntity = 'First Real Group'
     // let hardCodedIndividual = '+01234567891'
@@ -75,4 +111,3 @@ exports.makeMessage = function(event, context, callback) {
     //         context.succeed(response)
     //     }  
     // })
-};
