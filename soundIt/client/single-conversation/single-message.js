@@ -9,7 +9,7 @@ class SingleMessage extends Component {
   }
 
   handleClick = () => {
-    this.props.fetchSingleMessage(this.props.fetch)
+    this.props.fetchSingleMessage(this.props.message)
   }
 
   render() {

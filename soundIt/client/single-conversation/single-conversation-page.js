@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { API, Storage } from 'aws-amplify'
-const uuidv1 = require('uuid/v1')
 import Sound from 'react-native-sound'
+const uuidv1 = require('uuid/v1')
 
 import STYLES from './single-conversation-styles'
 import SingleConversationBody from './single-conversation-body'
@@ -57,23 +57,23 @@ class SingleConversationPage extends Component {
     });
   }
 
-  fetchSingleMessage = () => {
+  fetchSingleMessage = (message) => {
     console.log('fetching a single message')
+    console.log(message)
 
-    // const url = 'https://raw.githubusercontent.com/zmxv/react-native-sound-demo/master/advertising.mp3'
-    // https://<bucket-name>.s3.amazonaws.com/<key>
-    const url = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535/public/test.mp3'
+    const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
+    const key = '/public/' + message.MessageID + '.mp3'
+    const generatedURL = bucket + key
 
-    const sound = new Sound(url, null, (error) => {
+    console.log(generatedURL)
+
+    const sound = new Sound(generatedURL, null, (error) => {
       if (error) {
         // do something
         console.log('error')
         console.log(error)
       } else {
         console.log('loaded')
-        console.log(sound.getDuration())
-        console.log(sound)
-        // play when loaded
         sound.play();
       }      
     });
@@ -121,7 +121,6 @@ class SingleConversationPage extends Component {
 
   render() {
     const selectedConversation = this.state.conversation
-    console.log(this.state)
     return (
       <View style={STYLES.pageContainer}>
         <ConversationHeader
