@@ -57,7 +57,18 @@ class SingleConversationPage extends Component {
       Recording.stop()
       console.log('data: ')
       console.log(fileData)
+      sendThing()
     }, 4400)
+
+    function sendThing = () {
+      console.log('sending thing')
+      await Storage.put(messageID, 'Yo')
+      .then ((result) => {
+          console.log('success!')
+          console.log(result)
+      })
+      .catch(err => console.log(err));
+    }
 
     // SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
     //   .then(function() {
