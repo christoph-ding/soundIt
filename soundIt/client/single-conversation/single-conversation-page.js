@@ -6,8 +6,8 @@ const uuidv1 = require('uuid/v1')
 
 // testing
 
-// import SoundRecorder from 'react-native-sound-recorder'
-import Recording from 'react-native-recording'
+import SoundRecorder from 'react-native-sound-recorder'
+// import Recording from 'react-native-recording'
 
 // 
 import STYLES from './single-conversation-styles'
@@ -35,6 +35,22 @@ class SingleConversationPage extends Component {
   }     
 
   async makeMessage() {
+    SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
+      .then(function() {
+        console.log('started recording')
+      })
+
+    setTimeout(() => {
+      console.log('... done')
+      SoundRecorder.stop()
+      .then(function(result) {
+        console.log('stopped recording, audio file saved at: ' + result.path);
+        console.log(result)
+      })
+    }, 4000)
+  }
+
+  async makeMessageTest() {
     console.log('making a message for S3')  
 
     let fileData = []
@@ -58,17 +74,57 @@ class SingleConversationPage extends Component {
       console.log('data: ')
       console.log(fileData)
       sendThing()
-    }, 4400)
+    }, 2000)
 
-    function sendThing = () {
+    async function sendThing() {
       console.log('sending thing')
-      await Storage.put(messageID, 'Yo')
+
+      const formData = new FormData()
+      formData.append('file', {
+        data: fileData,
+        name: 'test.aac',
+        type: 'audio/aac',
+      })
+
+      await Storage.put('test.mp4', formData, {
+        contentType: 'audio/*'
+      })
       .then ((result) => {
           console.log('success!')
           console.log(result)
       })
       .catch(err => console.log(err));
-    }
+    }    
+
+    // function sendThing() {
+    //   console.log('sending thing')
+
+    //   const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
+    //   const key = '/public/' + 'upload' + '.mp3'
+    //   const generatedURL = bucket + key
+
+    //   console.log(generatedURL)
+
+    //   const formData = new FormData()
+    //   formData.append('file', {
+    //     data: fileData,
+    //     name: 'test.aac',
+    //     type: 'audio/aac',
+    //   })
+
+    //   let options = {
+    //     method: 'POST',
+    //     body: JSON.stringify(
+    //       formData
+    //     ),
+    //     headers: {
+    //       Accept: 'application/json',
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //   };
+
+    //   return fetch(generatedURL, options);
+    // }
 
     // SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
     //   .then(function() {
