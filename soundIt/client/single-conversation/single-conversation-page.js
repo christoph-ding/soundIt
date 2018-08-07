@@ -3,11 +3,12 @@ import { View } from 'react-native'
 import { API, Storage } from 'aws-amplify'
 import Sound from 'react-native-sound'
 const uuidv1 = require('uuid/v1')
+import { Buffer } from 'buffer'
 
 // testing
-
 import SoundRecorder from 'react-native-sound-recorder'
 // import Recording from 'react-native-recording'
+import RNFetchBlob from 'react-native-fetch-blob';
 
 // 
 import STYLES from './single-conversation-styles'
@@ -35,7 +36,12 @@ class SingleConversationPage extends Component {
   }     
 
   async makeMessage() {
-    SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
+    console.log('sending message: ')
+    
+    let filePath = SoundRecorder.PATH_CACHE + '/test.mp4'
+    console.log(filePath)
+
+    SoundRecorder.start(filePath)
       .then(function() {
         console.log('started recording')
       })
@@ -44,10 +50,23 @@ class SingleConversationPage extends Component {
       console.log('... done')
       SoundRecorder.stop()
       .then(function(result) {
-        console.log('stopped recording, audio file saved at: ' + result.path);
-        console.log(result)
+        console.log('stopped recording, audio file saved at: ' + result.path);        
       })
-    }, 4000)
+      .then(function() {
+        readFile(filePath)
+          .then(buffer => {
+          console.log('done')
+          console.log(buffer)
+        })
+      })
+      .catch(e => {
+        console.log(e);
+      })
+    }, 8000)
+
+    function readFile(filePath) {
+      return RNFetchBlob.fs.readFile(filePath, 'base64').then(data => new Buffer(data, 'base64'));
+    }
   }
 
   async makeMessageTest() {

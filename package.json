@@ -20,6 +20,7 @@
   "dependencies": {
     "aws-amplify": "^0.3.4",
     "aws-amplify-react-native": "^0.2.9",
+    "buffer": "^5.2.0",
     "uuid": "^3.2.1"
   }
 }
