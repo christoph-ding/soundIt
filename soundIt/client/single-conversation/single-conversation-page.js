@@ -54,9 +54,12 @@ class SingleConversationPage extends Component {
       })
       .then(function() {
         readFile(filePath)
-          .then(buffer => {
-          console.log('done')
+        .then(async (buffer) => {
+          console.log('sending ... ')
           console.log(buffer)
+          await Storage.put('test.mp3', buffer, {
+            contentType: 'audio/*'
+          })
         })
       })
       .catch(e => {
