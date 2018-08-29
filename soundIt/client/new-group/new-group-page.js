@@ -3,8 +3,8 @@ import { View } from 'react-native'
 import { API } from 'aws-amplify'
 
 import STYLES from './new-group-styles'
-import NewGroupForm from './form/newGroupForm'
-import UsersBody from './users/usersBody'
+import NewGroupForm from './form/new-group-form'
+import UsersBody from './users/users-body'
 
 class NewGroupPage extends Component {
   static navigationOptions = {

@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import STYLES from '../new-group-styles'
-import UsersList from './users-list/usersList';
+import UsersList from './users-list/users-list';
 
 class UsersBody extends Component {
   constructor(props) {

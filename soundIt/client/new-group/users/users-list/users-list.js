@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import SingleUser from './singleUser'
+import SingleUser from './single-user'
 
 class UsersList extends Component {
   constructor(props) {
