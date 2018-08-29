@@ -9,7 +9,7 @@ import ConversationsPage from '../../conversations/conversations-page.js'
 import SingleConversationPage from '../../single-conversation/single-conversation-page.js'
 
 // navigation
-const LANDING = 'conversations'
+const LANDING = 'newGroup'
 
 const FeaturesStack = StackNavigator(
   {
