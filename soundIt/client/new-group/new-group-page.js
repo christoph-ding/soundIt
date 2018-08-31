@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { API } from 'aws-amplify'
 
-import STYLES from './new-group-styles'
+import STYLES from '../styles/styles'
 import NewGroupForm from './form/new-group-form'
 import UsersBody from './users/users-body'
 
@@ -25,8 +25,6 @@ class NewGroupPage extends Component {
   }
 
   fetchUsers = () => {
-    console.log('getting data ...')
-
     const apiName = 'Groups-Users'
     const path = '/users'
 
@@ -61,8 +59,6 @@ class NewGroupPage extends Component {
 
   // should only work if there are users selected, and a name
   submitNewGroup = () => {
-    console.log('submitting')
-
     const apiName = 'Groups-Users'
     const path = '/groups'
     const selectedUsers = Object.keys(this.state.selectedUsers).filter(

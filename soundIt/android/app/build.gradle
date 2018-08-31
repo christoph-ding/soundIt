@@ -137,6 +137,12 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fetch-blob')
+    compile project(':aws-amplify-react-native')
+    compile project(':react-native-recording')
+    compile project(':react-native-sound-recorder')
+    compile project(':react-native-sound')
+    compile project(':react-native-vector-icons')
     compile project(':amazon-cognito-identity-js')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"

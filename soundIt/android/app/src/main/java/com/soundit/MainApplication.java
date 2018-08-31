@@ -3,6 +3,12 @@ package com.soundit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import com.amazonaws.amplify.pushnotification.RNPushNotificationPackage;
+import cn.qiuxiang.react.recording.RecordingPackage;
+import com.kevinresol.react_native_sound_recorder.RNSoundRecorderPackage;
+import com.zmxv.RNSound.RNSoundPackage;
+import com.oblador.vectoricons.VectorIconsPackage;
 import com.amazonaws.RNAWSCognitoPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,6 +30,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFetchBlobPackage(),
+            new RNPushNotificationPackage(),
+            new RecordingPackage(),
+            new RNSoundRecorderPackage(),
+            new RNSoundPackage(),
+            new VectorIconsPackage(),
             new RNAWSCognitoPackage()
       );
     }

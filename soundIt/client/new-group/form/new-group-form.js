@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import STYLES from '../new-group-styles'
+import STYLES from '../../styles/styles'
 import GroupName from './group-name'
 import CreateButton from './create-button'
 
