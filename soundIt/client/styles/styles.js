@@ -12,6 +12,12 @@ const STYLES = StyleSheet.create({
   },
   label: {
     color: '#ff8c00'
+  },
+  inputLine: {
+    color: '#000000'
+  },
+  button: {
+    color: '#ff8c00'
   }
 })
 

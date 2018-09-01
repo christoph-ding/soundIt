@@ -18,7 +18,7 @@ class GroupName extends Component {
       <View style={STYLES.groupName}>
         <FormLabel labelStyle={STYLES.label}> Create New Group </FormLabel>
         <FormInput
-          // style={STYLES.newGroupInput}
+          inputStyle={STYLES.inputLine}          
           placeholder="Group Name"
           onChangeText={handleInputChange.bind(null, "newGroupName")}
         />
