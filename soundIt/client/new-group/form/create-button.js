@@ -12,8 +12,8 @@ class CreateButton extends Component {
     const { submitNewGroup } = this.props
     return(
       <Button
-        style={STYLES.button}
         title="Create"
+        color="#000000"
         onPress={submitNewGroup}
       />
     )
