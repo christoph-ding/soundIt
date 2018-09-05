@@ -14,34 +14,24 @@ const STYLES = StyleSheet.create({
   },
   button: {
     flex: 0.6,
-    justifyContent: 'center',
-    color: '#ff4500'
-    // backgroundColor: 'orange'
+    justifyContent: 'center'
   },
   label: {
     height: 30,
     lineHeight: 30,
     justifyContent: 'center',
     color: '#ff4500'
-    // backgroundColor: 'orange'
   },
   inputBox: {
-    // height: 50,
     borderColor:'#ff8c00',
     borderBottomColor: '#ff8c00',
     borderWidth: 2,
     borderBottomWidth: 2
   },
-  inputLine: {
-    color: '#000000'
-  },
   usersBody: {
-    flex: 0.75
+    flex: 0.75,
+    backgroundColor: '#faf0e6'
   }
-  // *******************
-  
-
-  
 })
 
 export default STYLES

@@ -5,7 +5,7 @@ import {
   Text
 } from 'react-native';
 
-import STYLES from '../new-group-styles'
+import STYLES from '../../styles/styles'
 import UsersList from './users-list/users-list';
 
 class UsersBody extends Component {
