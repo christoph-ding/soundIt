@@ -19,9 +19,10 @@ class GroupName extends Component {
       <View style={STYLES.groupName}>
         <FormLabel labelStyle={STYLES.label}> New Group </FormLabel>
         <FormInput
+          containerStyle={STYLES.inputBox}
           placeholder="Group Name"
           onChangeText={handleInputChange.bind(null, "newGroupName")}
-          containerStyle={STYLES.inputBox}
+          placeholderTextColor="#ff4500"
         />
       </View>
     )

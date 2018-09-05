@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from 'react-native';
+import { View,
+         Button } from 'react-native';
 
 import STYLES from '../../styles/styles'
 
@@ -11,11 +12,13 @@ class CreateButton extends Component {
   render() {
     const { submitNewGroup } = this.props
     return(
-      <Button
-        title="Create"
-        color="#000000"
-        onPress={submitNewGroup}
-      />
+      <View style={STYLES.button}> 
+        <Button
+          title="Create"
+          color="#ff4500"
+          onPress={submitNewGroup}
+        />
+      </View>
     )
   }
 }
