@@ -17,6 +17,7 @@ class SingleConversation extends Component {
       <ListItem
         title = {this.props.conversation.name}
         onPress={this.handleClick}
+        chevronColor='#ff8c00'
       />
     )
   }

@@ -6,7 +6,8 @@ import Banner from '../ui/banner';
 class ConversationHeader extends Component {
   render() {
     return (
-      <Banner title={this.props.name}/>
+      <Banner         
+        title={this.props.name}/>
     )
   }
 }

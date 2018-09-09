@@ -12,7 +12,7 @@ import RNFetchBlob from 'react-native-fetch-blob';
 
 // 
 import STYLES from './single-conversation-styles'
-import SingleConversationBody from './single-conversation-body'
+import MessagesList from './messages-list'
 import ConversationHeader from './conversation-header'
 import MakeMessage from './make-message'
 
@@ -249,17 +249,13 @@ class SingleConversationPage extends Component {
   }
 
   render() {
-    console.log('navigator.mediaDevices:')
-    console.log(navigator.getUserMedia)
-    console.log(navigator)
-
     const selectedConversation = this.state.conversation
     return (
       <View style={STYLES.pageContainer}>
         <ConversationHeader
           name={selectedConversation.name}
         />
-        <SingleConversationBody
+        <MessagesList
           messages={this.state.messages}
           fetchSingleMessage={this.fetchSingleMessage}
         />
