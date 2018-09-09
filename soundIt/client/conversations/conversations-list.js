@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 
-import STYLES from './conversations-styles'
+import STYLES from '../styles/styles'
 import SingleConversation from './single-conversation'
 
 class ConversationsList extends Component {
@@ -21,11 +21,13 @@ class ConversationsList extends Component {
 
   render() {
     return (
-      <View style={STYLES.list}>
+      <View>
         {this.renderConversations(this.props.conversations)}
       </View>
     )
   }
 }
+
+// <View style={STYLES.list}>
 
 export default ConversationsList

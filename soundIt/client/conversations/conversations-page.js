@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { API } from 'aws-amplify'
 
-import STYLES from './conversations-styles'
+import STYLES from '../styles/styles'
 import ConversationsList from './conversations-list'
 
 class ConversationsPage extends Component {
