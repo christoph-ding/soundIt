@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ListItem } from 'react-native-elements'
+import { ListItem, CheckBox} from 'react-native-elements'
 import { View } from 'react-native';
 
 import STYLES from '../../new-group-styles'
@@ -22,6 +22,7 @@ class SingleUser extends Component {
   render() {
     const {user} = this.props
     return (
+      <View>
       <ListItem
         title={user.Display}
         containerStyle={
@@ -31,9 +32,15 @@ class SingleUser extends Component {
         }
         hideChevron
         onPress={this.handleClick}
+        leftIcon={<CheckBox 
+                  uncheckedIcon='circle-o'
+                  containerStyle={{backgroundColor: 'transparent'}}/>}
       />
+      </View>
     )
   }
 }
 
+// <CheckBox
+//      />
 export default SingleUser
