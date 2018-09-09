@@ -24,23 +24,19 @@ class SingleUser extends Component {
     return (
       <View>
       <ListItem
-        title={user.Display}
-        containerStyle={
-          {
-            backgroundColor: this.state.selected ? "blue" : "transparent"
-          }
-        }
+        title={user.Display}        
         hideChevron
-        onPress={this.handleClick}
         leftIcon={<CheckBox 
+                  onPress={this.handleClick}
                   uncheckedIcon='circle-o'
-                  containerStyle={{backgroundColor: 'transparent'}}/>}
+                  checkedIcon='dot-circle-o'
+                  checked={this.state.selected}
+                  checkedColor='#ff8c00'
+                  containerStyle={{ backgroundColor: "transparent" }}/>}
       />
       </View>
     )
   }
 }
 
-// <CheckBox
-//      />
 export default SingleUser

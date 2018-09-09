@@ -7,7 +7,7 @@ const STYLES = StyleSheet.create({
   // *******************
   newGroupForm: {
     flex: 0.25,
-    backgroundColor: '#ffffe0'
+    backgroundColor: '#ffdb4d'
   },
   groupName: {
     flex: 0.6
@@ -26,11 +26,11 @@ const STYLES = StyleSheet.create({
     borderColor:'#ff8c00',
     borderBottomColor: '#ff8c00',
     borderWidth: 2,
-    borderBottomWidth: 2
+    borderBottomWidth: 2,
+    backgroundColor: '#fffae6'
   },
   usersBody: {
-    flex: 0.75,
-    backgroundColor: '#faf0e6'
+    flex: 0.75
   }
 })
 
