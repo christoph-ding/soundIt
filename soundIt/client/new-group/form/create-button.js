@@ -15,7 +15,7 @@ class CreateButton extends Component {
       <View style={STYLES.button}> 
         <Button
           title="Create New Group"
-          color="#ff4500"
+          color="black"
           onPress={submitNewGroup}
         />
       </View>

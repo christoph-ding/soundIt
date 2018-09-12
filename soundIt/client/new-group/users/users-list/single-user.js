@@ -33,6 +33,7 @@ class SingleUser extends Component {
                   checked={this.state.selected}
                   checkedColor='#ff8c00'
                   containerStyle={{ backgroundColor: "transparent" }}/>}
+        titleStyle={{ color: 'black' }}
       />
       </View>
     )
