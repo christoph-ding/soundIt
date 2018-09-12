@@ -6,31 +6,26 @@ const STYLES = StyleSheet.create({
   },
   // *******************
   newGroupForm: {
-    flex: 0.25,
+    paddingTop: 25, 
+    flex: 0.2,
     backgroundColor: '#ffdb4d'
   },
   groupName: {
-    flex: 0.6
+    flex: 0.4
   },
   button: {
-    flex: 0.6,
+    flex: 0.25,
     justifyContent: 'center'
-  },
-  label: {
-    height: 30,
-    lineHeight: 30,
-    justifyContent: 'center',
-    color: '#ff4500'
   },
   inputBox: {
     borderColor:'#ff8c00',
     borderBottomColor: '#ff8c00',
     borderWidth: 2,
     borderBottomWidth: 2,
-    backgroundColor: '#fffae6'
+    backgroundColor: '#fffae6',
   },
   usersBody: {
-    flex: 0.75
+    flex: 0.8
   }
 })
 

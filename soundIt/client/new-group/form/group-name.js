@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { FormLabel,
-         FormInput,
+import { FormInput,
          TextInput
 } from 'react-native-elements';
 
@@ -16,8 +15,7 @@ class GroupName extends Component {
     const {handleInputChange} = this.props
 
     return (
-      <View style={STYLES.groupName}>
-        <FormLabel labelStyle={STYLES.label}> New Group </FormLabel>
+      <View style={STYLES.groupName}>        
         <FormInput
           containerStyle={STYLES.inputBox}
           placeholder="Group Name"

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
+import STYLES from '../../../styles/styles'
 import SingleUser from './single-user'
 
 class UsersList extends Component {

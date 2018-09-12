@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { ListItem, CheckBox} from 'react-native-elements'
 import { View } from 'react-native';
 
-import STYLES from '../../new-group-styles'
+import STYLES from '../../../styles/styles'
 
 class SingleUser extends Component {
   constructor(props) {
