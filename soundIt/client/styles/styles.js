@@ -42,6 +42,15 @@ const STYLES = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#ff8c00',
     width: 300
+  },
+  createMessageContainer: {    
+    backgroundColor: '#ffdb4d',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    bottom:0,
+    height: 75,
+    width: '100%'
   }
 })
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { ListItem } from 'react-native-elements'
 
-import STYLES from './single-conversation-styles'
 
 class SingleMessage extends Component {
   constructor(props) {

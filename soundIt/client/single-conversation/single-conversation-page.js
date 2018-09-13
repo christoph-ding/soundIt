@@ -219,9 +219,11 @@ class SingleConversationPage extends Component {
           messages={this.state.messages}
           fetchSingleMessage={this.fetchSingleMessage}
         />
-        <MakeMessage
-          makeMessage={this.makeMessage}
-        />
+        <View style={STYLES.createMessageContainer}>
+          <MakeMessage
+            makeMessage={this.makeMessage}
+          />
+        </View>
       </View>
     )
   }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-native';
 
-import STYLES from './single-conversation-styles'
 
 class MakeMessage extends Component {
   constructor(props) {
@@ -15,7 +14,8 @@ class MakeMessage extends Component {
   render() {
     return(
       <Button
-        title="Create"
+        color="black"
+        title="Tap to Create Message"
         onPress={this.handleClick}
       />
     )

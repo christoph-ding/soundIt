@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 
-import STYLES from './single-conversation-styles'
 import SingleMessage from './single-message'
 
 class MessagesList extends Component {
