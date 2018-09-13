@@ -4,7 +4,6 @@ const STYLES = StyleSheet.create({
   pageContainer: {
     flex: 1
   },
-  // *******************
   newGroupForm: {
     paddingTop: 25, 
     flex: 0.2,
@@ -26,6 +25,23 @@ const STYLES = StyleSheet.create({
   },
   usersBody: {
     flex: 0.8
+  },
+  prompt: {
+    fontSize: 20
+  },
+  promptBox: {
+    flex: 0.3,
+    borderColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  promptBorder: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#ff8c00',
+    width: 300
   }
 })
 

@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import { API, Storage } from 'aws-amplify'
 import Sound from 'react-native-sound'
 const uuidv1 = require('uuid/v1')
 import { Buffer } from 'buffer'
 
-// testing
+
 import SoundRecorder from 'react-native-sound-recorder'
-// import Recording from 'react-native-recording'
 import RNFetchBlob from 'react-native-fetch-blob';
 
-// 
-import STYLES from './single-conversation-styles'
+import STYLES from '../styles/styles' 
 import MessagesList from './messages-list'
 import ConversationHeader from './conversation-header'
 import MakeMessage from './make-message'
@@ -116,50 +114,8 @@ class SingleConversationPage extends Component {
           console.log(result)
       })
       .catch(err => console.log(err));
-    }    
-
-    // function sendThing() {
-    //   console.log('sending thing')
-
-    //   const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
-    //   const key = '/public/' + 'upload' + '.mp3'
-    //   const generatedURL = bucket + key
-
-    //   console.log(generatedURL)
-
-    //   const formData = new FormData()
-    //   formData.append('file', {
-    //     data: fileData,
-    //     name: 'test.aac',
-    //     type: 'audio/aac',
-    //   })
-
-    //   let options = {
-    //     method: 'POST',
-    //     body: JSON.stringify(
-    //       formData
-    //     ),
-    //     headers: {
-    //       Accept: 'application/json',
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   };
-
-    //   return fetch(generatedURL, options);
-    // }
-
-    // SoundRecorder.start(SoundRecorder.PATH_CACHE + '/test.mp4')
-    //   .then(function() {
-    //     console.log('started recording');
-    //   });
-
-    // SoundRecorder.stop()
-    //   .then(function(result) {
-    //     console.log('stopped recording, audio file saved at: ' + result.path);
-    //   });      
+    } 
   }
-
-
 
   fetchMessages = () => {
     // get messages that have this groups id and sort id
@@ -251,10 +207,14 @@ class SingleConversationPage extends Component {
   render() {
     const selectedConversation = this.state.conversation
     return (
-      <View style={STYLES.pageContainer}>
-        <ConversationHeader
-          name={selectedConversation.name}
-        />
+      <View style={STYLES.pageContainer}>        
+        <View style={STYLES.promptBox}>
+          <View style={STYLES.promptBorder}>
+          <Text style={STYLES.prompt}>
+            How was your week?
+          </Text>
+          </View>        
+        </View>
         <MessagesList
           messages={this.state.messages}
           fetchSingleMessage={this.fetchSingleMessage}

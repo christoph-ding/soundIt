@@ -18,15 +18,10 @@ class SingleConversation extends Component {
         title = {this.props.conversation.name}
         onPress={this.handleClick}
         chevronColor='#ff8c00'
+        titleStyle={{'color': 'black'}}
       />
     )
   }
 }
-
-// containerStyle={
-//           {
-//             backgroundColor: this.props.conversation.answered ? "blue" : "transparent"
-//           }
-//         }
 
 export default SingleConversation
