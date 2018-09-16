@@ -12,7 +12,7 @@ class MessagesList extends Component {
     let action = this.props.fetchSingleMessage    
     return (messages.map((message) => {
       // contrived
-      message.answer = false
+      message.answer = true
       return (<SingleMessage         
         message={message}
         fetchSingleMessage={action}
