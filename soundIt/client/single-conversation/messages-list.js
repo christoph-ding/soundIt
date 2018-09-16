@@ -9,9 +9,11 @@ class MessagesList extends Component {
   }
 
   renderMessages = (messages) => {
-    let action = this.props.fetchSingleMessage
-    return (messages.map((message) => {      
-      return (<SingleMessage 
+    let action = this.props.fetchSingleMessage    
+    return (messages.map((message) => {
+      // contrived
+      message.answer = false
+      return (<SingleMessage         
         message={message}
         fetchSingleMessage={action}
       />)
