@@ -22,24 +22,15 @@ class SingleMessage extends Component {
             backgroundColor: this.props.message.answer ? "#ff8c00" : "#fffae6",
             marginBottom: 12,
             borderWidth: 2,
-            borderRadius: 13,
             borderColor: '#ff8c00',
             borderBottomWidth: 2,
             borderBottomColor: '#ff8c00',
-            width: '80%',
-            marginLeft: 20
           }
         }
         leftIcon={
           <Icon
             name='play-arrow'
-            color={this.props.message.answer ? "#fffae6": "#ff8c00"}
-            containerStyle={
-              {                
-                paddingRight: 20,
-                paddingLeft: 20
-              }
-            }
+            color='#fffae6'
           />
         }
         hideChevron
