@@ -60,4 +60,4 @@ exports.makeMessage = function(event, context, callback) {
             context.succeed(response)
         }
     })
-};  
+}
