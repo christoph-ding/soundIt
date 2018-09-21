@@ -34,7 +34,6 @@ exports.gettingMessages = function(event, context, callback) {
 exports.makeMessage = function(event, context, callback) {
     console.log('=========== making message ===========')
     const parsedBody = JSON.parse(event.body)
- 
     console.log(parsedBody)
  
     const params = {
@@ -47,9 +46,6 @@ exports.makeMessage = function(event, context, callback) {
         TableName: "soundit-mobilehub-1837399535-Messages"
     }
   
-    console.log('=============== params ===============')
-    console.log(params)
-
     ddb.put(params, function(err, data) {
         if (err) {
             context.done('error','putting item into dynamodb failed: '+err)

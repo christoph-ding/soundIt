@@ -13,9 +13,7 @@ class SingleMessage extends Component {
     this.props.fetchSingleMessage(this.props.message)
   }
 
-  render() {
-    console.log('=================')
-    console.log(this.props.message)
+  render() {    
     return (
       <ListItem
         title = {this.props.message.IndividualID}
