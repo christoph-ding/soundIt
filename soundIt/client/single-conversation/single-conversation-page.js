@@ -31,7 +31,42 @@ class SingleConversationPage extends Component {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
     this.setState({conversation: selectedConversation})
     this.fetchMessages()
-  }     
+    this.fetchPrompt()
+  }
+
+  fetchMessages = () => {
+    console.log('fetching messages ... ')
+
+    // get messages that have this groups id and sort id
+    const apiName = 'Groups-Users'
+    const path = '/messages'
+    // this is contrived user data
+    const testGroupID = 'Second Group'
+
+    let myInit = {
+      'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'groupID': testGroupID
+      }
+    }
+
+    API.get(apiName, path, myInit)
+    .then(response => {
+      const messages = response.data.Items.map((elem) => {
+        return elem            
+      })
+      this.setState({messages: messages})
+    })
+    .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });
+  }
+
+  fetchPrompt() {
+    console.log('fetching prompt ... ')
+  }
 
   async makeMessage() {
     console.log('sending message: ')
@@ -70,81 +105,6 @@ class SingleConversationPage extends Component {
     }
   }
 
-  async makeMessageTest() {
-    console.log('making a message for S3')  
-
-    let fileData = []
-
-    Recording.init({
-      bufferSize: 4096,
-      sampleRate: 44100,
-      bitsPerChannel: 16,
-      channelsPerFrame: 1,
-    })
-    Recording.addRecordingEventListener((data) => {
-      console.log('recording ... ')
-      fileData.push(data)
-    })
-
-    Recording.start()
-
-    setTimeout(() => {
-      console.log('... done')
-      Recording.stop()
-      console.log('data: ')
-      console.log(fileData)
-      sendThing()
-    }, 2000)
-
-    async function sendThing() {
-      console.log('sending thing')
-
-      const formData = new FormData()
-      formData.append('file', {
-        data: fileData,
-        name: 'test.aac',
-        type: 'audio/aac',
-      })
-
-      await Storage.put('test.mp4', formData, {
-        contentType: 'audio/*'
-      })
-      .then ((result) => {
-          console.log('success!')
-          console.log(result)
-      })
-      .catch(err => console.log(err));
-    } 
-  }
-
-  fetchMessages = () => {
-    // get messages that have this groups id and sort id
-    const apiName = 'Groups-Users'
-    const path = '/messages'
-    // this is contrived user data
-    const testGroupID = 'Second Group'
-
-    let myInit = {
-      'headers': {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'groupID': testGroupID
-      }
-    }
-
-    API.get(apiName, path, myInit)
-    .then(response => {
-      const messages = response.data.Items.map((elem) => {
-        return elem            
-      })
-
-      this.setState({messages: messages})
-    })
-    .catch(err => {
-      console.log('error:')
-      console.log(err)
-    });
-  }
 
   fetchSingleMessage = (message) => {
     console.log('fetching a single message')
