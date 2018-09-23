@@ -23,7 +23,8 @@ class SingleConversationPage extends Component {
     super(props)
     this.state = {
       messages: [],
-      conversation: null
+      conversation: null,
+      prompt: ''
     }
   }
 
@@ -32,6 +33,23 @@ class SingleConversationPage extends Component {
     this.setState({conversation: selectedConversation})
     this.fetchMessages()
     this.fetchPrompt()
+  }
+
+  fetchPrompt() {
+    console.log('fetching prompt ... ')
+
+    const apiName = 'Groups-Users'
+    const path = '/prompts'
+
+    API.get(apiName, path)
+    .then(response => {
+      let prompt = response.data.Items[0]
+      this.setState({prompt: prompt})
+    })
+    .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });
   }
 
   fetchMessages = () => {
@@ -62,10 +80,6 @@ class SingleConversationPage extends Component {
       console.log('error:')
       console.log(err)
     });
-  }
-
-  fetchPrompt() {
-    console.log('fetching prompt ... ')
   }
 
   async makeMessage() {
