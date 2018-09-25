@@ -49,6 +49,62 @@ const RootStack = StackNavigator(
   },
 )
 
+
+
+// New Groups
+import NewGroupPage from './new-group/new-group-page.js'
+// make ->
+import NewGroupsHeader from './new-group/new-group0header.js';
+import NavigateToMakeNewGroup from './users/navigateToMakeNewGroup';
+
+
+
+
+class NewGroupPage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <GroupsHeader/>,
+      headerLeft: <NavigateToMakeNewGroup navigateAction={navigation.navigate}/>
+    }
+  }
+
+  render() {
+    return (
+      <GroupsBody data={testGroups}/>
+    )
+  }
+}
+
+import ConversationsPage from './conversations/conversations-page.js'
+import SingleConversationPage from './single-conversation/single-conversation-page.js'
+
+// navigation
+const LANDING = 'Groups'
+
+const RootStack = StackNavigator(
+  {
+    'newGroup': {
+      screen: NewGroupPage
+    },
+    'conversations': {
+      screen: ConversationsPage
+    },
+    'single-conversation': {
+      screen: SingleConversationPage
+    }
+    'signUp': {
+      screen: SignUpPage
+    },
+    'signIn': {
+      screen: SignInPage
+    }
+  },
+  {
+    initialRouteName: LANDING
+  }
+)
+
+
 class Application extends Component {  
   constructor(props) {
     super(props)
@@ -61,5 +117,4 @@ class Application extends Component {
   }
 }
 
-export default Application
-// 
+export default Application 
