@@ -1,66 +1,49 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
-// navigation
-const LANDING = 'Features'
-// const LANDING = 'Auth'
+// Sign Up
+import SignUpHeader from './signUp/signUpHeader';
+import SignUpBody from './signUp/signUpBody';
 
-import AuthNavigation from './navigator/auth/authNavigator';
-import AuthHeader from './navigator/auth/authHeader';
-
-class Authentication extends Component {
+class SignUp extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: AuthHeader
+      headerTitle: <SignUpHeader/>
     }
   }
 
   render() {
     return (
-      <AuthNavigation {...this.props}/>
+      <SignUpBody navigateAction={this.props.navigation.navigate}/>
     )
   } 
 }
 
-import FeaturesNavigation from './navigator/features/featuresNavigator'
-import FeaturesHeader from './navigator/features/featuresHeader'
+// Sign In
+import SignInHeader from './signIn/signInHeader';
+import SignInBody from './signIn/signInBody';
 
-class Features extends Component {
+class SignIn extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: FeaturesHeader
+      headerTitle: <SignInHeader/>
     }
   }
 
   render() {
     return (
-      <FeaturesNavigation {...this.props}/>
+      <SignInBody navigateAction={this.props.navigation.navigate}/>
     )
-  }
+  } 
 }
-
-const RootStack = StackNavigator(
-  {
-    Auth: Authentication,
-    Features: Features
-  },
-  {
-    initialRouteName: LANDING
-  },
-)
-
-
 
 // New Groups
 import NewGroupPage from './new-group/new-group-page.js'
 // make ->
-import NewGroupsHeader from './new-group/new-group0header.js';
-import NavigateToMakeNewGroup from './users/navigateToMakeNewGroup';
+import NewGroupsHeader from './new-group/new-group-header.js';
+import NavigateToMakeNewGroup from './users/navigate-new-group.js';
 
-
-
-
-class NewGroupPage extends Component {
+class NewGroup extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: <GroupsHeader/>,
@@ -68,42 +51,83 @@ class NewGroupPage extends Component {
     }
   }
 
+  // how to pass in data?
   render() {
     return (
-      <GroupsBody data={testGroups}/>
+      <NewGroupPage/>
     )
   }
 }
 
+// Conversations
 import ConversationsPage from './conversations/conversations-page.js'
+// make -> 
+import ConversationsHeader from './conversations/conversations-header.js';
+import NavigateToConversations from './conversations/navigate-conversations.js';
+
+class Conversations extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <ConversationsHeader/>,
+      headerLeft: <NavigateToConversations navigateAction={navigation.navigate}/>
+    }
+  }
+
+  // how to pass in data?
+  render() {
+    return (
+      <ConversationsPage/>
+    )
+  }
+}
+
+// Single Conversation
 import SingleConversationPage from './single-conversation/single-conversation-page.js'
+// make -> 
+import SingleConversationHeader from './single-conversations/conversations-header.js'
+import NavigateToSingleConversations from './single-conversations/navigate-single-conversations.js'
+
+class SingleConversation extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <SingleConversationHeader/>,
+      headerLeft: <NavigateToSingleConversations navigateAction={navigation.navigate}/>
+    }
+  }
+
+  // how to pass in data?
+  render() {
+    return (
+      <SingleConversationPage/>
+    )
+  }
+}
 
 // navigation
-const LANDING = 'Groups'
+const LANDING = 'newGroup'
 
 const RootStack = StackNavigator(
   {
     'newGroup': {
-      screen: NewGroupPage
+      screen: NewGroup
     },
-    'conversations': {
-      screen: ConversationsPage
-    },
-    'single-conversation': {
-      screen: SingleConversationPage
-    }
-    'signUp': {
-      screen: SignUpPage
-    },
-    'signIn': {
-      screen: SignInPage
-    }
+    // 'conversations': {
+    //   screen: Conversations
+    // },
+    // 'single-conversation': {
+    //   screen: SingleConversation
+    // }
+    // 'signUp': {
+    //   screen: SignUp
+    // },
+    // 'signIn': {
+    //   screen: SignIn
+    // }
   },
   {
     initialRouteName: LANDING
   }
 )
-
 
 class Application extends Component {  
   constructor(props) {
@@ -116,5 +140,11 @@ class Application extends Component {
     )
   }
 }
+  // original
+  // render() {    
+  //   return (
+  //     <RootStack />
+  //   )
+  // }
 
 export default Application 
