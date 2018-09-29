@@ -10,7 +10,7 @@ import Banner from '../ui/banner';
 class GroupsHeader extends Component {
   render() {
     return (
-      <Banner title='Groups'/>
+      <Banner title='My Groups'/>
     )
   }
 }

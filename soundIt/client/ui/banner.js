@@ -22,12 +22,7 @@ class Banner extends Component {
 export default Banner
 
 const styles = StyleSheet.create({
-  banner: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#F5FCFF',
-  },
+  banner: {},
   title: {
     fontSize: 25,
     textAlign: 'center'
