@@ -23,16 +23,18 @@ class SingleConversationPage extends Component {
     super(props)
     this.state = {
       messages: [],
-      conversation: null,
-      prompt: ''
+      conversation: null // do we need this?
+      prompt: '',
+      hasAnswered: false
     }
   }
 
   componentWillMount() {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
     this.setState({conversation: selectedConversation})
-    this.fetchMessages()
     this.fetchPrompt()
+    this.fetchAnswered()
+    this.fetchMessages()        
   }
 
   fetchPrompt() {
@@ -45,6 +47,23 @@ class SingleConversationPage extends Component {
     .then(response => {
       let prompt = response.data.Items[0]
       this.setState({prompt: prompt})
+    })
+    .catch(err => {
+      console.log('error:')
+      console.log(err)
+    });
+  }
+
+  fetchAnswered = () => {
+    console.log('fetching answered')
+
+    const apiName = 'Groups-Users'
+    const path = '/groups'
+
+    API.get(apiName, path)
+    .then(response => {
+      let answered = response.answered
+        this.setState({answered: answered})
     })
     .catch(err => {
       console.log('error:')
@@ -119,16 +138,13 @@ class SingleConversationPage extends Component {
     }
   }
 
-
   fetchSingleMessage = (message) => {
     console.log('fetching a single message')
     console.log(message)
 
     const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
     const key = '/public/' + message.MessageID + '.mp3'
-    const generatedURL = bucket + key
-
-    console.log(generatedURL)
+    const generatedURL = bucket + key    
 
     const sound = new Sound(generatedURL, null, (error) => {
       if (error) {
@@ -141,41 +157,6 @@ class SingleConversationPage extends Component {
       }      
     });
 
-  }
-
-  async makeMessageOrig() {
-    console.log('making a message for S3')
-
-    // we should only submit if it is valid
-    const apiName = 'Groups-Users'
-    const path = '/messages'
-    const messageID = uuidv1() + '.txt'
-
-    // this is contrived user data
-    const testGroupID = 'Second Group'
-    const testIndividualID = '+01234567891'
-
-    await Storage.put(messageID, 'Yo')
-    .then ((result) => {
-      console.log('posting to message table')
-      console.log(result)
-      return new Promise(function(resolve, reject) {
-        const newMessage = {
-          body: {
-            EntityID: testGroupID,
-            IndividualID: testIndividualID,
-            MessageID: messageID
-          }
-        }
-        API.post(apiName, path, newMessage)
-        .then(response => {
-          console.log('success:')
-          console.log(response)
-          resolve()
-        })
-      })
-    })
-    .catch(err => console.log(err));
   }
 
   render() {
