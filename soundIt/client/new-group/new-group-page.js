@@ -24,6 +24,8 @@ class NewGroupPage extends Component {
     this.fetchUsers()
   }
 
+  // FETCHING
+
   fetchUsers = () => {
     const apiName = 'Groups-Users'
     const path = '/users'
@@ -38,6 +40,7 @@ class NewGroupPage extends Component {
     });
   }
 
+  // UPDATING
   handleInputChange = (key, value) => {
     const newState = {}
     newState[key] = value

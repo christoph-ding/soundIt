@@ -19,7 +19,7 @@ class ConversationsPage extends Component {
 
   componentWillMount() {
     this.fetchGroups()
-  }
+  }  
 
   fetchGroups = () => {
     const apiName = 'Groups-Users'

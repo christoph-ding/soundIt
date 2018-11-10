@@ -37,6 +37,7 @@ class SingleConversationPage extends Component {
     this.fetchMessages()        
   }
 
+  // FETCHING
   fetchPrompt() {
     console.log('fetching prompt ... ')
 
@@ -60,7 +61,23 @@ class SingleConversationPage extends Component {
     const apiName = 'Groups-Users'
     const path = '/groups'
 
-    API.get(apiName, path)
+    // this is contrived user data
+    const testUserID = '+01234567891'
+    const testGroupID = 'Second Group'
+
+    // for whatever reason, the queryStringParameter attribute
+    // in the docs aren't actually supported through the lambda
+    // interface, we 'cleverly' put the userID in the headers
+    let myInit = {
+      'headers': {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'userID': testUserID,
+            'groupID': testGroupID
+      }
+    }
+
+    API.get(apiName, path, myInit)
     .then(response => {
       let answered = response.answered
         this.setState({answered: answered})
@@ -101,6 +118,48 @@ class SingleConversationPage extends Component {
     });
   }
 
+  fetchSingleMessage = (message) => {
+    console.log('fetching a single message')
+    console.log(message)
+
+    if (this.state.answered) {
+      const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
+      const key = '/public/' + message.MessageID + '.mp3'
+      const generatedURL = bucket + key    
+
+      const sound = new Sound(generatedURL, null, (error) => {
+        if (error) {
+          // do something
+          console.log('error')
+          console.log(error)
+        } else {
+          console.log('loaded')
+          // stop playing!
+          sound.play();
+        }      
+      });
+    }
+  }
+
+  // UPDATE
+  function updateAnswered() {
+    const apiName = 'Groups-Users'
+    const path = '/groups'
+    
+    let newGroup = {
+      body: {}
+    }
+
+    API.post(apiName, path, newGroup)
+    .then(response => {
+      console.log('success:')
+      console.log(response)
+    })
+     .catch(err => {
+      console.log(err)
+    })
+  }
+
   async makeMessage() {
     console.log('sending message: ')
     
@@ -136,27 +195,6 @@ class SingleConversationPage extends Component {
     function readFile(filePath) {
       return RNFetchBlob.fs.readFile(filePath, 'base64').then(data => new Buffer(data, 'base64'));
     }
-  }
-
-  fetchSingleMessage = (message) => {
-    console.log('fetching a single message')
-    console.log(message)
-
-    const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
-    const key = '/public/' + message.MessageID + '.mp3'
-    const generatedURL = bucket + key    
-
-    const sound = new Sound(generatedURL, null, (error) => {
-      if (error) {
-        // do something
-        console.log('error')
-        console.log(error)
-      } else {
-        console.log('loaded')
-        sound.play();
-      }      
-    });
-
   }
 
   render() {
