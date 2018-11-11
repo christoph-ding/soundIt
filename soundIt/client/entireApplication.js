@@ -38,26 +38,23 @@ import { StackNavigator } from 'react-navigation';
 // }
 
 // // Single Conversation
-// import SingleConversationPage from './single-conversation/single-conversation-page.js'
-// // make -> 
-// import SingleConversationHeader from './single-conversations/single-conversations-header.js'
-// import NavigateToSingleConversations from './single-conversations/navigate-single-conversations.js'
+import SingleConversationPage from './single-conversation/single-conversation-page.js'
+import SingleConversationHeader from './single-conversation/single-conversation-header.js'
 
-// class SingleConversation extends Component {
-//   static navigationOptions = ({ navigation }) => {
-//     return {
-//       headerTitle: <SingleConversationHeader/>,
-//       headerLeft: <NavigateToSingleConversations navigateAction={navigation.navigate}/>
-//     }
-//   }
+class SingleConversation extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: <SingleConversationHeader/>,
+    }
+  }
 
-//   // how to pass in data?
-//   render() {
-//     return (
-//       <SingleConversationPage/>
-//     )
-//   }
-// }
+  // how to pass in data?
+  render() {
+    return (
+      <SingleConversationPage navigation={this.props.navigation}/>
+    )
+  }
+}
 
 // New Groups
 import NewGroupPage from './new-group/new-group-page.js'
@@ -95,7 +92,7 @@ class Conversations extends Component {
 
   render() {
     return (
-      <ConversationsPage/>
+      <ConversationsPage navigation={this.props.navigation}/>
     )
   }
 }
@@ -112,9 +109,9 @@ const RootStack = StackNavigator(
     'conversations': {
       screen: Conversations
     },
-    // 'single-conversation': {
-    //   screen: SingleConversation
-    // }
+    'single-conversation': {
+      screen: SingleConversation
+    }
     // 'signUp': {
     //   screen: SignUp
     // },

@@ -23,7 +23,7 @@ class SingleConversationPage extends Component {
     super(props)
     this.state = {
       messages: [],
-      conversation: null // do we need this?
+      conversation: null, // do we need this?
       prompt: '',
       hasAnswered: false
     }
@@ -142,7 +142,7 @@ class SingleConversationPage extends Component {
   }
 
   // UPDATE
-  function updateAnswered() {
+  updateAnswered = () => {
     const apiName = 'Groups-Users'
     const path = '/groups'
     

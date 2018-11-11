@@ -59,6 +59,7 @@ class ConversationsPage extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <View style={STYLES.pageContainer}>      
         <ConversationsList
