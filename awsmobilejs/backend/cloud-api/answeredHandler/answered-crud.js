@@ -3,6 +3,7 @@ const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
 
 exports.getAnsweredStatus = function(event, context, callback) {
     console.log('=========== getting answered  ===========')
+ 
     const userID = event.headers.userID
     const groupID = event.headers.groupID
 
@@ -59,24 +60,3 @@ exports.updateAnsweredStatus = function(event, context, callback) {
         }
     })
 }
-
-// function async(record, next) {
-//     var params = {
-//         TableName: table,
-//         Key: {
-//             "id": record.dynamodb.Keys.id
-//         },
-//         UpdateExpression: "SET done = :done",
-//         ExpressionAttributeValues: {
-//             ":done": { "S": "t" }
-//         },
-//         ReturnValues: "UPDATED_NEW"
-//     };
-
-//     console.log("params: %j", params);
-
-//     docClient.updateItem(params, function(err, data) {
-//         if (err) console.log("Unable to update item. Error: ", JSON.stringify(err, null, 2));
-//         else console.log("Updated item succeeded: ", JSON.stringify(data, null, 2));
-//         next() // modify for err handling
-//     });
