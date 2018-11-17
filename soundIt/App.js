@@ -12,6 +12,8 @@ Amplify.configure(awsmobile);
 import Application from './client/entireApplication'
 import WithAuth from './client/auth/withAuth'
 
+console.disableYellowBox = true
+
 class App extends Component {
    
     constructor(props) {
