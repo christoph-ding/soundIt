@@ -39,8 +39,6 @@ class SingleConversationPage extends Component {
 
   // FETCHING
   fetchPrompt() {
-    console.log('fetching prompt ... ')
-
     const apiName = 'Groups-Users'
     const path = '/prompt'
 
@@ -89,8 +87,6 @@ class SingleConversationPage extends Component {
   }
 
   fetchMessages = () => {
-    // console.log('fetching messages ... ')
-
     // get messages that have this groups id and sort id
     const apiName = 'Groups-Users'
     const path = '/messages'
@@ -119,9 +115,6 @@ class SingleConversationPage extends Component {
   }
 
   fetchSingleMessage = (message) => {
-    // console.log('fetching a single message')
-    // console.log(message)
-
     if (this.state.answered) {
       const bucket = 'https://s3.amazonaws.com/soundit-userfiles-mobilehub-1837399535'
       const key = '/public/' + message.MessageID + '.mp3'
@@ -161,8 +154,6 @@ class SingleConversationPage extends Component {
   }
 
   async makeMessage() {
-    // console.log('sending message: ')
-    
     let filePath = SoundRecorder.PATH_CACHE + '/test.mp4'
     console.log(filePath)
 

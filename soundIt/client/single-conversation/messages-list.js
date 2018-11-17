@@ -16,6 +16,7 @@ class MessagesList extends Component {
       return (<SingleMessage         
         message={message}
         fetchSingleMessage={action}
+        key={message.MessageID}
       />)
     }))
   }
