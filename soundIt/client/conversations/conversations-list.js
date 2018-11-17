@@ -15,6 +15,7 @@ class ConversationsList extends Component {
       return (<SingleConversation 
               conversation={conversation}
               selectConversation={action}
+              key={conversation.id}
              />)
     }))
   }

@@ -41,9 +41,10 @@ class ConversationsPage extends Component {
 
     API.get(apiName, path, myInit)
     .then(response => {
-      const conversations = response.data.map((elem) => {
-        return {'name': elem.EntityID, 
-                'answered': elem.Answered};
+      const conversations = response.data.map((conversation) => {
+        return {'name': conversation.EntityID, 
+                'answered': conversation.Answered,
+                 'id': conversation.EntityID};
       })
       this.setState({conversations: conversations})
     })
