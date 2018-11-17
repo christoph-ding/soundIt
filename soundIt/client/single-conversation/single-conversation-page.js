@@ -42,7 +42,7 @@ class SingleConversationPage extends Component {
     console.log('fetching prompt ... ')
 
     const apiName = 'Groups-Users'
-    const path = '/prompts'
+    const path = '/prompt'
 
     API.get(apiName, path)
     .then(response => {
