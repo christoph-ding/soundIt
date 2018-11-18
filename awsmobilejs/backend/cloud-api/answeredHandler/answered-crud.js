@@ -4,8 +4,11 @@ const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
 exports.getAnsweredStatus = function(event, context, callback) {
     console.log('=========== getting answered  ===========')
  
-    const userID = event.headers.userID
-    const groupID = event.headers.groupID
+    const userID = event.headers.userid
+    const groupID = event.headers.groupid
+    
+    console.log('user: ', userID)
+    console.log('group: ', groupID)
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",
