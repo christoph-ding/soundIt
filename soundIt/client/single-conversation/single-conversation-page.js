@@ -25,7 +25,7 @@ class SingleConversationPage extends Component {
       messages: [],
       conversation: null, // do we need this?
       prompt: '',
-      hasAnswered: false
+      answered: false
     }
   }
 
@@ -36,6 +36,11 @@ class SingleConversationPage extends Component {
     this.fetchAnswered()
     this.fetchMessages()        
   }
+
+  // the order of fetching things ...
+  // 1.  get prompt
+  // 2.  get answered
+  // 3.  get messages
 
   // FETCHING
   fetchPrompt() {
@@ -57,7 +62,7 @@ class SingleConversationPage extends Component {
     console.log('fetching answered')
 
     const apiName = 'Groups-Users'
-    const path = '/groups'
+    const path = '/answered'
 
     // this is contrived user data
     const testUserID = '+01234567891'
@@ -200,6 +205,7 @@ class SingleConversationPage extends Component {
           </View>        
         </View>
         <MessagesList
+          answered={this.state.answered}
           messages={this.state.messages}
           fetchSingleMessage={this.fetchSingleMessage}
         />

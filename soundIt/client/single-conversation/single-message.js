@@ -13,13 +13,15 @@ class SingleMessage extends Component {
     this.props.fetchSingleMessage(this.props.message)
   }
 
-  render() {    
+  render() {
+    console.log(this.props)
     return (
       <ListItem
-        title = {this.props.message.IndividualID}
+        title = { this.props.answered ? this.props.message.IndividualID : "Please answer to hear this"}
         containerStyle={
           {
-            backgroundColor: this.props.message.answer ? "#ff8c00" : "#fffae6",
+            backgroundColor: this.props.answered ? "#ff8c00" : "#fffae6",
+            // backgroundColor: this.props.answered ? "blue" : "red",
             marginBottom: 12,
             borderWidth: 2,
             borderColor: '#ff8c00',
