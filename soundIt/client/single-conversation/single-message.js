@@ -10,11 +10,13 @@ class SingleMessage extends Component {
   }
 
   handleClick = () => {
-    this.props.fetchSingleMessage(this.props.message)
+    console.log("answered? ", this.props.answered )    
+    if (this.props.answered) {      
+      this.props.fetchSingleMessage(this.props.message)
+    }
   }
 
   render() {
-    console.log(this.props)
     return (
       <ListItem
         title = { this.props.answered ? this.props.message.IndividualID : "Please answer to hear this"}

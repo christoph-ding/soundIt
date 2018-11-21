@@ -2,13 +2,8 @@ const AWS = require('aws-sdk')
 const ddb = new AWS.DynamoDB.DocumentClient({region:'us-east-1'})
 
 exports.getAnsweredStatus = function(event, context, callback) {
-    console.log('=========== getting answered  ===========')
- 
     const userID = event.headers.userid
     const groupID = event.headers.groupid
-    
-    console.log('user: ', userID)
-    console.log('group: ', groupID)
 
     let params = {
         TableName : "soundit-mobilehub-1837399535-GroupsUsers",
@@ -23,9 +18,7 @@ exports.getAnsweredStatus = function(event, context, callback) {
         if (err) {
             console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
         } else {
-            console.log(data)
             const answered = data.Items[0]['Answered']
-    
             let response = {
                 statusCode: 200,
                 body: JSON.stringify({

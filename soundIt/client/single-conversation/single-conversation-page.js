@@ -34,15 +34,17 @@ class SingleConversationPage extends Component {
     this.setState({conversation: selectedConversation})
     this.fetchPrompt()
     this.fetchAnswered()
-    this.fetchMessages()        
+    this.fetchMessages()
   }
 
-  // the order of fetching things ...
-  // 1.  get prompt
-  // 2.  get answered
-  // 3.  get messages
-
   // FETCHING
+  fetchData = () => {
+    // the order of fetching things ...
+    // 1.  get prompt
+    // 2.  get answered
+    // 3.  get messages
+  }
+
   fetchPrompt() {
     const apiName = 'Groups-Users'
     const path = '/prompt'
