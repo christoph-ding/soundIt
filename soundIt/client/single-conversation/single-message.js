@@ -13,7 +13,7 @@ class SingleMessage extends Component {
     console.log("answered? ", this.props.answered )    
     if (this.props.answered) {      
       this.props.fetchSingleMessage(this.props.message)
-    }
+    } 
   }
 
   render() {

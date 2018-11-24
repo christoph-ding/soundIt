@@ -31,10 +31,11 @@ class SingleConversationPage extends Component {
 
   componentWillMount() {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
-    this.setState({conversation: selectedConversation})
-    this.fetchPrompt()
-    this.fetchAnswered()
-    this.fetchMessages()
+    this.setState({conversation: selectedConversation}, () => {
+      this.fetchPrompt()
+      this.fetchAnswered()
+      this.fetchMessages()
+    })
   }
 
   // FETCHING
@@ -68,7 +69,7 @@ class SingleConversationPage extends Component {
 
     // this is contrived user data
     const testUserID = '+01234567891'
-    const testGroupID = 'Second Group'
+    const groupID = this.state.conversation.id
 
     // for whatever reason, the queryStringParameter attribute
     // in the docs aren't actually supported through the lambda
@@ -78,7 +79,7 @@ class SingleConversationPage extends Component {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'userID': testUserID,
-            'groupID': testGroupID
+            'groupID': groupID
       }
     }
 
