@@ -32,21 +32,20 @@ class SingleConversationPage extends Component {
   componentWillMount() {
     const selectedConversation = this.props.navigation.getParam('selected-conversation')
     this.setState({conversation: selectedConversation}, () => {
-      this.fetchPrompt()
-      this.fetchAnswered()
-      this.fetchMessages()
+      this.fetchData()
     })
   }
 
   // FETCHING
   fetchData = () => {
     // the order of fetching things ...
-    // 1.  get prompt
-    // 2.  get answered
-    // 3.  get messages
+    this.fetchPrompt()
+    this.fetchAnswered()
+    this.fetchMessages()
   }
 
   fetchPrompt() {
+    console.log('fetching prompt')
     const apiName = 'Groups-Users'
     const path = '/prompt'
 
@@ -85,8 +84,8 @@ class SingleConversationPage extends Component {
 
     API.get(apiName, path, myInit)
     .then(response => {
-      let answered = response.answered
-        this.setState({answered: answered})
+      let answered = response.answered      
+      this.setState({answered: answered})
     })
     .catch(err => {
       console.log('error:')
@@ -95,6 +94,7 @@ class SingleConversationPage extends Component {
   }
 
   fetchMessages = () => {
+    console.log('fetching messages')
     // get messages that have this groups id and sort id
     const apiName = 'Groups-Users'
     const path = '/messages'
@@ -144,12 +144,23 @@ class SingleConversationPage extends Component {
 
   // UPDATE
   updateAnswered = () => {
+    console.log('updating answer')
+
+    // this is contrived user data
+    const testUserID = '+01234567891'
+    const groupID = this.state.conversation.id
+
     const apiName = 'Groups-Users'
-    const path = '/groups'
-    
+    const path = '/answered'
+
     let newGroup = {
-      body: {}
+      body: {
+        'userID': testUserID,
+        'groupID': groupID
+      }
     }
+
+    console.log(newGroup)
 
     API.post(apiName, path, newGroup)
     .then(response => {
@@ -161,35 +172,41 @@ class SingleConversationPage extends Component {
     })
   }
 
-  async makeMessage() {
+  makeMessage = async () => {
     let filePath = SoundRecorder.PATH_CACHE + '/test.mp4'
     console.log(filePath)
 
-    SoundRecorder.start(filePath)
-      .then(function() {
-        console.log('started recording')
-      })
+    this.updateAnswered()
 
-    setTimeout(() => {
-      console.log('... done')
-      SoundRecorder.stop()
-      .then(function(result) {
-        console.log('stopped recording, audio file saved at: ' + result.path);        
-      })
-      .then(function() {
-        readFile(filePath)
-        .then(async (buffer) => {
-          console.log('sending ... ')
-          console.log(buffer)
-          await Storage.put('test.mp3', buffer, {
-            contentType: 'audio/*'
-          })
-        })
-      })
-      .catch(e => {
-        console.log(e);
-      })
-    }, 8000)
+    // SoundRecorder.start(filePath)
+    //   .then(function() {
+    //     console.log('started recording')
+    //   })
+
+
+    // setTimeout(() => {
+    //   console.log('... done')
+    //   SoundRecorder.stop()
+    //   .then(function(result) {
+    //     console.log('stopped recording, audio file saved at: ' + result.path);        
+    //   })
+    //   .then(function() {
+    //     readFile(filePath)
+    //     .then(async (buffer) => {
+    //       console.log('sending ... ')
+    //       console.log(buffer)
+    //       await Storage.put('test.mp3', buffer, {
+    //         contentType: 'audio/*'
+    //       })
+    //     })
+    //   })
+    //   .then(function() {
+    //     this.updateAnswered()
+    //   })
+    //   .catch(e => {
+    //     console.log(e);
+    //   })
+    // }, 8000)
 
     function readFile(filePath) {
       return RNFetchBlob.fs.readFile(filePath, 'base64').then(data => new Buffer(data, 'base64'));

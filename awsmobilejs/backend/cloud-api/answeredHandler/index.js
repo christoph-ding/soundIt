@@ -6,6 +6,6 @@ exports.handler = function(event, context, callback) {
         answeredCRUD.getAnsweredStatus(event, context, callback);
     }
     else if (event.httpMethod === 'POST') {
-        answeredCRUD.answered(event, context, callback);
+        answeredCRUD.updateAnsweredStatus(event, context, callback);
     }
 };
